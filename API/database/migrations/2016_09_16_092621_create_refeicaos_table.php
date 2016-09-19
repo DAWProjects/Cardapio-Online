@@ -23,22 +23,7 @@ class CreateRefeicaosTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('menu', function (Blueprint $table){
-            $table->integer('restaurante_id')->unsigned();
-            $table->foreign('restaurante_id')->references('id')->on('restaurantes')->onDelete('cascade')
-                ->onUpdate('cascade');
 
-            $table->integer('refeicao_id')->unsigned();
-            $table->foreign('refeicao_id')->references('id')->on('refeicaos')->onDelete('cascade')
-                ->onUpdate('cascade');
-
-            $table->double('preco');
-            $table->string('descricao');
-            $table->time('hora_inicio')->nullable();
-            $table->time('hora_fim')->nullable();
-            $table->string('imagem');
-            $table->softDeletes();
-        });
     }
 
     /**

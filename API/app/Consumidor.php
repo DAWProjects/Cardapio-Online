@@ -27,4 +27,8 @@ class Consumidor extends Model
     public function restaurantes(){
         return $this->belongsToMany('App\Restaurante', 'rate_restaurante');
     }
+
+    public function refeicoes(){
+        return $this->belongsToMany('App\Menu', 'rate_refeicao');
+    }
 }

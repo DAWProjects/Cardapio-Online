@@ -20,7 +20,7 @@ class CreateRestaurantesTable extends Migration
             $table->string('email');
             $table->string('cidade');
             $table->string('av_rua');
-            $table->int('numero')->nullable();
+            $table->integer('numero')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
             $table->string('cardapio_img')->nullable();
