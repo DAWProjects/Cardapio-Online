@@ -24,7 +24,7 @@ Route::delete('apagar-admin/{id}', 'AdministradorController@delete')->middleware
 Route::get('todos-consumidores', 'ConsumidorController@index')->middleware('cors');
 Route::post('criar-consumidor', 'ConsumidorController@store')->middleware('cors');
 Route::get('ver-consumidor/{id}', 'ConsumidorController@show')->middleware('cors');
-Route::put('todos-consumidores/{id}', 'ConsumidorController@update')->middleware('cors');
+Route::put('todos-consumidores/{id}', 'ConsumidorController2@update')->middleware('cors');
 Route::delete('apagar-consumidor/{id}', 'ConsumidorController@delete')->middleware('cors');
 
 Route::get('todos-estados-consumidor', 'EstadoConsumidorController@index')->middleware('cors');
@@ -56,5 +56,19 @@ Route::post('criar-tipo-refeicao', 'TipoRefeicaoController@store')->middleware('
 Route::get('ver-tipo-refeicao/{id}', 'TipoRefeicaoController@show')->middleware('cors');
 Route::put('todos-tipos-refeicao/{id}', 'TipoRefeicaoController@update')->middleware('cors');
 Route::delete('apagar-tipo-refeicao/{id}', 'TipoRefeicaoController@delete')->middleware('cors');
+
+Route::get('todos-menus', 'MenuController@index')->middleware('cors');
+Route::post('criar-menu', 'MenuController@store')->middleware('cors');
+Route::get('ver-menu/{id}', 'MenuController@show')->middleware('cors');
+Route::put('todos-menu/{id}', 'MenuController@update')->middleware('cors');
+Route::delete('apagar-menu/{id}', 'MenuController@delete')->middleware('cors');
+
+//Route::resource('admin', 'AdministradorController')->middleware('cors');
+//Route::resource('consumidor', 'ConsumidorController')->middleware('cors');
+//Route::resource('estado-consumidor', 'EstadoConsumidorController')->middleware('cors');
+//Route::resource('estado-restaurante', 'EstadoRestauranteController')->middleware('cors');
+//Route::resource('refeicao', 'RefeicaoController')->middleware('cors');
+//Route::resource('restaurante', 'RestauranteController')->middleware('cors');
+//Route::resource('tipo-refeicao', 'TipoRefeicaoController')->middleware('cors');
 
 
