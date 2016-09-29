@@ -1,6 +1,3 @@
-/**
- * Created by bernardo on 9/18/16.
- */
 import {Tipo_Refeicao} from "../../tipo-refeicao/shared/tipo_refeicao.model";
 
 export class Refeicao {

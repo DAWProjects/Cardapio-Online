@@ -1,0 +1,121 @@
+.sidebar-nav{
+    background-color: #373A3C;
+
+}
+
+.sidebar-nav li {
+    margin-top: 5px;
+    display: inline-block;
+}
+
+
+.sidebar-nav li a {
+    display: block;
+    color: white;
+
+}
+
+.dropdown-menu li a {
+    color: #312632;
+}
+
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus{
+    color: #bababa;
+    text-decoration: none;
+    background: transparent;
+    border-bottom: 6px solid #B52E31;
+}
+
+@media (max-width: 768px){
+    .nav .open > a,
+    .nav .open > a:hover,
+    .nav .open > a:focus {
+        background-color: transparent;
+    }
+
+    .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 220px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .sidebar-nav li {
+        position: relative;
+        line-height: 20px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .sidebar-nav li:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 3px;
+        background-color: #1c1c1c;
+        -webkit-transition: width .2s ease-in;
+        -moz-transition:  width .2s ease-in;
+        -ms-transition:  width .2s ease-in;
+        transition: width .2s ease-in;
+
+    }
+
+    .sidebar-nav li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px 10px 30px;
+    }
+
+    .sidebar-nav li:hover:before,
+    .sidebar-nav li.open:hover:before {
+        width: 100%;
+        -webkit-transition: width .2s ease-in;
+        -moz-transition:  width .2s ease-in;
+        -ms-transition:  width .2s ease-in;
+        transition: width .2s ease-in;
+
+    }
+
+    .sidebar-nav > .sidebar-brand {
+        height: 65px;
+        font-size: 20px;
+        line-height: 44px;
+    }
+
+    .sidebar-nav .dropdown-menu {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        background-color: #323232;
+        box-shadow: none;
+    }
+
+
+    .sidebar-nav li a:hover,
+    .sidebar-nav li a:active,
+    .sidebar-nav li a:focus,
+    .sidebar-nav li.open a:hover,
+    .sidebar-nav li.open a:active,
+    .sidebar-nav li.open a:focus{
+        color: #bababa;
+        text-decoration: none;
+        background: transparent;
+        border: none;
+    }
+
+}

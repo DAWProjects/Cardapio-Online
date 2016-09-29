@@ -10,14 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var index_1 = require('./shared/navbar/index');
 var app_component_1 = require('./app.component');
+var index_2 = require('./restaurantes/index');
+var index_3 = require('./restaurantes/restaurante/index');
+var app_routing_1 = require('./app.routing');
+var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
+var config_service_1 = require("./shared/utils/config.service");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                ng2_bootstrap_1.Ng2BootstrapModule,
+                ng2_bootstrap_1.AlertModule,
+                ng2_bootstrap_1.DatepickerModule,
+                ng2_bootstrap_1.DropdownModule,
+                http_1.HttpModule,
+                app_routing_1.routing
+            ],
+            providers: [
+                restaurante_service_1.RestauranteService,
+                config_service_1.ConfigService
+            ],
+            declarations: [app_component_1.AppComponent, index_1.NavbarComponent, index_2.RestaurantesComponent, index_3.RestauranteComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

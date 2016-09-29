@@ -1,0 +1,18 @@
+.restaurantes{
+    margin-top: 50px;
+}
+.card-image .img-responsive{
+    min-height: 200px;
+    max-height: 200px;
+}
+
+span.card-title{
+    color: #000000;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .restaurantes{
+        margin-top: 0;
+    }
+}

@@ -1,8 +1,4 @@
-/**
- * Created by bernardo on 9/18/16.
- */
-
-import {Restaurante} from "../../restaurante/shared/restaurante.model";
+import {Restaurante} from "../../restaurantes/shared/restaurante.model";
 import {Refeicao} from "../../refeicao/shared/refeicao.model";
 
 export class Menu {

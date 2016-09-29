@@ -10,6 +10,7 @@
         },
         // map tells the System loader where to look for things
         map: {
+            moment: 'node_modules/moment/moment.js',
             // our app is within the app folder
             app: 'app',
             // angular bundles
@@ -21,6 +22,7 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            'ng2-bootstrap': 'node_modules/ng2-bootstrap',
             // other libraries
             'rxjs':                       'npm:rxjs',
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
@@ -37,7 +39,8 @@
             'angular2-in-memory-web-api': {
                 main: './index.js',
                 defaultExtension: 'js'
-            }
+            },
+            'ng2-bootstrap': { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
         }
     });
 })(this);

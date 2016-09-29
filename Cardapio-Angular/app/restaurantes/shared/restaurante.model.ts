@@ -1,6 +1,3 @@
-/**
- * Created by bernardo on 9/18/16.
- */
 import {Estado_Restaurante} from "../../estado-restaurante/shared/estado_restaurante.model";
 import {Utilizador} from "../../utilizador/shared/utilizador.model";
 
@@ -8,6 +5,7 @@ export class Restaurante {
     id: number;
     nome: string;
     telefone: number;
+    cidade: string;
     av_rua: string;
     numero: number;
     card_img: string;

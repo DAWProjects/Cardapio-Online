@@ -1,0 +1,18 @@
+<div *ngFor="let restaurante of restaurantes" class="col-xs-12 col-sm-6 col-md-4 restaurantes">
+    <div  class="card">
+        <div class="card-image">
+            <img class="img-responsive" src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
+            <span class="card-title">{{restaurante.nome}}</span>
+        </div>
+
+        <div *ngIf="restaurante" class="card-content">
+            <p>{{restaurante.av_rua}}</p>
+        </div>
+
+        <div class="card-action">
+            <a class="btn btn-primary" href="show-rest.html">
+                <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+            </a>
+        </div>
+    </div>
+</div>
