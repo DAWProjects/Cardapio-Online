@@ -28,21 +28,7 @@ class CreateConsumidorsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('rate_restaurante', function (Blueprint $table){
 
-            $table->integer('restaurante_id')->unsigned();
-            $table->foreign('restaurante_id')->references('id')->on('restaurantes')->onDelete('cascade')
-                ->onUpdate('cascade');
-
-            $table->integer('consumidor_id')->unsigned();
-            $table->foreign('consumidor_id')->references('id')->on('consumidors')->onDelete('cascade')
-                ->onUpdate('cascade');
-
-            $table->integer('estrelas');
-            $table->string('comentario')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
-        });
     }
 
     /**

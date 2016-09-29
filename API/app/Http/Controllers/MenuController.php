@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\TipoRefeicao;
+use App\Menu;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class TipoRefeicaoController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class TipoRefeicaoController extends Controller
      */
     public function index()
     {
-        $tipos = TipoRefeicao::all();
-        return response()->json($tipos->toArray());
+        $refeicoes = Menu::all();
+        return response()->json($refeicoes->toArray());
     }
 
     /**
@@ -38,9 +38,9 @@ class TipoRefeicaoController extends Controller
      */
     public function store(Request $request)
     {
-        $tipo = TipoRefeicao::create($request->all());
-        $tipo->save();
-        return response()->json(["mensagem"=>"Tipo Registado Com Sucesso"]);
+        $refeicao = Menu::create($request->all());
+        $refeicao->save();
+        return response()->json(["mensagem"=>"Refeicao Registada Com Sucesso!"]);
     }
 
     /**
@@ -51,8 +51,8 @@ class TipoRefeicaoController extends Controller
      */
     public function show($id)
     {
-        $tipo = TipoRefeicao::find($id);
-        return response()->json($tipo->toArray());
+        $refeicao = Menu::find($id);
+        return response()->json($refeicao->toArray());
     }
 
     /**
@@ -75,10 +75,10 @@ class TipoRefeicaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tipo = TipoRefeicao::find($id);
-        $tipo->fill($request->all());
-        $tipo->save();
-        return response()->json(["mensagem"=>"Tipo Actualizado Com Sucesso!"]);
+        $refeicao = Menu::find($id);
+        $refeicao->fill($request->all());
+        $refeicao->save();
+        return response()->json(["mensagem"=>"Refeicao Actualizada Com Sucesso"]);
     }
 
     /**
@@ -89,6 +89,7 @@ class TipoRefeicaoController extends Controller
      */
     public function destroy($id)
     {
-        TipoRefeicao::destroy($id);
+        Menu::destroy($id);
+
     }
 }
