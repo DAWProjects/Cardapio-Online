@@ -19,6 +19,7 @@ class RestauranteController extends Controller
 
         $restaurantes = Restaurante::with('refeicaos','refeicaos.tipo')->get();
         return response()->json($restaurantes->toArray());
+
     }
 
     /**
