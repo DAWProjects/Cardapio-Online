@@ -12,9 +12,11 @@ export class RestaurantesComponent implements OnInit{
 
 
     restaurantes : Restaurante[];
-    content_loaded: boolean;
+    public content_loaded: boolean;
 
-    constructor(private router: Router, private restauranteService: RestauranteService){}
+    constructor(private router: Router, private restauranteService: RestauranteService){
+        this.content_loaded = false;
+    }
 
 
     getRestaurantes() : void{
@@ -24,7 +26,6 @@ export class RestaurantesComponent implements OnInit{
 
     ngOnInit(): void {
         this.getRestaurantes();
-        this.content_loaded = false;
     }
 
     gotoDetail(id:number): void {
