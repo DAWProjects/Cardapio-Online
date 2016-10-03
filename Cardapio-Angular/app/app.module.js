@@ -13,6 +13,10 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var index_1 = require('./shared/navbar/index');
+var card_1 = require('@angular2-material/card');
+var progress_circle_1 = require('@angular2-material/progress-circle');
+var button_1 = require('@angular2-material/button');
+// import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
 var app_component_1 = require('./app.component');
 var index_2 = require('./restaurantes/index');
 var index_3 = require('./restaurantes/restaurante/index');
@@ -31,7 +35,10 @@ var AppModule = (function () {
                 ng2_bootstrap_1.DatepickerModule,
                 ng2_bootstrap_1.DropdownModule,
                 http_1.HttpModule,
-                app_routing_1.routing
+                app_routing_1.routing,
+                button_1.MdButtonModule,
+                card_1.MdCardModule,
+                progress_circle_1.MdProgressCircleModule
             ],
             providers: [
                 restaurante_service_1.RestauranteService,

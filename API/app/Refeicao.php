@@ -18,6 +18,6 @@ class Refeicao extends Model
     }
 
     public function restaurantes(){
-        return $this->belongsToMany('App\Restaurante', 'menu');
+        return $this->belongsToMany('App\Restaurante', 'menu')->withPivot('preco','descricao','imagem');
     }
 }

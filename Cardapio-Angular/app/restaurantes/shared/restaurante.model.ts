@@ -1,5 +1,6 @@
 import {Estado_Restaurante} from "../../estado-restaurante/shared/estado_restaurante.model";
 import {Utilizador} from "../../utilizador/shared/utilizador.model";
+import {Refeicao} from "../../refeicao/shared/refeicao.model";
 
 export class Restaurante {
     id: number;
@@ -15,6 +16,7 @@ export class Restaurante {
     long: number;
     estado: Estado_Restaurante;
     utilizador: Utilizador;
+    refeicaos: Refeicao[];
 
 
     constructor(nome: string, numero: number, telefone: number, email: string, av_rua: string, card_img: string, logo: string, estado: Estado_Restaurante, lat:number, long:number, utilizador:Utilizador) {

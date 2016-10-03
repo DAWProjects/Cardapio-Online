@@ -27,8 +27,6 @@ class CreateConsumidorsTable extends Migration
                ->onUpdate('cascade');
             $table->timestamps();
         });
-
-
     }
 
     /**

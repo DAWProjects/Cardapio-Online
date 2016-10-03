@@ -13,7 +13,6 @@ class Consumidor extends Model
         'sexo',
         'telefone',
         'estado_id'
-//        ,'user_id'
     ];
 
     public function estado(){
@@ -21,14 +20,14 @@ class Consumidor extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User');
     }
 
     public function restaurantes(){
         return $this->belongsToMany('App\Restaurante', 'rate_restaurante');
     }
 
-    public function refeicoes(){
+    public function refeicaos(){
         return $this->belongsToMany('App\Menu', 'rate_refeicao');
     }
 }

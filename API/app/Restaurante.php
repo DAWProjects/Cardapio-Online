@@ -21,7 +21,6 @@ class Restaurante extends Model
         'logo_img',
         'imagem',
         'estado_id',
-        'user_id'
     ];
 
     public function estado(){
@@ -29,14 +28,14 @@ class Restaurante extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User');
     }
 
-    public function refeicoes(){
-        return $this->belongsToMany('App\Refeicao', 'menu');
+    public function refeicaos(){
+        return $this->belongsToMany('App\Refeicao', 'menu')->withPivot('preco','descricao','imagem');
     }
 
-    public function consumidores(){
+    public function consumidors(){
         return $this->belongsToMany('App\Consumidor', 'rate_restaurante');
     }
 }

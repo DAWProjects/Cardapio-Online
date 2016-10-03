@@ -1,9 +1,10 @@
-.restaurantes{
-    margin-top: 50px;
+md-card{
+    margin-top: 30px;
 }
-.card-image .img-responsive{
-    min-height: 200px;
-    max-height: 200px;
+
+md-card .img-card{
+    min-height: 220px;
+    max-height: 220px;
 }
 
 span.card-title{

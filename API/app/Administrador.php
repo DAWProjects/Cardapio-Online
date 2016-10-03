@@ -12,10 +12,9 @@ class Administrador extends Model
         'nome',
         'sexo',
         'telefone'
-//        ,'user_id'
     ];
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User');
     }
 }

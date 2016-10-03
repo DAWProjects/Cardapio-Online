@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class TipoRefeicaoController extends Controller
+class Tipo_RefeicaoController extends Controller
 {
     /**
      * Display a listing of the resource.

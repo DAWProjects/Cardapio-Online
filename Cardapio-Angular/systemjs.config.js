@@ -22,6 +22,10 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            '@angular2-material/core': 'npm:@angular2-material/core/core.umd.js',
+            '@angular2-material/card': 'npm:@angular2-material/card/card.umd.js',
+            '@angular2-material/button': 'npm:@angular2-material/button/button.umd.js',
+            '@angular2-material/progress-circle': 'npm:@angular2-material/progress-circle/progress-circle.umd.js',
             'ng2-bootstrap': 'node_modules/ng2-bootstrap',
             // other libraries
             'rxjs':                       'npm:rxjs',

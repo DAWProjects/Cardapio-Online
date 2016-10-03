@@ -19,9 +19,6 @@ class CreateAdministradorsTable extends Migration
             $table->char('sexo');
             $table->string('telefone');
             $table->softDeletes();
- //           $table->integer('user_id')->unsigned();
- //           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
- //               ->onUpdate('cascade');
             $table->timestamps();
 
         });
