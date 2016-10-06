@@ -1,12 +1,12 @@
-import {Tipo_Refeicao} from "../../tipo-refeicao/shared/tipo_refeicao.model";
+import {TipoRefeicao} from "../../tipo-refeicoes/shared/tipo-refeicao.model";
 
 export class Refeicao {
     id: number;
     nome: string;
-    tipo: Tipo_Refeicao;
+    tipo: TipoRefeicao;
 
 
-    constructor(nome: string, tipo: Tipo_Refeicao) {
+    constructor(nome: string, tipo: TipoRefeicao) {
         this.nome = nome;
         this.tipo = tipo;
     }

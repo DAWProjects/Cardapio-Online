@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {MdProgressCircle} from '@angular2-material/progress-circle';
+import {Component, ViewContainerRef } from '@angular/core';
 @Component({
     moduleId: module.id,
     selector: 'my-app',
@@ -7,11 +6,13 @@ import {MdProgressCircle} from '@angular2-material/progress-circle';
     styleUrls: ['app.component.css']
 
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    public determinateValue;
+    private viewContainerRef: ViewContainerRef;
 
-    ngOnInit(): void {
+    public constructor(viewContainerRef:ViewContainerRef) {
+        // You need this small hack in order to catch application root view container ref
+        this.viewContainerRef = viewContainerRef;
     }
 
 }

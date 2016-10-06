@@ -1,51 +1,89 @@
 <div *ngIf="restaurante">
-    <a class="btn btn-primary pull-right" href="index.html"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
-    <!-- Detalhes do Rest-->
-    <div class="caption col-xs-offset-1">
-        <h1>{{restaurante.nome}}</h1>
-        <h2>{{restaurante.cidade}}</h2>
-        <h3>{{restaurante.av_rua+' '+restaurante.numero}}</h3>
-        <h4 class="lead">{{restaurante.telefone}}</h4>
-    </div>
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 rest">
+    <!-- Detalhes do Restaurante-->
+    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-10 rest">
+
+      <div class="col-md-6">
         <div class="card">
             <div class="card-image">
                 <img class="img-responsive"
                      src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
             </div>
         </div>
+      </div>
+
+        <div class="col-md-6">
+        <div class="caption">
+            <h1>{{restaurante.nome}}</h1>
+            <h2>{{restaurante.cidade}}</h2>
+            <h3>{{restaurante.av_rua+' '+restaurante.numero}}</h3>
+            <h4 class="lead">{{restaurante.telefone}}</h4>
+        </div>
+      </div>
     </div>
 
-    <div class="col-xs-10 col-sm-6 col-md-4 col-lg-4 col-xs-offset-1 refeicoes">
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Pratos do dia</a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <!-- Conteudo -->
-                        <div class="col-md-12" *ngFor="let refeicao of restaurante.refeicaos">
 
-                            <md-card>
-                                <img md-card-image
-                                     src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
-                                <md-card-title>
-                                    <p>{{refeicao.nome}}</p>
-                                </md-card-title>
-                                <md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>
-                                <md-card-actions>
-                                    <button md-raised-button class=""><span
-                                            class="glyphicon glyphicon-eye-open accent"></span></button>
-                                </md-card-actions>
-                            </md-card>
+    <!-- Fim de Detalhes do Restaurante-->
 
+
+    <!--listagem de Refeicoes do Menu do Restaurante-->
+    <div class="col-sm-12 col-md-12 col-lg-12">
+
+        <tabset>
+            <tab *ngFor="let tiporefeicao of tiposrefeicao"
+                 [heading]="tiporefeicao.designacao" class="refeicoes">
+                <div *ngFor="let refeicao of restaurante.refeicaos">
+                    <div *ngIf="refeicao.tipo.designacao == tiporefeicao.designacao" class="col-md-3 col-sm-4">
+                        <md-card>
+                            <img md-card-image
+                                 src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
+                            <md-card-title>
+                                <p>{{refeicao.nome}}</p>
+                            </md-card-title>
+                            <md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>
+                            <md-card-actions>
+                                <button md-raised-button class="" (click)="lgModal.show()"><span
+                                        class="glyphicon glyphicon-eye-open accent"></span></button>
+                            </md-card-actions>
+                        </md-card>
+
+
+                        <!--Modal de Detalhes de Refeicao-->
+                        <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" (click)="lgModal.hide()"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h2 class="modal-title">{{restaurante.nome}}</h2>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <md-card>
+                                            <img md-card-image
+                                                 src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
+                                            <md-card-title>
+                                                <p>{{refeicao.nome}}</p>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <p>{{refeicao.pivot.descricao}}</p>
+                                                <h4>MZN {{refeicao.pivot.preco}}</h4>
+                                            </md-card-content>
+                                        </md-card>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!--Fim do Modal de Detalhes de Refeicao-->
                     </div>
                 </div>
-            </div>
-        </div>
+            </tab>
+        </tabset>
     </div>
+    <!--Fim de Conteudo Sobre Refeicoes -->
+    <!--Fim de listagem de Refeicoes do Menu do Restaurante-->
+
 </div>

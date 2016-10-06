@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(viewContainerRef) {
+        // You need this small hack in order to catch application root view container ref
+        this.viewContainerRef = viewContainerRef;
     }
-    AppComponent.prototype.ngOnInit = function () {
-    };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -21,7 +21,7 @@ var AppComponent = (function () {
             templateUrl: 'app.component.html',
             styleUrls: ['app.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ViewContainerRef])
     ], AppComponent);
     return AppComponent;
 }());

@@ -6,12 +6,18 @@ ul li {
     list-style: none;
 }
 
-.rest{
-margin-bottom: 20px;
+.rest {
+    margin-bottom: 20px;
 }
 
-md-card{
-  margin-top: 20px;
+.refeicoes {
+    height: 360px;
+    overflow-x: scroll;
+    border: solid 2px lightblue;
+}
+
+md-card {
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {

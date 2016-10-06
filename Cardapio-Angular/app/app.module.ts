@@ -2,7 +2,15 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
 
-import {Ng2BootstrapModule, AlertModule, DatepickerModule, DropdownModule} from 'ng2-bootstrap/ng2-bootstrap';
+import {
+    Ng2BootstrapModule,
+    AlertModule,
+    DatepickerModule,
+    DropdownModule,
+    ModalModule,
+    TabsModule
+} from 'ng2-bootstrap/ng2-bootstrap';
+
 import {NavbarComponent} from './shared/navbar/index';
 
 import {MdCardModule} from '@angular2-material/card';
@@ -19,26 +27,30 @@ import {routing} from './app.routing';
 
 import {RestauranteService} from './restaurantes/shared/restaurante.service';
 import {ConfigService} from "./shared/utils/config.service";
+import {TipoRefeicaoService} from "./tipo-refeicoes/shared/tipo-refeicao.service";
 
 
 @NgModule({
     imports: [
-                BrowserModule,
-                Ng2BootstrapModule,
-                AlertModule,
-                DatepickerModule,
-                DropdownModule,
-                HttpModule,
-                routing,
-                MdButtonModule,
-                MdCardModule,
-                MdProgressCircleModule
-            ],
+        BrowserModule,
+        Ng2BootstrapModule,
+        AlertModule,
+        DatepickerModule,
+        DropdownModule,
+        ModalModule,
+        TabsModule,
+        HttpModule,
+        routing,
+        MdButtonModule,
+        MdCardModule,
+        MdProgressCircleModule
+    ],
     providers: [
         RestauranteService,
-        ConfigService
+        ConfigService,
+        TipoRefeicaoService
     ],
-    declarations: [AppComponent, NavbarComponent,RestaurantesComponent,RestauranteComponent],
+    declarations: [AppComponent, NavbarComponent, RestaurantesComponent, RestauranteComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {

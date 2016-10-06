@@ -1,3 +1,33 @@
+.header {
+    margin-top: 0px;
+    padding-top: 50px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.pull-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.logo-inicio {
+    position: relative;
+    margin: 0 auto;
+    padding: 55px 55px 55px 60px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 20px 20px 40px #887;
+}
+
+.mt-100 {
+    margin-top: 10px;
+}
+.mb-100 {
+    margin-bottom: 10px;
+}
+
+
 md-card{
     margin-top: 30px;
 }

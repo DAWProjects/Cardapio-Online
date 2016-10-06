@@ -1,4 +1,4 @@
-export class Tipo_Refeicao {
+export class TipoRefeicao {
     id: number;
     designacao: string;
     descricao: string;

@@ -1,8 +1,12 @@
 import {Component, OnInit, Input} from '@angular/core';
+
 import {ActivatedRoute, Params} from '@angular/router';
-import {Restaurante} from "../shared/restaurante.model";
-import {Refeicao} from "../../refeicao/shared/refeicao.model";
-import {RestauranteService} from "../shared/restaurante.service";
+
+import {Restaurante, RestauranteService} from "../shared/index";
+
+import {TipoRefeicao, TipoRefeicaoService} from '../../tipo-refeicoes/shared/index'
+
+
 @Component({
     moduleId: module.id,
     selector: 'show-restaurante',
@@ -14,11 +18,11 @@ export class RestauranteComponent implements OnInit {
 
     @Input()
     restaurante: Restaurante;
-    refeicoes: Refeicao[];
-
+    tiposrefeicao: TipoRefeicao[];
 
     constructor(private route: ActivatedRoute,
-                private restauranteService: RestauranteService) {
+                private restauranteService: RestauranteService,
+                private tiporefeicaoService: TipoRefeicaoService) {
     }
 
     ngOnInit(): void {
@@ -27,9 +31,15 @@ export class RestauranteComponent implements OnInit {
             this.restauranteService.getRestaurante(id)
                 .then(restaurante => this.restaurante = restaurante);
         });
+        this.getTiposrefeicao();
     }
 
     voltar(): void {
         window.history.back();
     };
+
+    getTiposrefeicao(): void {
+        this.tiporefeicaoService.getTipoRefeicoes()
+            .then(tiposrefeicao => this.tiposrefeicao = tiposrefeicao);
+    }
 }

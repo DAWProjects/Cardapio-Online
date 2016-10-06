@@ -23,6 +23,7 @@ var index_3 = require('./restaurantes/restaurante/index');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
 var config_service_1 = require("./shared/utils/config.service");
+var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,6 +35,8 @@ var AppModule = (function () {
                 ng2_bootstrap_1.AlertModule,
                 ng2_bootstrap_1.DatepickerModule,
                 ng2_bootstrap_1.DropdownModule,
+                ng2_bootstrap_1.ModalModule,
+                ng2_bootstrap_1.TabsModule,
                 http_1.HttpModule,
                 app_routing_1.routing,
                 button_1.MdButtonModule,
@@ -42,7 +45,8 @@ var AppModule = (function () {
             ],
             providers: [
                 restaurante_service_1.RestauranteService,
-                config_service_1.ConfigService
+                config_service_1.ConfigService,
+                tipo_refeicao_service_1.TipoRefeicaoService
             ],
             declarations: [app_component_1.AppComponent, index_1.NavbarComponent, index_2.RestaurantesComponent, index_3.RestauranteComponent],
             bootstrap: [app_component_1.AppComponent]

@@ -14,7 +14,7 @@
 $factory->define(App\Refeicao::class, function (Faker\Generator $faker) {
 
     return [
-        'nome' => $faker->name,
-        'tipo_id' => 1
+        'nome' => $faker->word,
+        'tipo_id' =>$faker->numberBetween(1,2)
     ];
 });

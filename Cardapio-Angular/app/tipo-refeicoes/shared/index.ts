@@ -1,3 +1,2 @@
-/**
- * Created by armandofm on 04/10/16.
- */
+export * from './tipo-refeicao.model'
+export * from './tipo-refeicao.service';

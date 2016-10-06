@@ -22,7 +22,7 @@ $factory->define(App\Restaurante::class, function (Faker\Generator $faker) {
         'numero' => $faker->buildingNumber,
         'lat' => $faker->latitude,
         'long' => $faker->longitude,
-        'imagem' => 'img-rest-'.str_random(1).'.jpg',
+        'imagem' => 'img-rest-'.$faker->numberBetween(1,7).'.jpg',
         'logo_img' => 'logo-rest.jpg',
         'estado_id' => 1
     ];
