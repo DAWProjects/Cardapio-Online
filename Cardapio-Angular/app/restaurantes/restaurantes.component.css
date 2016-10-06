@@ -1,9 +1,16 @@
 .header {
     margin-top: 0px;
     padding-top: 50px;
-    background-color: #eee;
-    overflow: hidden;
+    background: url("http://localhost/Cardapio-Online/API/public/img/cardapio1.jpg")no-repeat center center;
+    background-size: cover;    overflow: hidden;
 }
+
+.principal{
+    background-color:rgba(1,1,1,0.5);
+    width:100%;
+    height:450px;
+}
+
 
 .pull-middle {
     display: table-cell;

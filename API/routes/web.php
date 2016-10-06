@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('aaaa/{valor}', 'RestauranteController@bypreco')->middleware('cors');
+
+
+
 Route::get('todos-admins', 'AdministradorController@index')->middleware('cors');
 Route::post('criar-admin', 'AdministradorController@store')->middleware('cors');
 Route::get('ver-admin/{id}', 'AdministradorController@show')->middleware('cors');

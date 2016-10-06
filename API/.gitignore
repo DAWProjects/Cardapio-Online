@@ -1,5 +1,4 @@
 /public/storage
-/public/img/*
 /vendor
 /.idea
 Homestead.json
