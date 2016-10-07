@@ -1,89 +1,92 @@
-<div *ngIf="restaurante">
-    <!-- Detalhes do Restaurante-->
-    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-10 rest">
+<div class="container">
+    <div *ngIf="restaurante">
+        <!-- Detalhes do Restaurante-->
+        <div class="col-xs-12 col-sm-8 col-md-12 col-lg-10 rest">
 
-      <div class="col-md-6">
-        <div class="card">
-            <div class="card-image">
-                <img class="img-responsive"
-                     src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="img-responsive"
+                             src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="caption">
+                    <h1>{{restaurante.nome}}</h1>
+                    <h2>{{restaurante.cidade}}</h2>
+                    <h3>{{restaurante.av_rua+' '+restaurante.numero}}</h3>
+                    <h4 class="lead">{{restaurante.telefone}}</h4>
+                </div>
             </div>
         </div>
-      </div>
-
-        <div class="col-md-6">
-        <div class="caption">
-            <h1>{{restaurante.nome}}</h1>
-            <h2>{{restaurante.cidade}}</h2>
-            <h3>{{restaurante.av_rua+' '+restaurante.numero}}</h3>
-            <h4 class="lead">{{restaurante.telefone}}</h4>
-        </div>
-      </div>
-    </div>
 
 
-    <!-- Fim de Detalhes do Restaurante-->
+        <!-- Fim de Detalhes do Restaurante-->
 
 
-    <!--listagem de Refeicoes do Menu do Restaurante-->
-    <div class="col-sm-12 col-md-12 col-lg-12">
+        <!--listagem de Refeicoes do Menu do Restaurante-->
+        <div class="col-sm-12 col-md-12 col-lg-12">
 
-        <tabset>
-            <tab *ngFor="let tiporefeicao of tiposrefeicao"
-                 [heading]="tiporefeicao.designacao" class="refeicoes">
-                <div *ngFor="let refeicao of restaurante.refeicaos">
-                    <div *ngIf="refeicao.tipo.designacao == tiporefeicao.designacao" class="col-md-3 col-sm-4">
-                        <md-card>
-                            <img md-card-image
-                                 src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
-                            <md-card-title>
-                                <p>{{refeicao.nome}}</p>
-                            </md-card-title>
-                            <md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>
-                            <md-card-actions>
-                                <button md-raised-button class="" (click)="lgModal.show()"><span
-                                        class="glyphicon glyphicon-eye-open accent"></span></button>
-                            </md-card-actions>
-                        </md-card>
+            <tabset>
+                <tab *ngFor="let tiporefeicao of tiposrefeicao"
+                     [heading]="tiporefeicao.designacao" class="refeicoes">
+                    <div *ngFor="let refeicao of restaurante.refeicaos">
+                        <div *ngIf="refeicao.tipo.designacao == tiporefeicao.designacao" class="col-md-3 col-sm-4">
+                            <md-card>
+                                <img md-card-image
+                                     src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
+                                <md-card-title>
+                                    <p>{{refeicao.nome}}</p>
+                                </md-card-title>
+                                <md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>
+                                <md-card-actions>
+                                    <button md-raised-button class="" (click)="lgModal.show()"><span
+                                            class="glyphicon glyphicon-eye-open accent"></span></button>
+                                </md-card-actions>
+                            </md-card>
 
 
-                        <!--Modal de Detalhes de Refeicao-->
-                        <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
-                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" (click)="lgModal.hide()"
-                                                aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h2 class="modal-title">{{restaurante.nome}}</h2>
-                                    </div>
-                                    <div class="modal-body">
+                            <!--Modal de Detalhes de Refeicao-->
+                            <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+                                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" (click)="lgModal.hide()"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h2 class="modal-title">{{restaurante.nome}}</h2>
+                                        </div>
+                                        <div class="modal-body">
 
-                                        <md-card>
-                                            <img md-card-image
-                                                 src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
-                                            <md-card-title>
-                                                <p>{{refeicao.nome}}</p>
-                                            </md-card-title>
-                                            <md-card-content>
-                                                <p>{{refeicao.pivot.descricao}}</p>
-                                                <h4>MZN {{refeicao.pivot.preco}}</h4>
-                                            </md-card-content>
-                                        </md-card>
+                                            <md-card>
+                                                <img md-card-image
+                                                     src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
+                                                <md-card-title>
+                                                    <p>{{refeicao.nome}}</p>
+                                                </md-card-title>
+                                                <md-card-content>
+                                                    <p>{{refeicao.pivot.descricao}}</p>
+                                                    <h4>MZN {{refeicao.pivot.preco}}</h4>
+                                                </md-card-content>
+                                            </md-card>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--Fim do Modal de Detalhes de Refeicao-->
                         </div>
-                        <!--Fim do Modal de Detalhes de Refeicao-->
                     </div>
-                </div>
-            </tab>
-        </tabset>
+                </tab>
+            </tabset>
+        </div>
+        <!--Fim de Conteudo Sobre Refeicoes -->
+        <!--Fim de listagem de Refeicoes do Menu do Restaurante-->
+
     </div>
-    <!--Fim de Conteudo Sobre Refeicoes -->
-    <!--Fim de listagem de Refeicoes do Menu do Restaurante-->
 
 </div>
