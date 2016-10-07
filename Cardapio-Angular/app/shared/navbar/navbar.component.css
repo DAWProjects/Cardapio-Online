@@ -1,5 +1,5 @@
 .sidebar-nav {
-    background-color: #373A3C;
+    background-color: transparent;
 }
 
 .sidebar-nav li {
@@ -12,14 +12,14 @@
     color: white;
 }
 
-.sidebar-brand a h1 {
-    color: #fff;
-    font: 17px/26px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.6em;
-    line-height: 1.2em;
-    font-weight: 700;
-    color: #1e85a7;
-}
+/*.sidebar-brand a h1 {*/
+    /*color: #fff;*/
+    /*font: 17px/26px "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*font-size: 1.6em;*/
+    /*line-height: 1.2em;*/
+    /*font-weight: 700;*/
+    /*color: #1e85a7;*/
+/*}*/
 
 .dropdown-menu li a {
     color: #312632;
@@ -97,5 +97,9 @@
         text-decoration: none;
         background: transparent;
         border: none;
+    }
+
+    .procurar{
+        display: none;
     }
 }
