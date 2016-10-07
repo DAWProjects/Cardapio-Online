@@ -9,17 +9,31 @@
 .principal{
     width:100%;
     margin-top: -20px;
-    height:450px;
+    height:470px;
     background-color:rgba(1,1,1,0.5);
 
 }
 
-.search-form{
+.search-container{
      height:230px;
-    background-color:rgba(1,1,1,0.7);
+    background-color:rgba(1,1,1,0.6);
 
 }
+.button {
+    background-color: #429A95;
+    border: 1px solid #429A95;
+    font-weight: 700!important;
+    text-shadow: 0 0 18px rgba(125, 54, 0, .2);
+    margin: 0;
+    padding: .8rem 1.6rem;
+    border-radius: 2px;
+    width: 100%;
+}
 
+.search-form .input{
+    border: 5px solid;
+    border-radius: 256px;
+}
 
 .pull-middle {
     display: table-cell;
