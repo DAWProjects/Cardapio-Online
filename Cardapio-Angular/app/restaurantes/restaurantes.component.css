@@ -1,7 +1,7 @@
 .header {
     margin-top: 0px;
     padding-top: 50px;
-    background: url("http://localhost/Cardapio-Online/API/public/img/background/cardapio3.jpg")no-repeat center center;
+    background: url("http://localhost/Cardapio-Online/API/public/img/background/cardapio2.png")no-repeat center center;
     background-size: cover;    overflow: hidden;
 
 }
@@ -11,6 +11,12 @@
     margin-top: -20px;
     height:450px;
     background-color:rgba(1,1,1,0.5);
+
+}
+
+.search-form{
+     height:230px;
+    background-color:rgba(1,1,1,0.7);
 
 }
 
