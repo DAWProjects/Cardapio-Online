@@ -1,50 +1,36 @@
-<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-
-          <div class="container-fluid">
-                <div class="navbar-header">
-                    <img id="logo" src="http://localhost/Cardapio-Online/API/public/img/logo.png" style="width: 200px; height: auto; padding-top:10px;">
-                </div>
-
-
-                <div class="" id="myNavbar">
-
-                    <ul class="nav sidebar-nav navbar-right">
-
-                        <li >
-                            <div class="form-group procurar">
-                                <input type="text" class="form-control glyphicon glyphicon-search" name="search"
-                                       placeholder="Procurar">
-                            </div>
-                        </li>
-                        <li class="active">
-                            <a href="#" class="glyphicon glyphicon-home"></a>
-                        </li>
-                        <li><a href="#"> Restaurante </a></li>
-                        <li>
-                            <div dropdown keyboardNav="true">
-                                <a  href="#" id="dropdown-restaurante" dropdownToggle>
-                                    Refeicoes <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
-                                    <li role="menuitem"><a class="dropdown-item" href="#">Todas</a></li>
-                                    <li role="menuitem"><a class="dropdown-item" href="#">Carnes</a></li>
-                                    <li role="menuitem"><a class="dropdown-item" href="#">Whatever</a></li>
-                                    <li role="menuitem"><a class="dropdown-item" href="#">Etc</a></li>
-                                    <li class="divider dropdown-divider"></li>
-                                    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Sobre Nós</a>
-                        </li>
-                        <li>
-                            <a href="#">Contacte-Nos</a>
-                        </li>
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+    </button>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a [routerLink]="['/inicio']" class="glyphicon glyphicon-home"></a>
+            </li>
+            <li><a [routerLink]="['/restaurantes']"> Restaurantes </a></li>
+            <li>
+                <div dropdown keyboardNav="true">
+                    <a  href="#" id="dropdown-restaurante" dropdownToggle>
+                        Refeicoes <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
+                        <li role="menuitem"><a class="dropdown-item" href="#">Todas</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Carnes</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Whatever</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Etc</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
                     </ul>
-
                 </div>
-
-            </div>
-
+            </li>
+            <li>
+                <a href="#">Sobre Nós</a>
+            </li>
+            <li>
+                <a href="#">Contacte-Nos</a>
+            </li>
+            <div class="clearfix"></div>
+        </ul>
+    </div>
 </nav>

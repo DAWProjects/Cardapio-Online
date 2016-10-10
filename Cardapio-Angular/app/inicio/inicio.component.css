@@ -1,0 +1,58 @@
+.header {
+    margin-top: 0px;
+    padding-top: 50px;
+    background: url("http://localhost/Cardapio-Online/API/public/img/background/cardapio2.png")no-repeat center center;
+    background-size: cover;    overflow: hidden;
+
+}
+
+.principal{
+    width:100%;
+    margin-top: -20px;
+    height:450px;
+    background-color:rgba(1,1,1,0.5);
+
+}
+
+.search-form{
+    height:230px;
+    background-color:rgba(1,1,1,0.7);
+
+}
+
+.input-filter{
+    margin-top: 80px;
+}
+
+.sebm-google-map-container {
+    height: 300px;
+}
+
+md-card{
+    margin-top: 30px;
+}
+
+md-card .img-card{
+    min-height: 220px;
+    max-height: 220px;
+}
+
+.features{
+    margin-top: 50px;
+}
+.special {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+    .features{
+        clear: both;
+        margin: auto;
+    }
+}
+
+@media (max-width: 375px) {
+    .features{
+        margin-top: 300px;
+    }
+}

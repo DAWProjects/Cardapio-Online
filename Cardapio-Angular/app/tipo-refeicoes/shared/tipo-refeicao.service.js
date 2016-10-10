@@ -21,7 +21,7 @@ var TipoRefeicaoService = (function () {
         this.tiposRefeicaoUrl = configService.getApiURI();
     }
     TipoRefeicaoService.prototype.getTipoRefeicoes = function () {
-        return this.http.get(this.tiposRefeicaoUrl + 'todos-tipos-refeicao')
+        return this.http.get(this.tiposRefeicaoUrl + 'todos-tipos-refeicoes')
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

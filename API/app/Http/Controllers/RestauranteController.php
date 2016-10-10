@@ -18,7 +18,7 @@ class RestauranteController extends Controller
     public function index()
     {
 
-        $restaurantes = Restaurante::with('refeicaos.tipo')->get();
+        $restaurantes = Restaurante::with('refeicaos.tipo')->orderBy('id', 'asc')->get();
         return response()->json($restaurantes->toArray());
 
     }

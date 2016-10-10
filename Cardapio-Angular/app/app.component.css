@@ -1,10 +1,3 @@
-/* ----------------------- CONTEUDO ---------------------------------------*/
-
-.inicio {
-    /*margin-top: 10px;*/
-}
-
-
 /* ----------------------- FOOTER ---------------------------------------*/
 
 footer {
@@ -39,7 +32,7 @@ footer .logo img {
 }
 
 .social li a {
-    background: url(../assets/img/sprite.png) no-repeat 0 0;
+    background: url(../assets/images/sprite.png) no-repeat 0 0;
 }
 
 .social {

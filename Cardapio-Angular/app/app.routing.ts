@@ -3,11 +3,16 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {RestaurantesComponent}  from './restaurantes/index';
 import {RestauranteComponent}  from './restaurantes/restaurante/index'
+import {InicioComponent} from "./inicio/inicio.component";
+import {RefeicaoComponent} from "./refeicoes/refeicao/refeicao.component";
 
 
 const appRoutes: Routes = [
 
-
+    {
+        path: 'inicio',
+        component: InicioComponent
+    },
     {
         path: 'restaurantes',
         component: RestaurantesComponent
@@ -23,8 +28,16 @@ const appRoutes: Routes = [
         component: RestauranteComponent
     },
     {
+        path: 'refeicao',
+        component: RefeicaoComponent
+    },
+    {
+        path: 'refeicao/:idRestaurante/:idRefeicao',
+        component: RefeicaoComponent
+    },
+    {
         path: '',
-        redirectTo: '/restaurantes',
+        redirectTo: '/inicio',
         pathMatch: 'full'
     }
 

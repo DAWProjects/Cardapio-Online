@@ -1,5 +1,5 @@
 import {Restaurante} from "../../restaurantes/shared/restaurante.model";
-import {Refeicao} from "../../refeicao/shared/refeicao.model";
+import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 
 export class Menu {
     id: number;

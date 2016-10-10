@@ -18,7 +18,7 @@ export class TipoRefeicaoService {
     }
 
     getTipoRefeicoes(): Promise<TipoRefeicao[]> {
-        return this.http.get(this.tiposRefeicaoUrl+'todos-tipos-refeicao')
+        return this.http.get(this.tiposRefeicaoUrl+'todos-tipos-refeicoes')
             .toPromise()
             .then(response => response.json() as TipoRefeicao[])
             .catch(this.handleError);
