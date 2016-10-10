@@ -42,4 +42,10 @@ export class RestauranteComponent implements OnInit {
         this.tiporefeicaoService.getTipoRefeicoes()
             .then(tiposrefeicao => this.tiposrefeicao = tiposrefeicao);
     }
+
+    selectedTipo:  TipoRefeicao;
+
+    onSelect(tiporefeicao: TipoRefeicao): void {
+        this.selectedTipo = tiporefeicao;
+    }
 }

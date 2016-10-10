@@ -36,6 +36,9 @@ var RestauranteComponent = (function () {
         this.tiporefeicaoService.getTipoRefeicoes()
             .then(function (tiposrefeicao) { return _this.tiposrefeicao = tiposrefeicao; });
     };
+    RestauranteComponent.prototype.onSelect = function (tiporefeicao) {
+        this.selectedTipo = tiporefeicao;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', index_1.Restaurante)
