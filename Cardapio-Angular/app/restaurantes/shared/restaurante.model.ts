@@ -1,6 +1,6 @@
 import {Estado_Restaurante} from "../../estado-restaurante/shared/estado_restaurante.model";
 import {Utilizador} from "../../utilizador/shared/utilizador.model";
-import {Refeicao} from "../../refeicao/shared/refeicao.model";
+import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 
 export class Restaurante {
     id: number;

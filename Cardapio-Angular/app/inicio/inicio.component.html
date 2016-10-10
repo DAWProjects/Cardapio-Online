@@ -1,0 +1,149 @@
+<!--Header boas Vindas-->
+<header class="header main-header">
+    <div class="container-fluid principal">
+        <div class="col-md-12">
+            <h1 class="text-center" style="color: white; margin-top: 70px;">Cardapio Online</h1>
+            <h4 class="text-center" style="color: #A8B5C4;">Encontre Restaurantes próximos a sua localização</h4>
+        </div>
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 search-form">
+            <div class="input-group input-filter col-md-8 col-md-offset-2">
+                <div dropdown class="btn-group input-group-btn search-panel">
+
+                    <button id="single-button" type="button" class="btn btn-default dropdown-toggle"
+                            dropdownToggle>
+                        <span id="search_concept">Filtrar por</span> <span class="caret"></span>
+                    </button>
+                    <ul dropdownMenu role="menu" aria-labelledby="single-button">
+                        <li role="menuitem"><a class="dropdown-item" href="">Nome do Restaurante</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Valor (MZN)</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Cidade</a></li>
+                    </ul>
+                </div>
+
+                <input type="hidden" name="search_param" value="all" id="seinputarch_param">
+                <input type="text" class="form-control" name="x" placeholder="Procurar...">
+                <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button"><span
+                                        class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- //Header boas Vindas-->
+
+<!-- Restaurantes Proximos -->
+<div>
+    <div class="special">
+        <div class="container">
+
+            <div class="special-heading">
+                <h3>Restaurantes Próximos</h3>
+            </div>
+            <div class="special-grids">
+                <div *ngFor="let restaurante of restaurantes | slice:0:6" class="col-md-4 w3l-special-grid">
+                    <md-card>
+                        <div class="col-md-6 agile-menu-grid w3ls-special-img">
+                            <a href="#">
+                                <img class="img-responsive"
+                                     src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
+                                <div class="agileits-caption">
+                                    <p>{{restaurante.nome}}</p>
+
+                                    <button [routerLink]="['/restaurante/'+restaurante.id]" md-raised-button
+                                            class="md-raised md-primary"><span
+                                            class="glyphicon glyphicon-eye-open accent"></span>
+                                        Visualizar
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 agileits-special-info">
+                            <h4>{{restaurante.nome}}</h4>
+                            <p>{{restaurante.cidade}} {{restaurante.av_rua}}</p>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </md-card>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //Restaurantes Proximos -->
+
+<!--Refeicoes destaque-->
+<div class="menu">
+    <div class="container">
+        <div class="menu-heading">
+            <h2>Pratos do dia</h2>
+        </div>
+        <div class="menu-top-grids">
+            <div *ngFor="let restaurante of restaurantes | slice:0:9 " class="w3ls-menu-grids">
+
+                <div *ngFor="let refeicao of restaurante.refeicaos | slice:0:1" class="col-md-4 menu-grid">
+                    <md-card>
+                        <div class="agile-menu-grid">
+                            <a [routerLink]="['/refeicao/'+restaurante.id+'/'+refeicao.id]">
+                                <img md-card-mage src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}" alt=""/>
+                                <div class="agileits-caption">
+                                    <h4>{{refeicao.nome}}</h4>
+                                    <p>MZN {{refeicao.pivot.preco}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </md-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Refeicoes destaque-->
+
+
+<!--Mapa-->
+<div class="features">
+    <div class="container">
+        <div class="features-heading">
+            <h3>Mapa</h3>
+        </div>
+        <div class="features-grids">
+
+            <sebm-google-map
+                    [latitude]="lat"
+                    [longitude]="lng"
+                    [zoom]="zoom"
+                    [disableDefaultUI]="false"
+                    [zoomControl]="false"
+                    (mapClick)="mapClicked($event)">
+
+                <sebm-google-map-marker
+                        *ngFor="let m of markers; let i = index"
+                        (markerClick)="clickedMarker(m.label, i)"
+                        [latitude]="m.lat"
+                        [longitude]="m.lng"
+                        [label]="m.label"
+                        [markerDraggable]="m.draggable"
+                        (dragEnd)="markerDragEnd(m, $event)">
+
+                    <sebm-google-map-info-window>
+                        <strong>InfoWindow content</strong>
+                    </sebm-google-map-info-window>
+
+                </sebm-google-map-marker>
+
+                <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng"
+                                        [radius]="5000"
+                                        [fillColor]="'red'"
+                                        [circleDraggable]="true"
+                                        [editable]="true">
+                </sebm-google-map-circle>
+
+            </sebm-google-map>
+
+        </div>
+    </div>
+</div>
+<!-- //Mapa-->

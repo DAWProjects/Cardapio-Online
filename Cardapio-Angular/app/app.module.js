@@ -12,16 +12,20 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var core_2 = require('angular2-google-maps/core');
 var index_1 = require('./shared/navbar/index');
+var index_2 = require('./inicio/index');
 var card_1 = require('@angular2-material/card');
 var progress_circle_1 = require('@angular2-material/progress-circle');
 var button_1 = require('@angular2-material/button');
 // import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
 var app_component_1 = require('./app.component');
-var index_2 = require('./restaurantes/index');
-var index_3 = require('./restaurantes/restaurante/index');
+var index_3 = require('./restaurantes/index');
+var index_4 = require('./restaurantes/restaurante/index');
+var index_5 = require('./refeicoes/refeicao/index');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
+var refeicao_service_1 = require('./refeicoes/shared/refeicao.service');
 var config_service_1 = require("./shared/utils/config.service");
 var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
 var AppModule = (function () {
@@ -41,14 +45,23 @@ var AppModule = (function () {
                 app_routing_1.routing,
                 button_1.MdButtonModule,
                 card_1.MdCardModule,
-                progress_circle_1.MdProgressCircleModule
+                progress_circle_1.MdProgressCircleModule,
+                core_2.AgmCoreModule.forRoot()
             ],
             providers: [
                 restaurante_service_1.RestauranteService,
                 config_service_1.ConfigService,
-                tipo_refeicao_service_1.TipoRefeicaoService
+                tipo_refeicao_service_1.TipoRefeicaoService,
+                refeicao_service_1.RefeicaoService
             ],
-            declarations: [app_component_1.AppComponent, index_1.NavbarComponent, index_2.RestaurantesComponent, index_3.RestauranteComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                index_2.InicioComponent,
+                index_1.NavbarComponent,
+                index_3.RestaurantesComponent,
+                index_4.RestauranteComponent,
+                index_5.RefeicaoComponent
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

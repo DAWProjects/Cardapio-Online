@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('aaaa/{valor}', 'RestauranteController@bypreco')->middleware('cors');
-
-
 
 Route::get('todos-admins', 'AdministradorController@index')->middleware('cors');
 Route::post('criar-admin', 'AdministradorController@store')->middleware('cors');
@@ -44,10 +41,11 @@ Route::put('todos-estados-restaurantes/{id}', 'EstadoRestauranteController@updat
 Route::delete('apagar-estado-restaurantes/{id}', 'EstadoRestauranteController@delete')->middleware('cors');
 
 Route::get('todas-refeicoes', 'RefeicaoController@index')->middleware('cors');
-Route::post('criar-refeicao', 'RefeicaoController@store')->middleware('cors');
-Route::get('ver-refeicao/{id}', 'RefeicaoController@show')->middleware('cors');
+Route::post('criar-refeicoes', 'RefeicaoController@store')->middleware('cors');
+Route::get('ver-refeicoes/{id}', 'RefeicaoController@show')->middleware('cors');
 Route::put('todas-refeicoes/{id}', 'RefeicaoController@update')->middleware('cors');
-Route::delete('apagar-refeicao/{id}', 'RefeicaoController@delete')->middleware('cors');
+Route::delete('apagar-refeicoes/{id}', 'RefeicaoController@delete')->middleware('cors');
+Route::get('refeicao-by-restaurante/{idRest}/{idRef}', 'RefeicaoController@refeicaoByRestaurante')->middleware('cors');
 
 Route::get('todos-restaurantes', 'RestauranteController@index')->middleware('cors');
 Route::post('criar-restaurantes', 'RestauranteController@store')->middleware('cors');
@@ -55,10 +53,10 @@ Route::get('ver-restaurantes/{id}', 'RestauranteController@show')->middleware('c
 Route::put('todos-restaurantes/{id}', 'RestauranteController@update')->middleware('cors');
 Route::delete('apagar-restaurantes/{id}', 'RestauranteController@delete')->middleware('cors');
 
-Route::get('todos-tipos-refeicao', 'TipoRefeicaoController@index')->middleware('cors');
+Route::get('todos-tipos-refeicoes', 'TipoRefeicaoController@index')->middleware('cors');
 Route::post('criar-tipo-refeicoes', 'TipoRefeicaoController@store')->middleware('cors');
 Route::get('ver-tipo-refeicoes/{id}', 'TipoRefeicaoController@show')->middleware('cors');
-Route::put('todos-tipos-refeicao/{id}', 'TipoRefeicaoController@update')->middleware('cors');
+Route::put('todos-tipos-refeicoes/{id}', 'TipoRefeicaoController@update')->middleware('cors');
 Route::delete('apagar-tipo-refeicoes/{id}', 'TipoRefeicaoController@delete')->middleware('cors');
 
 
