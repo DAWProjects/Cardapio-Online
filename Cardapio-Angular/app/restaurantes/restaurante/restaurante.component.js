@@ -17,6 +17,7 @@ var RestauranteComponent = (function () {
         this.route = route;
         this.restauranteService = restauranteService;
         this.tiporefeicaoService = tiporefeicaoService;
+        this.selectedOpcao = 'Todas';
     }
     RestauranteComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -34,10 +35,14 @@ var RestauranteComponent = (function () {
     RestauranteComponent.prototype.getTiposrefeicao = function () {
         var _this = this;
         this.tiporefeicaoService.getTipoRefeicoes()
-            .then(function (tiposrefeicao) { return _this.tiposrefeicao = tiposrefeicao; });
+            .then(function (tiposrefeicao) { return _this.tiposrefeicao = tiposrefeicao; })
+            .then(function (tiposrefeicao) { return _this.selectedTipo = tiposrefeicao[0]; });
     };
     RestauranteComponent.prototype.onSelect = function (tiporefeicao) {
         this.selectedTipo = tiporefeicao;
+    };
+    RestauranteComponent.prototype.onOpt = function (opcao) {
+        this.selectedOpcao = opcao;
     };
     __decorate([
         core_1.Input(), 

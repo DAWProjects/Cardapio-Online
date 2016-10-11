@@ -17,12 +17,12 @@
 
                 <div class="container" >
 
-                    <div class="col-md-9" style="background-color: black;">
-                        <nav class="cl-effect-4"  style="padding-bottom: 5px">
+                    <div class="col-md-9" style=" background-color:rgba(1,1,1,0.9);">
+                        <nav class="cl-effect-4"  style="padding-bottom: 5px;">
                             <ul >
-                                <a href="#">Todas Refeições</a>
-                                <a href="#">Prato do Dia</a>
-                                <a href="#">Recomendadas</a>
+                                <a (click)="onOpt('Todas')" [class.sel]>Todas Refeições</a>
+                                <a (click)="onOpt('Dia')" [class.sel]>Prato do Dia</a>
+                                <a (click)="onOpt('Recomendadas')" [class.sel]>Recomendadas</a>
                             </ul>
                         </nav>
                     </div>
@@ -40,25 +40,26 @@
 
 
 
-        <div class="container restFoods">
+        <div class="container" >
 
-            <div class="col-md-9" style="background-color: white;">
+            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Todas'">
 
-                <div class="container-fluid">
+
+                <div class="container-fluid divTipos">
                     <br/>
                     <div *ngFor="let tiporefeicao of tiposrefeicao"
                          [class.selected]="tiporefeicao === selectedTipo"
                          (click)="onSelect(tiporefeicao)"
-                         class="col-md-2 col-sm-3 col-xs-4">
-                        <a class="btn btn-info  tipo" style="width: 100%;">
+                          class="col-md-2 col-sm-4 col-xs-12">
+                        <a class="btn btn-default  tipo" style="width: 100%;">
                             <span>{{tiporefeicao.designacao}}</span>
                         </a>
                     </div>
-                </div>
+                 </div>
 
 
                 <div class="container-fluid">
-                    <div *ngIf="selectedTipo">
+                     <div *ngIf="selectedTipo">
                         <div *ngFor="let refeicao of restaurante.refeicaos">
                             <div *ngIf="refeicao.tipo.designacao == selectedTipo.designacao" class="col-md-3 col-sm-4">                            <md-card>
                                 <img md-card-image
@@ -73,6 +74,7 @@
                                 </md-card-actions>
                             </md-card>
 
+
                             </div>
                         </div>
 
@@ -82,8 +84,19 @@
 
             </div>
 
+            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Dia'" style="min-height: 300px;">
 
-            <div class="col-md-3"  style="background-color: #c8c8c8;">
+
+
+            </div>
+
+            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Recomendadas'" style="min-height: 300px; background-color: blue;">
+
+
+
+            </div>
+
+            <div class="col-md-3 aside">
 
                 <div class="container-fluid">
 
@@ -95,19 +108,27 @@
                         <!--<h4 class="lead"></h4>-->
                         <!--</div>-->
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 mapa">
+                            <br/>
+                            <br/>
+                            <h4>Mapa</h4>
+                        </div>
+
+                        <div class="col-md-12 mapa">
                             <h4> <span class="glyphicon glyphicon-map-marker"> </span>{{restaurante.cidade}},  {{restaurante.av_rua}}</h4>
                             <h4>{{restaurante.numero}}</h4>
-                            <h4>{{restaurante.telefone}}</h4>
-                            <hr/>
+                         </div>
+                        <div class="col-md-12 mapa">
+                             <h4><span class="glyphicon glyphicon-phone"> </span>{{restaurante.telefone}}</h4>
                         </div>
-                        <div class="col-md-12">
+
+                        <div class="col-md-12 mapa">
                             <h4> <span class="glyphicon glyphicon-time"> </span>Aberto Agora</h4>
-                            <hr/>
                         </div>
-                        <div class="col-md-12">
-                            <h4>SIGA-NOS</h4>
-                            <hr/>
+                        <hr/>
+
+                        <div class="col-md-12" style="border-bottom: 1px solid #747575">
+                            <h4> <span class="glyphicon glyphicon-share-alt">  </span>SIGA-NOS</h4>
                         </div>
 
                     </div>

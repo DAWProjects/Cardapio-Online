@@ -18,7 +18,11 @@
  }
 
 .restFoods{
-
+    border: 1px solid #d6d4d4;
+     -webkit-box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
+    -moz-box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
+    box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
+    background-color: #e9eaea;
 }
 
 .card-image .img-responsive {
@@ -35,15 +39,17 @@ ul li {
     border: solid 2px lightblue;
 }
 
-.listaTipos{
-    background-color: red;
-}
-
 .tipo{
     width: 100%;
     padding-top:20px;
     padding-bottom:20px;
+    background-color: #00877b;
+    color: white;
  }
+
+.tipo:hover, .selected a{
+    background-color: #00cabb;
+}
 
 md-card {
     margin-top: 20px;
@@ -65,7 +71,7 @@ nav a {
     display: inline-block;
     margin: 15px 15px;
     outline: none;
-    color: #fff;
+    color: #e8e8e8;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -83,7 +89,7 @@ nav a:focus {
     padding: 0 0 5px;
 }
 
-.cl-effect-4 a::after {
+.cl-effect-4 a::after{
     position: absolute;
     top: 100%;
     left: 0;
@@ -109,8 +115,23 @@ nav a:focus {
     transform: translateY(0px);
 }
 
-#googleMap {
-    width: 100%; /* Span the entire width of the screen */
-    height: 400px; /* Set the height to 400 pixels */
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);} /* Change the color of the map to black and white * /
+.cl-effect-4 a:visited, a:active{
+    background-color: red;
+}
+
+
+.divTipos{
+     padding-bottom: 10px;
+    border-bottom: 1px solid #bdbebe;
+    background-color: #f8f9f9;
+}
+
+.aside{
+    background-color: #dddede;
+}
+.mapa{
+    border-bottom: 1px solid #bdbebe;
+}
+
+
+

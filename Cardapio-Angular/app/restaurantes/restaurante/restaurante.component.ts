@@ -19,6 +19,8 @@ export class RestauranteComponent implements OnInit {
     @Input()
     restaurante: Restaurante;
     tiposrefeicao: TipoRefeicao[];
+    selectedTipo: TipoRefeicao;
+    selectedOpcao: string='Todas';
 
     constructor(private route: ActivatedRoute,
                 private restauranteService: RestauranteService,
@@ -40,12 +42,17 @@ export class RestauranteComponent implements OnInit {
 
     getTiposrefeicao(): void {
         this.tiporefeicaoService.getTipoRefeicoes()
-            .then(tiposrefeicao => this.tiposrefeicao = tiposrefeicao);
+            .then(tiposrefeicao => this.tiposrefeicao = tiposrefeicao)
+            .then(tiposrefeicao => this.selectedTipo = tiposrefeicao[0]);
     }
 
-    selectedTipo:  TipoRefeicao;
 
     onSelect(tiporefeicao: TipoRefeicao): void {
         this.selectedTipo = tiporefeicao;
     }
+
+    onOpt(opcao: string): void{
+        this.selectedOpcao = opcao;
+    }
+
 }
