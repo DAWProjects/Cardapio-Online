@@ -82,7 +82,7 @@
         <div class="menu-top-grids">
             <div *ngFor="let restaurante of restaurantes | slice:0:9 " class="w3ls-menu-grids">
 
-                <div *ngFor="let refeicao of restaurante.refeicaos | slice:0:1" class="col-md-4 menu-grid">
+                <div *ngFor="let refeicao of restaurante.refeicaos | slice:0:1" class="menu-grid col-sm-8 col-md-4">
                     <md-card>
                         <div class="agile-menu-grid">
                             <a [routerLink]="['/refeicao/'+restaurante.id+'/'+refeicao.id]">

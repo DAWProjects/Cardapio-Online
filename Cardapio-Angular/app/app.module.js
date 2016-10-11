@@ -28,6 +28,7 @@ var restaurante_service_1 = require('./restaurantes/shared/restaurante.service')
 var refeicao_service_1 = require('./refeicoes/shared/refeicao.service');
 var config_service_1 = require("./shared/utils/config.service");
 var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
+var index_6 = require("./shared/utils/index");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -41,6 +42,7 @@ var AppModule = (function () {
                 ng2_bootstrap_1.DropdownModule,
                 ng2_bootstrap_1.ModalModule,
                 ng2_bootstrap_1.TabsModule,
+                ng2_bootstrap_1.PaginationModule,
                 http_1.HttpModule,
                 app_routing_1.routing,
                 button_1.MdButtonModule,
@@ -60,7 +62,9 @@ var AppModule = (function () {
                 index_1.NavbarComponent,
                 index_3.RestaurantesComponent,
                 index_4.RestauranteComponent,
-                index_5.RefeicaoComponent
+                index_5.RefeicaoComponent,
+                index_6.OrderBy,
+                index_6.FilterArrayPipe
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

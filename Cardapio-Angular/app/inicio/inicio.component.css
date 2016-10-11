@@ -33,8 +33,8 @@ md-card{
 }
 
 md-card .img-card{
-    min-height: 220px;
-    max-height: 220px;
+    min-height: 260px;
+    max-height: 260px;
 }
 
 .features{

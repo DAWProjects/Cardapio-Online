@@ -16,6 +16,7 @@ var RestaurantesComponent = (function () {
         this.router = router;
         this.restauranteService = restauranteService;
         this.content_loaded = false;
+        this.criterioSelecionado = "nome";
     }
     RestaurantesComponent.prototype.getRestaurantes = function () {
         var _this = this;
@@ -28,6 +29,9 @@ var RestaurantesComponent = (function () {
     };
     RestaurantesComponent.prototype.gotoDetail = function (id) {
         this.router.navigate(['/restaurante', id]);
+    };
+    RestaurantesComponent.prototype.changeCriteria = function (criteria) {
+        this.criterioSelecionado = criteria;
     };
     RestaurantesComponent = __decorate([
         core_1.Component({

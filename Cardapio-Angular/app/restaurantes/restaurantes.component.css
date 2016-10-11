@@ -1,5 +1,6 @@
-
-
+.container{
+    background-color: #F5F5F5;
+}
 
 .pull-middle {
     display: table-cell;
@@ -26,17 +27,25 @@
 
 md-card{
     margin-top: 30px;
+    height: 380px;
 }
 
-md-card .img-card{
-    min-height: 220px;
-    max-height: 220px;
+md-card img{
+    height: 170px;
 }
 
 span.card-title{
     color: #000000;
     font-weight: 700;
 }
+
+.filters{
+    margin-top: 100px;
+}
+.input-filtro{
+    text-transform: capitalize;
+}
+
 
 @media (max-width: 768px) {
     .restaurantes{
