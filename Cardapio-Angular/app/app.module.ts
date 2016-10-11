@@ -8,7 +8,8 @@ import {
     DatepickerModule,
     DropdownModule,
     ModalModule,
-    TabsModule
+    TabsModule,
+    PaginationModule
 } from 'ng2-bootstrap/ng2-bootstrap';
 
 import {
@@ -41,6 +42,9 @@ import {ConfigService} from "./shared/utils/config.service";
 import {TipoRefeicaoService} from "./tipo-refeicoes/shared/tipo-refeicao.service";
 
 
+import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
+
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -50,6 +54,7 @@ import {TipoRefeicaoService} from "./tipo-refeicoes/shared/tipo-refeicao.service
         DropdownModule,
         ModalModule,
         TabsModule,
+        PaginationModule,
         HttpModule,
         routing,
         MdButtonModule,
@@ -69,7 +74,9 @@ import {TipoRefeicaoService} from "./tipo-refeicoes/shared/tipo-refeicao.service
         NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
-        RefeicaoComponent
+        RefeicaoComponent,
+        OrderBy,
+        FilterArrayPipe
     ],
     bootstrap: [AppComponent]
 })
