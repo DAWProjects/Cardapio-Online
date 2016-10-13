@@ -2,6 +2,7 @@
 var router_1 = require('@angular/router');
 var index_1 = require('./restaurantes/index');
 var index_2 = require('./restaurantes/restaurante/index');
+var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
 var inicio_component_1 = require("./inicio/inicio.component");
 var refeicao_component_1 = require("./refeicoes/refeicao/refeicao.component");
 var appRoutes = [
@@ -20,6 +21,10 @@ var appRoutes = [
     {
         path: 'restaurante',
         component: index_2.RestauranteComponent
+    },
+    {
+        path: 'restaurantes/:preco',
+        component: search_result_component_1.SearchResultRestaurantesComponent
     },
     {
         path: 'refeicao',

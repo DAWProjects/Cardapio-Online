@@ -31,6 +31,11 @@ export class InicioComponent implements OnInit {
     }
 
 
+    buscar(preco: number): void {
+        this.router.navigate(['/restaurantes/'+preco]);
+    }
+
+
     // google maps zoom level
     zoom: number = 15;
 

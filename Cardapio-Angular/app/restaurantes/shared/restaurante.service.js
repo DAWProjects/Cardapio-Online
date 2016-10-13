@@ -27,8 +27,8 @@ var RestauranteService = (function () {
             .catch(this.handleError);
     };
     ;
-    RestauranteService.prototype.getRestaurantesPorPreco = function () {
-        return this.http.get(this.restaurantesUrl + 'refeicaos-by-preco')
+    RestauranteService.prototype.getRestaurantesPorPreco = function (preco) {
+        return this.http.get(this.restaurantesUrl + ("refeicaos-by-preco/" + preco))
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

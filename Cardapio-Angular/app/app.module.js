@@ -15,13 +15,11 @@ var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var core_2 = require('angular2-google-maps/core');
 var index_1 = require('./shared/navbar/index');
 var index_2 = require('./inicio/index');
-var card_1 = require('@angular2-material/card');
-var progress_circle_1 = require('@angular2-material/progress-circle');
-var button_1 = require('@angular2-material/button');
-// import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
+var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
 var index_3 = require('./restaurantes/index');
 var index_4 = require('./restaurantes/restaurante/index');
+var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
 var index_5 = require('./refeicoes/refeicao/index');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
@@ -45,9 +43,7 @@ var AppModule = (function () {
                 ng2_bootstrap_1.PaginationModule,
                 http_1.HttpModule,
                 app_routing_1.routing,
-                button_1.MdButtonModule,
-                card_1.MdCardModule,
-                progress_circle_1.MdProgressCircleModule,
+                material_1.MaterialModule.forRoot(),
                 core_2.AgmCoreModule.forRoot()
             ],
             providers: [
@@ -62,6 +58,7 @@ var AppModule = (function () {
                 index_1.NavbarComponent,
                 index_3.RestaurantesComponent,
                 index_4.RestauranteComponent,
+                search_result_component_1.SearchResultRestaurantesComponent,
                 index_5.RefeicaoComponent,
                 index_6.OrderBy,
                 index_6.FilterArrayPipe

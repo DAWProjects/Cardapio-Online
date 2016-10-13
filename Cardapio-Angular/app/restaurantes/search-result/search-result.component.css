@@ -1,0 +1,63 @@
+.container {
+    background-color: #F5F5F5;
+}
+
+.pull-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.logo-inicio {
+    position: relative;
+    margin: 0 auto;
+    padding: 55px 55px 55px 60px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 20px 20px 40px #887;
+}
+
+.mt-100 {
+    margin-top: 10px;
+}
+
+.mb-100 {
+    margin-bottom: 10px;
+}
+
+md-card {
+    margin-top: 30px;
+    min-heigh: 380px;
+    max-height: 380px;
+}
+
+md-list {
+    max-height: 220px;
+    min-height: 220px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+span.card-title {
+    color: #000000;
+    font-weight: 700;
+}
+
+.filters {
+    margin-top: 100px;
+}
+
+.input-filtro {
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+    .restaurantes {
+        margin-top: 0;
+    }
+
+    .principal {
+        margin-top: -50px;
+
+    }
+}

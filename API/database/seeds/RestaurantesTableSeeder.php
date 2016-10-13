@@ -16,7 +16,7 @@ class RestaurantesTableSeeder extends Seeder
 
         factory(App\Restaurante::class, 10)->create()->each(function($r) {
             for ($i = 0; $i < 9; $i++){
-            $r->refeicaos()->save(factory(App\Refeicao::class)->create(), ['preco' => 250,'imagem'=>'img-rest.jpg','descricao'=>'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum']);
+            $r->refeicaos()->save(factory(App\Refeicao::class)->create(), ['preco' =>rand(100.00, 1500.99),'imagem'=>'img-rest.jpg','descricao'=>'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum']);
             }
         });
 

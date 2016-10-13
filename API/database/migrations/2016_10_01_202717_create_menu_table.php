@@ -24,7 +24,7 @@ class CreateMenuTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('descricao')->nullable();
-            $table->double('preco');
+            $table->double('preco',6,2);
             $table->dateTime('hora_inicio')->nullable();
             $table->dateTime('hora_fim')->nullable();
             $table->string('imagem')->nullable();

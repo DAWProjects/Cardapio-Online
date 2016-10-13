@@ -37,33 +37,6 @@ class RestauranteController extends Controller
         return response()->json($restaurantes->toArray());
     }
 
-//    public function menuByPreco($valor){
-//
-//        $menus = Menu::all()->where('preco', '<=', $valor);
-//
-//        return $menus->toArray();
-//    }
-
-
-    public function bypreco($valor)
-    {
-
-        $arrray = array();
-        $restaurantes = Restaurante::with('refeicaos')->get();
-        foreach ($restaurantes as $rest) {
-
-            foreach ($rest->refeicaos as $refeicao) {
-
-                if ($refeicao->pivot->preco <= $valor) {
-                    $arrray[] = $rest;
-
-                    break;
-                }
-            }
-        }
-        return response()->json($arrray);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
