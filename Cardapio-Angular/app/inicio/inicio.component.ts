@@ -73,6 +73,7 @@ export class InicioComponent implements OnInit {
             draggable: true
         }
     ]
+
 }
 // just an interface for type safety.
 interface marker {

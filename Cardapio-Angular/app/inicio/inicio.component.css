@@ -1,26 +1,27 @@
 .header {
     margin-top: 0px;
     padding-top: 50px;
-    background: url("http://localhost/Cardapio-Online/API/public/img/background/cardapio2.png")no-repeat center center;
-    background-size: cover;    overflow: hidden;
+    background: url("http://localhost/Cardapio-Online/API/public/img/background/cardapio2.png") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
 
 }
 
-.principal{
-    width:100%;
+.principal {
+    width: 100%;
     margin-top: -20px;
-    height:450px;
-    background-color:rgba(1,1,1,0.5);
+    height: 450px;
+    background-color: rgba(1, 1, 1, 0.5);
 
 }
 
-.search-form{
-    height:230px;
-    background-color:rgba(1,1,1,0.7);
+.search-form {
+    height: 230px;
+    background-color: rgba(1, 1, 1, 0.7);
 
 }
 
-.input-filter{
+.input-filter {
     margin-top: 80px;
 }
 
@@ -28,31 +29,50 @@
     height: 300px;
 }
 
-md-card{
+md-card {
     margin-top: 30px;
 }
 
-md-card .img-card{
+md-card .img-card {
     min-height: 260px;
     max-height: 260px;
 }
 
-.features{
+.features {
     margin-top: 50px;
 }
+
 .special {
     margin-bottom: 20px;
 }
 
+
+@media (max-width: 991px) {
+    .agileits-caption-restaurante {
+        bottom: -50%;
+    }
+
+}
+
 @media (max-width: 640px) {
-    .features{
+    .features {
         clear: both;
         margin: auto;
     }
 }
 
+@media (max-width: 480px) {
+    .agileits-caption-restaurante {
+        bottom: -30%;
+    }
+}
+
+
 @media (max-width: 375px) {
-    .features{
+    .features {
         margin-top: 300px;
+    }
+    .agileits-special-info {
+        display: none;
     }
 }

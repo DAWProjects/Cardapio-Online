@@ -13,9 +13,7 @@ export class FilterArrayPipe implements PipeTransform {
             return items;
         }
         else if (items !== undefined) {
-            return items.filter(item => item[field].toLowerCase().match(new RegExp('' + value)),
-                item => item[field].toUpperCase().match(new RegExp('' + value))
-            );
+            return items.filter(item => item[field].toLowerCase().match(new RegExp(('' + value).toLowerCase())));
         }
         return items;
     }

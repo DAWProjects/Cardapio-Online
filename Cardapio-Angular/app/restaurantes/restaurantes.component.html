@@ -1,8 +1,4 @@
-<div [hidden]="content_loaded">
-    <md-progress-circle [style.width]="'100%'" mode="indeterminate"></md-progress-circle>
-</div>
-
-
+<div class="container">
 <div class="col-md-12 filters">
     <div class="col-md-6 col-md-offset-3 in-gp-tl">
         <div class="input-group">
@@ -22,7 +18,7 @@
                 <div class="col-md-6 col-md-offset-3 in-gp-tl">
                     <form>
                         <div class="input-group">
-                            <input type="text" name="search"  class="form-control input-filtro"
+                            <input type="text" name="search" class="form-control input-filtro"
                                    placeholder="{{criterioSelecionado}}" [(ngModel)]="search">
                             <span class="input-group-btn">
 									<button class="btn btn-primary" type="button">Go!</button>
@@ -41,9 +37,21 @@
     </div>
 </div>
 
+
+<div class="container-fluid progress-loader">
+    <div class="col-md-12">
+        <div class="col-md-6 col-md-offset-3">
+            <div [hidden]="content_loaded">
+                <md-progress-circle [style.width]="'100%'" mode="indeterminate"></md-progress-circle>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div *ngIf="restaurantes" class="container">
     <div *ngFor="let restaurante of (restaurantes | filter:criterioSelecionado:search) "
-         class="col-xs-10 col-sm-4 col-md-3 col-xs-offset-1 col-md-offset-0">
+         class="col-xs-12 col-sm-2 col-md-4 col-lg-3">
         <md-card>
             <img md-card-image class="img-card"
                  src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
@@ -52,7 +60,7 @@
                 <p><b>{{restaurante.cidade}}</b></p>
                 <p>{{restaurante.av_rua}}</p>
             </md-card-content>
-            <md-card-actions class="container">
+            <md-card-actions>
 
                 <button (click)="gotoDetail(restaurante.id)" md-raised-button class="md-raised md-primary"><span
                         class="glyphicon glyphicon-eye-open accent"></span>
@@ -67,4 +75,4 @@
         </md-card>
     </div>
 </div>
-
+</div>

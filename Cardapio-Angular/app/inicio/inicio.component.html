@@ -7,25 +7,30 @@
         </div>
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 search-form">
             <div class="input-group input-filter col-md-8 col-md-offset-2">
-                <div dropdown class="btn-group input-group-btn search-panel">
+                <div class="search-panel">
 
-                    <button id="single-button" type="button" class="btn btn-default dropdown-toggle"
-                            dropdownToggle>
-                        <span id="search_concept">Filtrar por</span> <span class="caret"></span>
-                    </button>
-                    <ul dropdownMenu role="menu" aria-labelledby="single-button">
-                        <li role="menuitem"><a class="dropdown-item" href="">Nome do Restaurante</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Valor (MZN)</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Cidade</a></li>
-                    </ul>
+
+                    <div class="in-gp-tb">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Procura...">
+                            <span class="input-group-btn">
+									<button class="btn btn-primary" type="button">Go!</button>
+								</span>
+                        </div><!-- /input-group -->
+
+                        <div class="input-group">
+                            <select class="form-control">
+                                <option value="" disabled>Buscar Por</option>
+                                <option value="nome">Nome do Restaurante</option>
+                                <option value="preco">Valor (MZN)</option>
+                                <option value="cidade">Cidade</option>
+                            </select>
+                        </div>
+                    </div><!-- /.col-lg-6 -->
+
+
+
                 </div>
-
-                <input type="hidden" name="search_param" value="all" id="seinputarch_param">
-                <input type="text" class="form-control" name="x" placeholder="Procurar...">
-                <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button"><span
-                                        class="glyphicon glyphicon-search"></span></button>
-                                    </span>
             </div>
         </div>
     </div>
@@ -44,10 +49,10 @@
                 <div *ngFor="let restaurante of restaurantes | slice:0:6" class="col-md-4 w3l-special-grid">
                     <md-card>
                         <div class="col-md-6 agile-menu-grid w3ls-special-img">
-                            <a href="#">
+                            <a [routerLink]="['/restaurante/'+restaurante.id]">
                                 <img class="img-responsive"
                                      src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
-                                <div class="agileits-caption">
+                                <div class="agileits-caption agileits-caption-restaurante">
                                     <p>{{restaurante.nome}}</p>
 
                                     <button [routerLink]="['/restaurante/'+restaurante.id]" md-raised-button
@@ -58,9 +63,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-6 agileits-special-info">
-                            <h4>{{restaurante.nome}}</h4>
-                            <p>{{restaurante.cidade}} {{restaurante.av_rua}}</p>
+                        <div class="agileits-special-info">
+                            <h5>{{restaurante.cidade}}</h5>
+                            <p>{{restaurante.av_rua}}</p>
                         </div>
 
                         <div class="clearfix"></div>
@@ -86,7 +91,9 @@
                     <md-card>
                         <div class="agile-menu-grid">
                             <a [routerLink]="['/refeicao/'+restaurante.id+'/'+refeicao.id]">
-                                <img md-card-mage src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}" alt=""/>
+                                <img md-card-mage
+                                     src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}"
+                                     alt=""/>
                                 <div class="agileits-caption">
                                     <h4>{{refeicao.nome}}</h4>
                                     <p>MZN {{refeicao.pivot.preco}}</p>
@@ -142,7 +149,6 @@
                 </sebm-google-map-circle>
 
             </sebm-google-map>
-
         </div>
     </div>
 </div>

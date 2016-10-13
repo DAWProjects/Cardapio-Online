@@ -25,6 +25,14 @@ export class RestauranteService {
     };
 
 
+    getRestaurantesPorPreco(): Promise<Restaurante[]> {
+        return this.http.get(this.restaurantesUrl+'refeicaos-by-preco')
+            .toPromise()
+            .then(response => response.json() as Restaurante[])
+            .catch(this.handleError);
+    };
+
+
     update(restaurante: Restaurante): Promise<Restaurante> {
         const url = `${this.restaurantesUrl}todos-restaurantes/${restaurante.id}`;
 
