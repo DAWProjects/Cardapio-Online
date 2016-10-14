@@ -42,176 +42,122 @@
 
         <div class="container" >
 
-            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Todas'">
 
 
-                <div class="container-fluid divTipos">
-                    <br/>
-                    <div *ngFor="let tiporefeicao of tiposrefeicao"
-                         [class.selected]="tiporefeicao === selectedTipo"
-                         (click)="onSelect(tiporefeicao)"
-                          class="col-md-2 col-sm-4 col-xs-12">
-                        <a class="btn btn-default  tipo" style="width: 100%;">
-                            <span>{{tiporefeicao.designacao}}</span>
-                        </a>
-                    </div>
-                 </div>
+                    <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Todas'">
 
 
-                <div class="container-fluid">
-                     <div *ngIf="selectedTipo">
-                        <div *ngFor="let refeicao of restaurante.refeicaos">
-                            <div *ngIf="refeicao.tipo.designacao == selectedTipo.designacao" class="col-md-3 col-sm-4">                            <md-card>
-                                <img md-card-image
-                                     src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">
-                                <md-card-title>
-                                    <p>{{refeicao.nome}}</p>
-                                </md-card-title>
-                                <md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>
-                                <md-card-actions>
-                                    <button md-raised-button class="" (click)="lgModal.show()"><span
-                                            class="glyphicon glyphicon-eye-open accent"></span></button>
-                                </md-card-actions>
-                            </md-card>
+                        <div class="container-fluid divTipos">
+                            <br/>
+                            <div *ngFor="let tiporefeicao of tiposrefeicao"
+                                 [class.selected]="tiporefeicao === selectedTipo"
+                                 (click)="onSelect(tiporefeicao)"
+                                  class="col-md-2 col-sm-4 col-xs-12">
+                                <a class="btn btn-default  tipo" style="width: 100%;">
+                                    <span>{{tiporefeicao.designacao}}</span>
+                                </a>
+                            </div>
+                         </div>
 
+
+                        <div class="container-fluid">
+                             <div *ngIf="selectedTipo">
+                                <div *ngFor="let refeicao of restaurante.refeicaos">
+                                    <div *ngIf="refeicao.tipo.designacao == selectedTipo.designacao" class="col-md-4 col-sm-6">
+                                        <!--<md-card>-->
+                                        <!--<img md-card-image-->
+                                             <!--src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">-->
+                                        <!--<md-card-title>-->
+                                                <!--<p>{{refeicao.nome}}</p>-->
+                                            <!--</md-card-title>-->
+                                            <!--<md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>-->
+                                            <!--<md-card-actions>-->
+                                                <!--<button md-raised-button class="" (click)="lgModal.show()"><span-->
+                                                        <!--class="glyphicon glyphicon-eye-open accent"></span></button>-->
+                                            <!--</md-card-actions>-->
+                                        <!--</md-card>-->
+
+                                        <md-card *ngIf="refeicao">
+                                            <div class="agile-menu-grid">
+                                                <a>
+                                                    <img md-card-mage src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}" alt=""/>
+                                                    <div class="agileits-caption">
+                                                        <h4>{{refeicao.nome}}</h4>
+                                                        <p>MZN {{refeicao.pivot.preco}}</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </md-card>
+
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
 
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Dia'" style="min-height: 300px;">
-
-
-
-            </div>
-
-            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Recomendadas'" style="min-height: 300px; background-color: blue;">
-
-
-
-            </div>
-
-            <div class="col-md-3 aside">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <!--<div class="caption">-->
-                        <!--<h1>{{restaurante.nome}}</h1>-->
-                        <!--<h2></h2>-->
-                        <!--<h3>+' '+</h3>-->
-                        <!--<h4 class="lead"></h4>-->
-                        <!--</div>-->
-
-                        <div class="col-md-12 mapa">
-                            <br/>
-                            <br/>
-                            <h4>Mapa</h4>
-                        </div>
-
-                        <div class="col-md-12 mapa">
-                            <h4> <span class="glyphicon glyphicon-map-marker"> </span>{{restaurante.cidade}},  {{restaurante.av_rua}}</h4>
-                            <h4>{{restaurante.numero}}</h4>
-                         </div>
-                        <div class="col-md-12 mapa">
-                             <h4><span class="glyphicon glyphicon-phone"> </span>{{restaurante.telefone}}</h4>
-                        </div>
-
-                        <div class="col-md-12 mapa">
-                            <h4> <span class="glyphicon glyphicon-time"> </span>Aberto Agora</h4>
-                        </div>
-                        <hr/>
-
-                        <div class="col-md-12" style="border-bottom: 1px solid #747575">
-                            <h4> <span class="glyphicon glyphicon-share-alt">  </span>SIGA-NOS</h4>
-                        </div>
 
                     </div>
 
+                    <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Dia'" style="min-height: 300px;">
 
-                    <!-- Add Google Maps -->
 
-                </div>
 
-            </div>
+                    </div>
+
+                    <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Recomendadas'" style="min-height: 300px; background-color: blue;">
+
+
+
+                    </div>
+
+                    <div class="col-md-3 aside">
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                <!--<div class="caption">-->
+                                <!--<h1>{{restaurante.nome}}</h1>-->
+                                <!--<h2></h2>-->
+                                <!--<h3>+' '+</h3>-->
+                                <!--<h4 class="lead"></h4>-->
+                                <!--</div>-->
+
+                                <div class="col-md-12 mapa">
+                                    <br/>
+                                    <br/>
+                                    <h4>Mapa</h4>
+                                </div>
+
+                                <div class="col-md-12 mapa">
+                                    <h4> <span class="glyphicon glyphicon-map-marker"> </span>{{restaurante.cidade}},  {{restaurante.av_rua}}</h4>
+                                    <h4>{{restaurante.numero}}</h4>
+                                 </div>
+                                <div class="col-md-12 mapa">
+                                     <h4><span class="glyphicon glyphicon-phone"> </span>{{restaurante.telefone}}</h4>
+                                </div>
+
+                                <div class="col-md-12 mapa">
+                                    <h4> <span class="glyphicon glyphicon-time"> </span>Aberto Agora</h4>
+                                </div>
+                                <hr/>
+
+                                <div class="col-md-12" style="border-bottom: 1px solid #747575">
+                                    <h4> <span class="glyphicon glyphicon-share-alt">  </span>SIGA-NOS</h4>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Add Google Maps -->
+
+                        </div>
+
+                    </div>
 
 
          </div>
 
-
-
-        <!-- Fim de Detalhes do Restaurante-->
-
-
-        <!--listagem de Refeicoes do Menu do Restaurante-->
-        <!--<div class="col-sm-12 col-md-12 col-lg-12">-->
-
-            <!--<tabset>-->
-                <!--<tab *ngFor="let tiporefeicao of tiposrefeicao"-->
-                     <!--[heading]="tiporefeicao.designacao" class="refeicoes">-->
-                    <!--<div *ngFor="let refeicao of restaurante.refeicaos">-->
-                        <!--<div *ngIf="refeicao.tipo.designacao == tiporefeicao.designacao" class="col-md-3 col-sm-4">-->
-                            <!--<md-card>-->
-                                <!--<img md-card-image-->
-                                     <!--src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">-->
-                                <!--<md-card-title>-->
-                                    <!--<p>{{refeicao.nome}}</p>-->
-                                <!--</md-card-title>-->
-                                <!--<md-card-content><h3>MZN {{refeicao.pivot.preco}}</h3></md-card-content>-->
-                                <!--<md-card-actions>-->
-                                    <!--<button md-raised-button class="" (click)="lgModal.show()"><span-->
-                                            <!--class="glyphicon glyphicon-eye-open accent"></span></button>-->
-                                <!--</md-card-actions>-->
-                            <!--</md-card>-->
-
-
-                            <!--&lt;!&ndash;Modal de Detalhes de Refeicao&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"&ndash;&gt;-->
-                                 <!--&lt;!&ndash;aria-labelledby="myLargeModalLabel" aria-hidden="true">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="modal-dialog modal-lg">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<button type="button" class="close" (click)="lgModal.hide()"&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;aria-label="Close">&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<span aria-hidden="true">&times;</span>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<h2 class="modal-title">{{restaurante.nome}}</h2>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<div class="modal-body">&ndash;&gt;-->
-
-                                            <!--&lt;!&ndash;<md-card>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<img md-card-image&ndash;&gt;-->
-                                                     <!--&lt;!&ndash;src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}">&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<md-card-title>&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<p>{{refeicao.nome}}</p>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;</md-card-title>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<md-card-content>&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<p>{{refeicao.pivot.descricao}}</p>&ndash;&gt;-->
-                                                    <!--&lt;!&ndash;<h4>MZN {{refeicao.pivot.preco}}</h4>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;</md-card-content>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</md-card>&ndash;&gt;-->
-
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Fim do Modal de Detalhes de Refeicao&ndash;&gt;-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</tab>-->
-            <!--</tabset>-->
-        <!--</div>-->
-        <!--Fim de Conteudo Sobre Refeicoes -->
-        <!--Fim de listagem de Refeicoes do Menu do Restaurante-->
-
     </div>
-
-<!--</div>-->
 
 
 
