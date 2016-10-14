@@ -3,7 +3,7 @@
     <div class="container-fluid principal">
         <div class="col-md-12">
             <h1 class="text-center" style="color: white; margin-top: 70px;">Cardapio Online</h1>
-            <h4 class="text-center" style="color: #A8B5C4;">Encontre Restaurantes próximos a sua localização</h4>
+            <h4 class="text-center" style="color: #A8B5C4;">Encontre Restaurantes próximos de si</h4>
         </div>
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 search-form">
             <div class="input-group input-filter col-md-8 col-md-offset-2">
@@ -14,14 +14,14 @@
                         <div class="input-group">
                             <input class="form-control" placeholder="Procura..." #search>
                             <span class="input-group-btn">
-									<button (click)="buscar(search.value)"  class="btn btn-primary" type="button">Go!</button>
+									<button (click)="buscar(criterio.value,search.value)"  class="btn btn-primary" type="button">Go!</button>
 								</span>
                         </div><!-- /input-group -->
 
                         <div class="input-group">
-                            <select class="form-control">
+                            <select class="form-control" #criterio>
                                 <option value="" disabled>Buscar Por</option>
-                                <option value="preco">Valor (MZN)</option>
+                                <option value="preco" selected>Valor (MZN)</option>
                                 <option value="nome">Nome do Restaurante</option>
                                 <option value="cidade">Cidade</option>
                             </select>
@@ -44,6 +44,17 @@
             <div class="special-heading">
                 <h3>Restaurantes Próximos</h3>
             </div>
+
+            <div class="container-fluid progress-loader">
+                <div class="col-md-12">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div [hidden]="content_loaded">
+                            <md-progress-circle [style.width]="'100%'" mode="indeterminate"></md-progress-circle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div *ngFor="let restaurante of restaurantes | slice:0:6" class="special-grids">
                 <md-card class="col-md-4">
                     <div class="col-md-6 agile-menu-grid w3ls-special-img">
@@ -79,6 +90,16 @@
     <div class="container">
         <div class="menu-heading">
             <h2>Pratos do dia</h2>
+        </div>
+
+        <div class="container-fluid progress-loader">
+            <div class="col-md-12">
+                <div class="col-md-6 col-md-offset-3">
+                    <div [hidden]="content_loaded">
+                        <md-progress-circle [style.width]="'100%'" mode="indeterminate"></md-progress-circle>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="menu-top-grids">
             <div *ngFor="let restaurante of restaurantes | slice:0:9 " class="w3ls-menu-grids">
