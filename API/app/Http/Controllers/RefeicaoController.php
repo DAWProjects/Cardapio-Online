@@ -30,19 +30,19 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
 
     public function refeicaoByRestaurante($idRest, $idRef)
     {
-//        $this->aux = $idRest;
-//        $refeicao = Refeicao::with(['restaurantes' => function ($query) {
-//            $query->where('id','=', $this->aux);
-//        }])->where('id','=',$idRef)->first();
+        $this->aux = $idRest;
+        $refeicao = Refeicao::with(['restaurantes' => function ($query) {
+            $query->where('menu.restaurante_id', $this->aux);
+        }])->where('id','=',$idRef)->get();
 
 
-        $refeicao = Refeicao::find($idRef)->restaurantes()->where('menu.restaurante_id', $idRest)->get();
+//        $refeicao->restaurantes() = Refeicao::find($idRef)->restaurantes()->where('menu.restaurante_id', $idRest)->get();
 
 
         return response()->json($refeicao->toArray());

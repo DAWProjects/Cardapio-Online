@@ -10,6 +10,10 @@ use App\Http\Requests;
 
 class RestauranteController extends Controller
 {
+
+
+    private $aux;
+
     /**
      * Display a listing of the resource.
      *
@@ -23,30 +27,14 @@ class RestauranteController extends Controller
 
     }
 
-//    public function menuByPreco($valor){
-//
-//        $menus = Menu::all()->where('preco', '<=', $valor);
-//
-//        return $menus->toArray();
-//    }
+    public function refeicaosByPreco($preco)
+    {
+        $this->aux = $preco;
+        $restaurantes = Restaurante::with(['refeicaos' => function ($query) {
+            $query->where('menu.preco', '<=', $this->aux);
+        }])->get();
 
-
-    public function bypreco($valor){
-
-        $arrray = array();
-        $restaurantes = Restaurante::with('refeicaos')->get();
-        foreach ($restaurantes as $rest){
-
-            foreach ($rest->refeicaos as $refeicao){
-
-                if($refeicao->pivot->preco <= $valor){
-                    $arrray[]= $rest;
-
-                    break;
-                }
-            }
-        }
-        return response()->json($arrray);
+        return response()->json($restaurantes->toArray());
     }
 
     /**

@@ -20,19 +20,15 @@ import {NavbarComponent} from './shared/navbar/index';
 
 import {InicioComponent} from './inicio/index'
 
-import {MdCardModule} from '@angular2-material/card';
-import {MdProgressCircleModule} from '@angular2-material/progress-circle';
-import {MdButtonModule} from '@angular2-material/button';
-// import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
-
+import { MaterialModule } from '@angular/material';
 
 import {AppComponent}   from './app.component';
 
 import {RestaurantesComponent} from './restaurantes/index';
-import {RestauranteComponent} from './restaurantes/restaurante/index'
+import {RestauranteComponent} from './restaurantes/restaurante/index';
+import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 
-import {RefeicaoComponent} from './refeicoes/refeicao/index'
-
+import {RefeicaoComponent} from './refeicoes/refeicao/index';
 
 import {routing} from './app.routing';
 
@@ -57,9 +53,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         PaginationModule,
         HttpModule,
         routing,
-        MdButtonModule,
-        MdCardModule,
-        MdProgressCircleModule,
+        MaterialModule.forRoot(),
         AgmCoreModule.forRoot()
     ],
     providers: [
@@ -74,6 +68,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
+        SearchResultRestaurantesComponent,
         RefeicaoComponent,
         OrderBy,
         FilterArrayPipe

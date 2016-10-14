@@ -2,7 +2,9 @@ import {ModuleWithProviders}  from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {RestaurantesComponent}  from './restaurantes/index';
-import {RestauranteComponent}  from './restaurantes/restaurante/index'
+import {RestauranteComponent}  from './restaurantes/restaurante/index';
+import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
+
 import {InicioComponent} from "./inicio/inicio.component";
 import {RefeicaoComponent} from "./refeicoes/refeicao/refeicao.component";
 
@@ -26,6 +28,11 @@ const appRoutes: Routes = [
     {
         path: 'restaurante',
         component: RestauranteComponent
+    },
+
+    {
+        path: 'restaurantes/:preco',
+        component: SearchResultRestaurantesComponent
     },
     {
         path: 'refeicao',

@@ -3,89 +3,61 @@
     <!-- container -->
     <div class="container">
         <div class="col-md-8 blog-top-left-grid">
-            <div *ngFor="let ref of refeicao" class="left-blog left-single">
-                <div *ngIf="ref" class="blog-left">
+            <div *ngIf="refeicao" class="left-blog left-single">
+                <div class="blog-left">
+
                     <div class="single-left-left">
-                        <img src="http://localhost/Cardapio-Online/API/public/img/{{ref.pivot.imagem}}" alt="">
+                        <img src="http://localhost/Cardapio-Online/API/public/img/{{refeicao[0].restaurantes[0].pivot.imagem}}"
+                             alt="IMAGEM-REFEICAO">
                     </div>
                     <div class="blog-left-bottom">
-                        <h2>{{ref.nome}}</h2>
+                        <h1>{{refeicao[0].nome}}</h1>
+                        <p class="lead">Preço: MZN <b>{{refeicao[0].restaurantes[0].pivot.preco}}</b></p>
+
                     </div>
+
                     <div class="blog-left-bottom left-bottom">
                         <p>
-                            {{ref.descricao}}
+                            {{refeicao[0].descricao}}
                         </p>
                     </div>
                 </div>
+
+                <div class="blog-left rest">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <h2><a class="btn-link" [routerLink]="'/restaurante/'+refeicao[0].restaurantes[0].id">{{refeicao[0].restaurantes[0].nome}}</a>
+                            </h2>
+                            <p class="lead"><span class="glyphicon glyphicon-map-marker"></span>
+                                {{' '+refeicao[0].restaurantes[0].cidade}}</p>
+                            <p class="lead"><b>AV/Rua: </b>{{refeicao[0].restaurantes[0].av_rua+' nr'+refeicao[0].restaurantes[0].numero}}</p>
+                            <p class="lead"><span class="glyphicon glyphicon-phone"></span>{{refeicao[0].restaurantes[0].telefone}}</p>
+                            <hr/>
+                        </div>
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-time"></span> Aberto Agora</h4>
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="response">
                     <h3>Comentarios</h3>
-                    <div class="media response-info">
-                        <div class="media-left response-text-left">
-                            <a href="#">
-                                <img class="media-object" src="../../../assets/images/t1.jpg" alt="">
-                            </a>
-                            <h5><a href="#">Admin</a></h5>
-                        </div>
-                        <div class="media-body response-text-right">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <ul>
-                                <li>June 21, 2016</li>
-                                <li><a href="single.html">Reply</a></li>
-                            </ul>
-                            <div class="media response-info">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img class="media-object" src="../../../assets/images/t2.jpg" alt="">
-                                    </a>
-                                    <h5><a href="#">Admin</a></h5>
-                                </div>
-                                <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <ul>
-                                        <li>June 21, 2016</li>
-                                        <li><a href="single.html">Reply</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="media response-info">
-                        <div class="media-left response-text-left">
-                            <a href="#">
-                                <img class="media-object" src="../../../assets/images/t3.jpg" alt="">
-                            </a>
-                            <h5><a href="#">Admin</a></h5>
-                        </div>
-                        <div class="media-body response-text-right">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <ul>
-                                <li>June 21, 2016</li>
-                                <li><a href="single.html">Reply</a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
+
                 </div>
 
                 <div class="opinion">
                     <h2>Deixe o Seu Comentario</h2>
                     <form action="#" method="post">
-                        <input type="text" name="Name" placeholder="Nome" required="">
-                        <input type="text" name="Email" placeholder="Email" required="">
                         <textarea name="Message" placeholder="Mensagem" required=""></textarea>
                         <input type="submit" value="SUBMETER">
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 blog-top-right-grid">
+        <div *ngIf="refeicao" class="col-md-4 blog-top-right-grid">
             <div class="categories">
-                <h3>Pratos Semelhantes</h3>
+                <h3>Outros Pratos do Restaurante <a>{{refeicao[0].restaurantes[0].nome}}</a></h3>
                 <ul>
                     <!--<li><a href="#">Phasellus sem leo, interdum quis risus</a></li>-->
                     <!--<li><a href="#">Nullam egestas nisi id malesuada aliquet </a></li>-->
@@ -96,7 +68,7 @@
                 </ul>
             </div>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
     <!-- //container -->
 </div>
