@@ -20,7 +20,7 @@
                     <div class="col-md-9" style=" background-color:rgba(1,1,1,0.9);">
                         <nav class="cl-effect-4"  style="padding-bottom: 5px;">
                             <ul >
-                                <a (click)="onOpt('Todas')" [class.sel]>Todas Refeições</a>
+                                <a (click)="onOpt('Todas')" (click)="onSelect(tiposrefeicao[0])" [class.sel]>Todas Refeições</a>
                                 <a (click)="onOpt('Dia')" [class.sel]>Prato do Dia</a>
                                 <a (click)="onOpt('Recomendadas')" [class.sel]>Recomendadas</a>
                             </ul>
