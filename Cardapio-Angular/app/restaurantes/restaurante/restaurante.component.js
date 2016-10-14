@@ -41,6 +41,9 @@ var RestauranteComponent = (function () {
     RestauranteComponent.prototype.onSelect = function (tiporefeicao) {
         this.selectedTipo = tiporefeicao;
     };
+    RestauranteComponent.prototype.onSelectRefeicao = function (refeicao) {
+        this.selectedRefeicao = refeicao;
+    };
     RestauranteComponent.prototype.onOpt = function (opcao) {
         this.selectedOpcao = opcao;
     };
