@@ -5,6 +5,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {Restaurante, RestauranteService} from "../shared/index";
 
 import {TipoRefeicao, TipoRefeicaoService} from '../../tipo-refeicoes/shared/index'
+import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class RestauranteComponent implements OnInit {
     restaurante: Restaurante;
     tiposrefeicao: TipoRefeicao[];
     selectedTipo: TipoRefeicao;
+    selectedRefeicao: Refeicao;
     selectedOpcao: string='Todas';
 
     constructor(private route: ActivatedRoute,
@@ -49,6 +51,10 @@ export class RestauranteComponent implements OnInit {
 
     onSelect(tiporefeicao: TipoRefeicao): void {
         this.selectedTipo = tiporefeicao;
+    }
+
+    onSelectRefeicao(refeicao: Refeicao): void {
+        this.selectedRefeicao = refeicao;
     }
 
     onOpt(opcao: string): void{
