@@ -31,7 +31,7 @@ const appRoutes: Routes = [
     },
 
     {
-        path: 'restaurantes/:preco',
+        path: 'restaurantes/:criterio/:valor',
         component: SearchResultRestaurantesComponent
     },
     {

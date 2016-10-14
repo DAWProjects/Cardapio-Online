@@ -34,6 +34,13 @@ var RestauranteService = (function () {
             .catch(this.handleError);
     };
     ;
+    RestauranteService.prototype.getRestaurantesPorNome = function (nome) {
+        return this.http.get(this.restaurantesUrl + ("restaurantes-by-name/" + nome))
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ;
     RestauranteService.prototype.update = function (restaurante) {
         var url = this.restaurantesUrl + "todos-restaurantes/" + restaurante.id;
         return this.http

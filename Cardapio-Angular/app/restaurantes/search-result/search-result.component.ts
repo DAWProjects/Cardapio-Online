@@ -28,14 +28,28 @@ export class SearchResultRestaurantesComponent implements OnInit {
     getRestaurantes(): void {
 
         this.route.params.forEach((params: Params) => {
-            let preco = +params['preco'];
-            this.restauranteService.getRestaurantesPorPreco(preco)
-                .then(restaurantes => this.restaurantes = restaurantes)
-                .then(() => this.content_loaded = true);
+            let criterio = +params['criterio'];
+            let valor = +params['valor'];
+
+            this.getRestaurantesPorPreco(valor);
         });
     }
 
     changeCriteria(criteria: string): void {
         this.criterioSelecionado = criteria;
+    }
+
+
+
+    getRestaurantesPorPreco(preco: number) {
+        this.restauranteService.getRestaurantesPorPreco(preco)
+            .then(restaurantes => this.restaurantes = restaurantes)
+            .then(() => this.content_loaded = true);
+    }
+
+    getRestaurantesPorNome(nome: string) {
+        this.restauranteService.getRestaurantesPorNome(nome)
+            .then(restaurantes => this.restaurantes = restaurantes)
+            .then(() => this.content_loaded = true);
     }
 }

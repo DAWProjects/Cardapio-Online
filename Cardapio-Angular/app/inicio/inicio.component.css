@@ -29,6 +29,10 @@
     height: 300px;
 }
 
+.progress-loader{
+    margin-top: 40px;
+}
+
 md-card {
     margin-top: 30px;
 }

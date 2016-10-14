@@ -37,6 +37,16 @@ class RestauranteController extends Controller
         return response()->json($restaurantes->toArray());
     }
 
+
+    public function restaurantesByName($nome)
+    {
+        $this->aux = $nome;
+        $restaurantes = Restaurante::with('refeicaos')->where('nome', 'Like', '%'.$this->aux.'%')->get();
+
+        return response()->json($restaurantes->toArray());
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

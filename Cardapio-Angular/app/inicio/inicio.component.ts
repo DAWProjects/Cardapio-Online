@@ -31,8 +31,12 @@ export class InicioComponent implements OnInit {
     }
 
 
-    buscar(preco: number): void {
-        this.router.navigate(['/restaurantes/'+preco]);
+    buscar(criterio: any,valor: any): void {
+
+        if(criterio == 'preco'){
+        this.router.navigate(['/restaurantes','preco',valor]);
+        }
+
     }
 
 
