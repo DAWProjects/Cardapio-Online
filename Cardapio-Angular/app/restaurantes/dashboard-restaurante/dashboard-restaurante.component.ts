@@ -18,7 +18,7 @@ import {Restaurante, RestauranteService} from "../shared/index";
 export class DashBoardRestauranteComponent implements OnInit{
 
     @Input()
-    restaurante: Restaurante;
+    restaurant: Restaurante;
     selectedOpcao: string='Refeicoes';
 
 
@@ -30,7 +30,7 @@ export class DashBoardRestauranteComponent implements OnInit{
         this.route.params.forEach((params: Params) => {
             let id = +params['id'];
             this.restauranteService.getRestaurante(id)
-                .then(restaurante => this.restaurante = restaurante);
+                .then(restaurant => this.restaurant = restaurant);
         });
      }
 
