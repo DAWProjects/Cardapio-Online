@@ -7,6 +7,7 @@ import {SearchResultRestaurantesComponent} from './restaurantes/search-result/se
 
 import {InicioComponent} from "./inicio/inicio.component";
 import {RefeicaoComponent} from "./refeicoes/refeicao/refeicao.component";
+import {DashBoardRestauranteComponent} from "./restaurantes/dashboard-restaurante/dashboard-restaurante.component";
 
 
 const appRoutes: Routes = [
@@ -41,6 +42,10 @@ const appRoutes: Routes = [
     {
         path: 'refeicao/:idRestaurante/:idRefeicao',
         component: RefeicaoComponent
+    },
+    {
+        path: 'dashboard-restaurante',
+        component: DashBoardRestauranteComponent
     },
     {
         path: '',

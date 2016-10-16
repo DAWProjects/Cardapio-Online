@@ -26,6 +26,7 @@ import {AppComponent}   from './app.component';
 
 import {RestaurantesComponent} from './restaurantes/index';
 import {RestauranteComponent} from './restaurantes/restaurante/index';
+import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index';
 import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 
 import {RefeicaoComponent} from './refeicoes/refeicao/index';
@@ -68,6 +69,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
+        DashBoardRestauranteComponent,
         SearchResultRestaurantesComponent,
         RefeicaoComponent,
         OrderBy,
