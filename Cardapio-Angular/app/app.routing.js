@@ -24,7 +24,7 @@ var appRoutes = [
         component: index_2.RestauranteComponent
     },
     {
-        path: 'restaurantes/:preco',
+        path: 'restaurantes/:criterio/:valor',
         component: search_result_component_1.SearchResultRestaurantesComponent
     },
     {

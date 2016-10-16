@@ -57,7 +57,7 @@
         </div>
         <div *ngIf="refeicao" class="col-md-4 blog-top-right-grid">
             <div class="categories">
-                <h3>Outros Pratos do Restaurante <a>{{refeicao[0].restaurantes[0].nome}}</a></h3>
+                <h3>Outros Pratos do Restaurante <a [routerLink]="'/restaurante/'+refeicao[0].restaurantes[0].id">{{refeicao[0].restaurantes[0].nome}}</a></h3>
                 <ul>
                     <!--<li><a href="#">Phasellus sem leo, interdum quis risus</a></li>-->
                     <!--<li><a href="#">Nullam egestas nisi id malesuada aliquet </a></li>-->
