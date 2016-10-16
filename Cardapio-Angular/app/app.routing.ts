@@ -44,8 +44,8 @@ const appRoutes: Routes = [
         component: RefeicaoComponent
     },
     {
-        path: 'dashboard-restaurante',
-        component: DashBoardRestauranteComponent
+        path: 'dashboard-restaurante' ,
+        component: DashBoardRestauranteComponent 
     },
     {
         path: '',
