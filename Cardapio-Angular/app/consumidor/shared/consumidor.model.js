@@ -1,3 +1,6 @@
+/**
+ * Created by bernardo on 9/18/16.
+ */
 "use strict";
 var Consumidor = (function () {
     function Consumidor(nome, sexo, telefone, utilizador) {

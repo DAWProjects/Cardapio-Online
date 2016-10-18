@@ -1,3 +1,7 @@
+/**
+ * Created by bernardo on 9/18/16.
+ */
+
 import {Utilizador} from "../../utilizador/shared/utilizador.model";
 
 export class Admin {

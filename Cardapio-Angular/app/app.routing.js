@@ -36,7 +36,7 @@ var appRoutes = [
         component: refeicao_component_1.RefeicaoComponent
     },
     {
-        path: 'dashboard-restaurante',
+        path: 'dashboard-restaurante/:id',
         component: dashboard_restaurante_component_1.DashBoardRestauranteComponent
     },
     {

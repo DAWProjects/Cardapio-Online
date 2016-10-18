@@ -1,3 +1,6 @@
+/**
+ * Created by bernardo on 9/18/16.
+ */
 "use strict";
 var Utilizador = (function () {
     function Utilizador(username, email, senha) {
