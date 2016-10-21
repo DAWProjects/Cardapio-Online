@@ -1,3 +1,6 @@
+/**
+ * Created by bernardo on 9/17/16.
+ */
 export class Estado_Refeicao {
     id: number;
     designacao: string;

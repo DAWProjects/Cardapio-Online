@@ -1,3 +1,6 @@
+/**
+ * Created by bernardo on 9/17/16.
+ */
 "use strict";
 var Estado_Restaurante = (function () {
     function Estado_Restaurante(designacao, descricao) {

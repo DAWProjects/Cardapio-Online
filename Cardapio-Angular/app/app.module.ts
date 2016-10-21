@@ -28,6 +28,7 @@ import {AppComponent}   from './app.component';
 
 import {RestaurantesComponent} from './restaurantes/index';
 import {RestauranteComponent} from './restaurantes/restaurante/index';
+import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index';
 import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 import {LoginComponent} from './login/login.component';
 import {ConsumidorComponent} from './consumidores/consumidor/consumidor.component';
@@ -77,6 +78,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
+        DashBoardRestauranteComponent,
         SearchResultRestaurantesComponent,
         LoginComponent,
         ConsumidorComponent,
