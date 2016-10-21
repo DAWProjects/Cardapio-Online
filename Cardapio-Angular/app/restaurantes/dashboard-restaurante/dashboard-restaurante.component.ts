@@ -71,7 +71,7 @@ export class DashBoardRestauranteComponent implements OnInit{
         this.menu = new Menu(descricao, imagem, preco, hora_inicio, hora_fim, restaurante, refeicao);
 
         this.refeicaoService.create(this.refeicao);
-        this.menuService.create(this.menu);
+        //this.menuService.create(this.menu);
     }
 
 }

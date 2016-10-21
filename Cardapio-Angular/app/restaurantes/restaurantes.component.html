@@ -72,12 +72,15 @@
                         <md-icon class="md-24">share_arrow</md-icon>
                     </button>
                 </md-card-actions>
-                <rating [max]="5"
+                <rating
+                        [max]="5"
                         iconClass="fa-star"
                         fullIcon="★"
                         emptyIcon="☆"
                         [readonly]="false"
                         [disabled]="false"
+                        [required]="true"
+                        [float]="true"
                         [titles]="['one', 'two', 'three', 'four', 'five']">
                 </rating>
             </md-card>

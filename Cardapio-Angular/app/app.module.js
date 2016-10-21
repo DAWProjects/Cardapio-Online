@@ -20,18 +20,19 @@ var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
 var index_3 = require('./restaurantes/index');
 var index_4 = require('./restaurantes/restaurante/index');
+var index_5 = require('./restaurantes/dashboard-restaurante/index');
 var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
 var login_component_1 = require('./login/login.component');
 var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
-var index_5 = require('./refeicoes/refeicao/index');
+var index_6 = require('./refeicoes/refeicao/index');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
 var refeicao_service_1 = require('./refeicoes/shared/refeicao.service');
 var config_service_1 = require("./shared/utils/config.service");
 var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
-var index_6 = require("./consumidores/shared/index");
+var index_7 = require("./consumidores/shared/index");
 var auth_guard_1 = require('./shared/guards/auth.guard');
-var index_7 = require("./shared/utils/index");
+var index_8 = require("./shared/utils/index");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -57,7 +58,7 @@ var AppModule = (function () {
                 config_service_1.ConfigService,
                 tipo_refeicao_service_1.TipoRefeicaoService,
                 refeicao_service_1.RefeicaoService,
-                index_6.ConsumidorService,
+                index_7.ConsumidorService,
                 auth_guard_1.AuthGuard
             ],
             declarations: [
@@ -66,12 +67,13 @@ var AppModule = (function () {
                 index_1.NavbarComponent,
                 index_3.RestaurantesComponent,
                 index_4.RestauranteComponent,
+                index_5.DashBoardRestauranteComponent,
                 search_result_component_1.SearchResultRestaurantesComponent,
                 login_component_1.LoginComponent,
                 consumidor_component_1.ConsumidorComponent,
-                index_5.RefeicaoComponent,
-                index_7.OrderBy,
-                index_7.FilterArrayPipe
+                index_6.RefeicaoComponent,
+                index_8.OrderBy,
+                index_8.FilterArrayPipe
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

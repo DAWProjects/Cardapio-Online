@@ -1,6 +1,3 @@
-/**
- * Created by bernardo on 9/18/16.
- */
 "use strict";
 var Admin = (function () {
     function Admin(nome, sexo, telefone, utilizador) {

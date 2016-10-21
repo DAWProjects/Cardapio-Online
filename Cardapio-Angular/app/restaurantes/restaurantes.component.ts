@@ -15,6 +15,7 @@ export class RestaurantesComponent implements OnInit {
 
     restaurantes: Restaurante[];
     public content_loaded: boolean = false;
+    public estrelas : number = 4;
     public criterioSelecionado: string = "nome";
 
     constructor(private router: Router, private restauranteService: RestauranteService) {
