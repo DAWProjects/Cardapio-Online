@@ -28,10 +28,15 @@ export class SearchResultRestaurantesComponent implements OnInit {
     getRestaurantes(): void {
 
         this.route.params.forEach((params: Params) => {
-            let criterio = +params['criterio'];
-            let valor = +params['valor'];
 
-            this.getRestaurantesPorPreco(valor);
+            if(params['criterio'] === 'preco')
+            this.getRestaurantesPorPreco(params['valor']);
+
+            else if(params['criterio'] === 'nome')
+                this.getRestaurantesPorNome(params['valor']);
+
+            else if(params['criterio'] === 'cidade')
+                this.getRestaurantesPorCidade(params['valor']);
         });
     }
 
@@ -49,6 +54,13 @@ export class SearchResultRestaurantesComponent implements OnInit {
 
     getRestaurantesPorNome(nome: string) {
         this.restauranteService.getRestaurantesPorNome(nome)
+            .then(restaurantes => this.restaurantes = restaurantes)
+            .then(() => this.content_loaded = true);
+    }
+
+
+    getRestaurantesPorCidade(cidade: string) {
+        this.restauranteService.getRestaurantesPorCidade(cidade)
             .then(restaurantes => this.restaurantes = restaurantes)
             .then(() => this.content_loaded = true);
     }

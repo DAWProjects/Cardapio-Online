@@ -42,6 +42,14 @@ export class RestauranteService {
     };
 
 
+    getRestaurantesPorCidade(cidade: string): Promise<Restaurante[]> {
+        return this.http.get(this.restaurantesUrl + `restaurantes-by-city/${cidade}`)
+            .toPromise()
+            .then(response => response.json() as Restaurante[])
+            .catch(this.handleError);
+    };
+
+
     update(restaurante: Restaurante): Promise<Restaurante> {
         const url = `${this.restaurantesUrl}todos-restaurantes/${restaurante.id}`;
 

@@ -3,8 +3,10 @@ var router_1 = require('@angular/router');
 var index_1 = require('./restaurantes/index');
 var index_2 = require('./restaurantes/restaurante/index');
 var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
-var inicio_component_1 = require("./inicio/inicio.component");
-var refeicao_component_1 = require("./refeicoes/refeicao/refeicao.component");
+var inicio_component_1 = require('./inicio/inicio.component');
+var refeicao_component_1 = require('./refeicoes/refeicao/refeicao.component');
+var login_component_1 = require('./login/login.component');
+var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
 var appRoutes = [
     {
         path: 'inicio',
@@ -33,6 +35,14 @@ var appRoutes = [
     {
         path: 'refeicao/:idRestaurante/:idRefeicao',
         component: refeicao_component_1.RefeicaoComponent
+    },
+    {
+        path: 'login',
+        component: login_component_1.LoginComponent
+    },
+    {
+        path: 'signup',
+        component: consumidor_component_1.ConsumidorComponent
     },
     {
         path: '',

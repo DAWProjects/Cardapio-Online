@@ -50,7 +50,9 @@
     </div>
 
 
+
     <div *ngIf="restaurantes" class="container">
+
         <div *ngFor="let restaurante of (restaurantes | filter:criterioSelecionado:search) "
              class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <md-card>
@@ -70,6 +72,14 @@
                         <md-icon class="md-24">share_arrow</md-icon>
                     </button>
                 </md-card-actions>
+                <rating [max]="5"
+                        iconClass="fa-star"
+                        fullIcon="★"
+                        emptyIcon="☆"
+                        [readonly]="false"
+                        [disabled]="false"
+                        [titles]="['one', 'two', 'three', 'four', 'five']">
+                </rating>
             </md-card>
         </div>
     </div>

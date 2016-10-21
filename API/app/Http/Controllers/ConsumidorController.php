@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Consumidor;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,7 @@ class ConsumidorController extends Controller
      */
     public function index()
     {
-        $consumidores = Consumidor::all();
+        $consumidores = Consumidor::with('user')->get();
         return response()->json($consumidores->toArray());
     }
 
@@ -40,6 +41,11 @@ class ConsumidorController extends Controller
     {
         $consumidor = Consumidor::create($request->all());
         $consumidor->save();
+        $user = User::create($request->all());
+        $consumidor->user()->save($user);
+
+
+
         return response()->json(["mensagem"=>"Consumidor Registado Com Sucesso!"]);
     }
 

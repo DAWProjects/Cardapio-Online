@@ -8,8 +8,8 @@
     float: left;
 }
 
-.navbar ul li:nth-child(6) {
-    margin-right: 0;
+.navbar ul li:nth-child(5) {
+    margin-right: 120px;
 }
 
 ul.nav.navbar-nav {
@@ -61,7 +61,7 @@ ul.nav.navbar-nav {
 }
 
 .navbar .dropdown-menu li a {
-    color: #312632 !important;
+    /*color: #312632 !important;*/
 }
 
 .navbar .dropdown-menu li{

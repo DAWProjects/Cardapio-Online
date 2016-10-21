@@ -5,8 +5,11 @@ import {RestaurantesComponent}  from './restaurantes/index';
 import {RestauranteComponent}  from './restaurantes/restaurante/index';
 import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 
-import {InicioComponent} from "./inicio/inicio.component";
-import {RefeicaoComponent} from "./refeicoes/refeicao/refeicao.component";
+import {InicioComponent} from './inicio/inicio.component';
+import {RefeicaoComponent} from './refeicoes/refeicao/refeicao.component';
+import {LoginComponent} from './login/login.component';
+import {ConsumidorComponent} from './consumidores/consumidor/consumidor.component';
+import { AuthGuard } from './shared/guards/auth.guard'
 
 
 const appRoutes: Routes = [
@@ -41,6 +44,14 @@ const appRoutes: Routes = [
     {
         path: 'refeicao/:idRestaurante/:idRefeicao',
         component: RefeicaoComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: ConsumidorComponent
     },
     {
         path: '',

@@ -1,0 +1,41 @@
+<div class="login-bg">
+<div class="login-body">
+    <div class="login-heading">
+        <h1>Login</h1>
+    </div>
+     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div class="login-info">
+        <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm">
+            <input type="text" class="user" name="username" placeholder="Email" [(ngModel)]="model.username" #username="ngModel" required>
+            <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required class="lock" placeholder="Password">
+            <div class="forgot-top-grids">
+                <div class="forgot-grid">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1"><span></span>Lembrar de mim</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="forgot">
+                    <a href="#">Esqueceu a Palavra Passe?</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <button class="btn btn-primary">Login</button>
+            <div class="signup-text">
+                <a [routerLink]="['/signup']">Não Possui uma conta? Crie uma, é fácil.</a>
+            </div>
+            <hr>
+            <h2>or login with</h2>
+            <div class="login-icons">
+                <ul>
+                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

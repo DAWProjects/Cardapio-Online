@@ -9,9 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('../../consumidores/shared/index');
+var router_1 = require('@angular/router');
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(router, consumidorService) {
+        this.router = router;
+        this.consumidorService = consumidorService;
+        if (consumidorService['token']) {
+            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
+        }
     }
+    NavbarComponent.prototype.logout = function () {
+        this.consumidorService.logout();
+        this.router.navigate(['/inicio']);
+    };
     NavbarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -19,7 +30,7 @@ var NavbarComponent = (function () {
             templateUrl: 'navbar.component.html',
             styleUrls: ['navbar.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, index_1.ConsumidorService])
     ], NavbarComponent);
     return NavbarComponent;
 }());
