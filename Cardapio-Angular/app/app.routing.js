@@ -3,10 +3,11 @@ var router_1 = require('@angular/router');
 var index_1 = require('./restaurantes/index');
 var index_2 = require('./restaurantes/restaurante/index');
 var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
-var inicio_component_1 = require("./inicio/inicio.component");
-var refeicao_component_1 = require("./refeicoes/refeicao/refeicao.component");
-var dashboard_restaurante_component_1 = require("./restaurantes/dashboard-restaurante/dashboard-restaurante.component");
-var create_restaurante_component_1 = require("./restaurantes/create-restaurante/create-restaurante.component");
+var inicio_component_1 = require('./inicio/inicio.component');
+var refeicao_component_1 = require('./refeicoes/refeicao/refeicao.component');
+var login_component_1 = require('./login/login.component');
+var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
+var index_3 = require('./restaurantes/dashboard-restaurante/index');
 var appRoutes = [
     {
         path: 'inicio',
@@ -37,11 +38,16 @@ var appRoutes = [
         component: refeicao_component_1.RefeicaoComponent
     },
     {
-        path: 'dashboard-restaurante',
-        component: dashboard_restaurante_component_1.DashBoardRestauranteComponent
-    }, {
-        path: 'create-restaurante',
-        component: create_restaurante_component_1.CreateRestauranteComponent
+        path: 'login',
+        component: login_component_1.LoginComponent
+    },
+    {
+        path: 'signup',
+        component: consumidor_component_1.ConsumidorComponent
+    },
+    {
+        path: 'dashboard-restaurante/:id',
+        component: index_3.DashBoardRestauranteComponent
     },
     {
         path: '',

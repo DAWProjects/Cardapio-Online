@@ -12,25 +12,28 @@
             </li>
             <li><a [routerLink]="['/restaurantes']"> Restaurantes </a></li>
             <li>
-                <div dropdown keyboardNav="true">
-                    <a  href="#" id="dropdown-restaurante" dropdownToggle>
-                        Refeicoes <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
-                        <li role="menuitem"><a class="dropdown-item" href="#">Todas</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Carnes</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Whatever</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Etc</a></li>
-                        <li class="divider dropdown-divider"></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
                 <a href="#">Sobre Nós</a>
             </li>
             <li>
                 <a href="#">Contacte-Nos</a>
+            </li>
+            <li>
+                <div dropdown keyboardNav="true">
+                    <a href="#" id="dropdown-restaurante" dropdownToggle>
+                        <span class="prfil-img"><img src="../../../assets/images/user-icon.png" alt="" width="20px"
+                                                     class="img-rounded"> </span>
+                        <span *ngIf="consumidorService.token">{{user.email}} </span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
+                        <li role="menuitem"><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item" [routerLink]="'/login'">Login</a></li>
+                        <li role="menuitem"><a *ngIf="consumidorService.token" class="dropdown-item" (click)="logout()">Logout</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Definições</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item" [routerLink]="'/signup'">Criar Conta</a></li>
+                    </ul>
+                </div>
             </li>
             <div class="clearfix"></div>
         </ul>

@@ -15,7 +15,7 @@ class RestauranteController extends Controller
     private $aux;
 
     /**
-     * Display a listing of the resource.
+     * Retorna um array Json com todos os restaurantes e o seu menu
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,6 +27,13 @@ class RestauranteController extends Controller
 
     }
 
+
+    /**
+     * Retorna um array Json com os restaurantes e suas refeicoes que tenham
+     * um preco igual ou menor ao parametro
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function refeicaosByPreco($preco)
     {
         $this->aux = $preco;
@@ -38,10 +45,33 @@ class RestauranteController extends Controller
     }
 
 
+
+    /**
+     * Retorna um array Json com os restaurantes(com suas refeicoes)
+     * que no seu nome tenha uma sequencia de caracteres semelhante a string do parametro
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function restaurantesByName($nome)
     {
         $this->aux = $nome;
         $restaurantes = Restaurante::with('refeicaos')->where('nome', 'Like', '%'.$this->aux.'%')->get();
+
+        return response()->json($restaurantes->toArray());
+    }
+
+
+    /**
+     * Retorna um array Json com os restaurantes(com suas refeicoes)
+     * que estejam uma cidade que tenha no seu nome uma sequencia de caracteres semelhante
+     * a string do parametro
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restaurantesByCity($nome)
+    {
+        $this->aux = $nome;
+        $restaurantes = Restaurante::with('refeicaos')->where('cidade', 'Like', '%'.$this->aux.'%')->get();
 
         return response()->json($restaurantes->toArray());
     }

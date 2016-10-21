@@ -1,4 +1,4 @@
-import {Utilizador} from "../../utilizador/shared/utilizador.model";
+import {Utilizador} from "../../utilizadores/shared/utilizador.model";
 
 export class Admin {
     id: number;

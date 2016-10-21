@@ -1,5 +1,5 @@
 import {Estado_Restaurante} from "../../estado-restaurante/shared/estado_restaurante.model";
-import {Utilizador} from "../../utilizador/shared/utilizador.model";
+import {Utilizador} from "../../utilizadores/shared/utilizador.model";
 import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 
 export class Restaurante {
@@ -28,7 +28,7 @@ export class Restaurante {
         this.card_img = card_img;
         this.logo = logo;
         this.lat = lat;
-        this.estado = estado
+        this.estado = estado;
         this.utilizador = utilizador;
     }
 }

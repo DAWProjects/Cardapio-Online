@@ -22,7 +22,7 @@ class CreateConsumidorsTable extends Migration
 //           $table->integer('user_id')->unsigned();
 //           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
 //               ->onUpdate('cascade');
-           $table->integer('estado_id')->unsigned();
+           $table->integer('estado_id')->unsigned()->nullable();
            $table->foreign('estado_id')->references('id')->on('estado_consumidors')->onDelete('cascade')
                ->onUpdate('cascade');
             $table->timestamps();

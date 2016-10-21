@@ -54,9 +54,15 @@ Route::put('todos-restaurantes/{id}', 'RestauranteController@update')->middlewar
 Route::delete('apagar-restaurantes/{id}', 'RestauranteController@delete')->middleware('cors');
 Route::get('refeicaos-by-preco/{preco}', 'RestauranteController@refeicaosByPreco')->middleware('cors');
 Route::get('restaurantes-by-name/{nome}', 'RestauranteController@restaurantesByName')->middleware('cors');
+Route::get('restaurantes-by-city/{cidade}', 'RestauranteController@restaurantesByCity')->middleware('cors');
 
 Route::get('todos-tipos-refeicoes', 'TipoRefeicaoController@index')->middleware('cors');
 Route::post('criar-tipo-refeicoes', 'TipoRefeicaoController@store')->middleware('cors');
 Route::get('ver-tipo-refeicoes/{id}', 'TipoRefeicaoController@show')->middleware('cors');
 Route::put('todos-tipos-refeicoes/{id}', 'TipoRefeicaoController@update')->middleware('cors');
 Route::delete('apagar-tipo-refeicoes/{id}', 'TipoRefeicaoController@delete')->middleware('cors');
+
+Route::group(['prefix' => 'api'], function()
+{
+Route::post('autenticar', 'UserController@autenticar')->middleware('cors');
+});

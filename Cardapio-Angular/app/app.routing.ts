@@ -5,10 +5,12 @@ import {RestaurantesComponent}  from './restaurantes/index';
 import {RestauranteComponent}  from './restaurantes/restaurante/index';
 import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 
-import {InicioComponent} from "./inicio/inicio.component";
-import {RefeicaoComponent} from "./refeicoes/refeicao/refeicao.component";
-import {DashBoardRestauranteComponent} from "./restaurantes/dashboard-restaurante/dashboard-restaurante.component";
-import {CreateRestauranteComponent} from "./restaurantes/create-restaurante/create-restaurante.component";
+import {InicioComponent} from './inicio/inicio.component';
+import {RefeicaoComponent} from './refeicoes/refeicao/refeicao.component';
+import {LoginComponent} from './login/login.component';
+import {ConsumidorComponent} from './consumidores/consumidor/consumidor.component';
+import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index'
+import { AuthGuard } from './shared/guards/auth.guard'
 
 
 const appRoutes: Routes = [
@@ -45,11 +47,16 @@ const appRoutes: Routes = [
         component: RefeicaoComponent
     },
     {
-        path: 'dashboard-restaurante',
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: ConsumidorComponent
+    },
+    {
+        path: 'dashboard-restaurante/:id',
         component: DashBoardRestauranteComponent
-    },{
-        path: 'create-restaurante',
-        component: CreateRestauranteComponent
     },
     {
         path: '',
