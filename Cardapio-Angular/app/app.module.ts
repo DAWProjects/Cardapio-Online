@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
 
 import {
-    Ng2BootstrapModule,
     AlertModule,
     DatepickerModule,
     DropdownModule,
@@ -51,7 +50,6 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
 @NgModule({
     imports: [
         BrowserModule,
-        Ng2BootstrapModule,
         AlertModule,
         DatepickerModule,
         DropdownModule,

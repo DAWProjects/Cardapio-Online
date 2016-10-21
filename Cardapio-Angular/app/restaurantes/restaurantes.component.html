@@ -63,6 +63,11 @@
                     <p><b>{{restaurante.cidade}}</b></p>
                     <p>{{restaurante.av_rua}}</p>
                 </md-card-content>
+                <rating [(ngModel)]="estrelas"
+                        [max]="5"
+                        [readonly]="true"
+                        [float]="true">
+                </rating>
                 <md-card-actions align="start">
                     <button md-mini-fab color="primary" [routerLink]="['/restaurante/'+restaurante.id]">
                         <md-icon class="md-24">remove_red_eye
@@ -72,17 +77,6 @@
                         <md-icon class="md-24">share_arrow</md-icon>
                     </button>
                 </md-card-actions>
-                <rating
-                        [max]="5"
-                        iconClass="fa-star"
-                        fullIcon="★"
-                        emptyIcon="☆"
-                        [readonly]="false"
-                        [disabled]="false"
-                        [required]="true"
-                        [float]="true"
-                        [titles]="['one', 'two', 'three', 'four', 'five']">
-                </rating>
             </md-card>
         </div>
     </div>

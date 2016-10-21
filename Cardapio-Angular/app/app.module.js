@@ -40,7 +40,6 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                ng2_bootstrap_1.Ng2BootstrapModule,
                 ng2_bootstrap_1.AlertModule,
                 ng2_bootstrap_1.DatepickerModule,
                 ng2_bootstrap_1.DropdownModule,

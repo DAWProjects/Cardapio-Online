@@ -16,7 +16,7 @@ var RestaurantesComponent = (function () {
         this.router = router;
         this.restauranteService = restauranteService;
         this.content_loaded = false;
-        this.estrelas = 4;
+        this.estrelas = 4.5;
         this.criterioSelecionado = "nome";
     }
     RestaurantesComponent.prototype.getRestaurantes = function () {
