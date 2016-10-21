@@ -20,7 +20,7 @@
                     <div class="col-md-9" style=" background-color:rgba(1,1,1,0.9);">
                         <nav class="cl-effect-4"  style="padding-bottom: 5px;">
                             <ul >
-                                <a (click)="onOpt('Todas')" (click)="onSelect(tiposrefeicao[0])" [class.sel]>Todas Refeições</a>
+                                <a (click)="onOpt('Todas')" (click)="onTodas('listarRefeicoes')" (click)="onSelect(tiposrefeicao[0])" [class.sel]>Todas Refeições</a>
                                 <a (click)="onOpt('Dia')" [class.sel]>Prato do Dia</a>
                                 <a (click)="onOpt('Recomendadas')" [class.sel]>Recomendadas</a>
                             </ul>
@@ -51,6 +51,7 @@
                     <div *ngFor="let tiporefeicao of tiposrefeicao"
                          [class.selected]="tiporefeicao === selectedTipo"
                          (click)="onSelect(tiporefeicao)"
+                         (click)="onTodas('listarRefeicoes')"
                           class="col-md-2 col-sm-4 col-xs-12">
                         <a class="btn btn-default  tipo" style="width: 100%;">
                             <span>{{tiporefeicao.designacao}}</span>
@@ -60,32 +61,81 @@
 
 
                 <div class="container-fluid">
-                     <div *ngIf="selectedTipo">
-                        <div *ngFor="let refeicao of restaurante.refeicaos">
-                            <div *ngIf="refeicao.tipo.designacao == selectedTipo.designacao" class="col-md-4 col-sm-6">
 
-                                <md-card>
-                                    <div class="agile-menu-grid">
-                                        <a [class.sel]="refeicao === selectedRefeicao"
-                                           [class.selected]="tiporefeicao === selectedTipo"
-                                           (click)="onOpt('Refeicao')"
-                                           (click)="onSelectRefeicao(refeicao)"
-                                           (click)="onSelect(tiporefeicao)">
-                                            <img md-card-mage src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}" alt=""/>
-                                            <div class="agileits-caption">
-                                                <h4>{{refeicao.nome}}</h4>
-                                                <p>MZN {{refeicao.pivot.preco}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </md-card>
+                    <div *ngIf="selectedTodas=='listarRefeicoes'">
+
+                        <div *ngIf="selectedTipo">
+
+                            <div *ngFor="let refeicao of restaurante.refeicaos">
+                                <div *ngIf="refeicao.tipo.designacao == selectedTipo.designacao" class="col-md-4 col-sm-6">
+
+                                    <md-card>
+                                        <div class="agile-menu-grid">
+                                            <a [class.sel]="refeicao === selectedRefeicao"
+                                               [class.selected]="tiporefeicao === selectedTipo"
+                                               (click)="onSelectRefeicao(refeicao)"
+                                               (click)="onTodas('visualizarRefeicao')">
+                                                <!--(click)="onSelect(tiporefeicao)"]>-->
+
+                                                <img md-card-mage src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}" alt=""/>
+                                                <div class="agileits-caption">
+                                                    <h4>{{refeicao.nome}}</h4>
+                                                    <p>MZN {{refeicao.pivot.preco}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </md-card>
 
 
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
+
+
+                    <div *ngIf="selectedTodas=='visualizarRefeicao'">
+                        <div *ngIf="selectedRefeicao" class="left-blog left-single">
+                            <div class="blog-left">
+
+                                <div class="single-left-left">
+                                    <img src="http://localhost/Cardapio-Online/API/public/img/{{selectedRefeicao.pivot.imagem}}"
+                                         alt="IMAGEM-REFEICAO">
+                                </div>
+                                <div class="blog-left-bottom">
+                                    <h1>{{selectedRefeicao.nome}}</h1>
+                                    <p class="lead">Preço: MZN <b>{{selectedRefeicao.pivot.preco}}</b></p>
+
+                                </div>
+
+                                <div class="blog-left-bottom left-bottom">
+                                    <p>
+                                        {{selectedRefeicao.pivot.descricao}}
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="response">
+                                <h3>Comentarios</h3>
+
+                            </div>
+
+                            <div class="opinion">
+                                <h2>Deixe o Seu Comentario</h2>
+                                <form action="#" method="post">
+                                    <textarea name="Message" placeholder="Mensagem" required=""></textarea>
+                                    <input type="submit" value="SUBMETER">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+                <br/>
+                <br/>
 
 
             </div>
@@ -115,46 +165,46 @@
 
 
             <!------------------------------------Detalhes Refeicao------------------------------------->
-            <div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Refeicao'">
+            <!--<div class="col-md-9 restFoods" *ngIf="selectedOpcao=='Refeicao'">-->
 
-                       <div class="container-fluid">
-                            <div *ngIf="selectedRefeicao" class="left-blog left-single">
-                                <div class="blog-left">
+                       <!--<div class="container-fluid">-->
+                            <!--<div *ngIf="selectedRefeicao" class="left-blog left-single">-->
+                                <!--<div class="blog-left">-->
 
-                                    <div class="single-left-left">
-                                        <img src="http://localhost/Cardapio-Online/API/public/img/{{selectedRefeicao.pivot.imagem}}"
-                                             alt="IMAGEM-REFEICAO">
-                                    </div>
-                                    <div class="blog-left-bottom">
-                                        <h1>{{selectedRefeicao.nome}}</h1>
-                                        <p class="lead">Preço: MZN <b>{{selectedRefeicao.pivot.preco}}</b></p>
+                                    <!--<div class="single-left-left">-->
+                                        <!--<img src="http://localhost/Cardapio-Online/API/public/img/{{selectedRefeicao.pivot.imagem}}"-->
+                                             <!--alt="IMAGEM-REFEICAO">-->
+                                    <!--</div>-->
+                                    <!--<div class="blog-left-bottom">-->
+                                        <!--<h1>{{selectedRefeicao.nome}}</h1>-->
+                                        <!--<p class="lead">Preço: MZN <b>{{selectedRefeicao.pivot.preco}}</b></p>-->
 
-                                    </div>
+                                    <!--</div>-->
 
-                                    <div class="blog-left-bottom left-bottom">
-                                        <p>
-                                            {{selectedRefeicao.pivot.descricao}}
-                                        </p>
-                                    </div>
-                                </div>
+                                    <!--<div class="blog-left-bottom left-bottom">-->
+                                        <!--<p>-->
+                                            <!--{{selectedRefeicao.pivot.descricao}}-->
+                                        <!--</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
 
 
-                                <div class="response">
-                                    <h3>Comentarios</h3>
+                                <!--<div class="response">-->
+                                    <!--<h3>Comentarios</h3>-->
 
-                                </div>
+                                <!--</div>-->
 
-                                <div class="opinion">
-                                    <h2>Deixe o Seu Comentario</h2>
-                                    <form action="#" method="post">
-                                        <textarea name="Message" placeholder="Mensagem" required=""></textarea>
-                                        <input type="submit" value="SUBMETER">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                <!--<div class="opinion">-->
+                                    <!--<h2>Deixe o Seu Comentario</h2>-->
+                                    <!--<form action="#" method="post">-->
+                                        <!--<textarea name="Message" placeholder="Mensagem" required=""></textarea>-->
+                                        <!--<input type="submit" value="SUBMETER">-->
+                                    <!--</form>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-            </div>
+            <!--</div>-->
             <!------------------------------------Fim Detalhes Refeicao------------------------------------->
 
 
@@ -193,6 +243,12 @@
 
                         <div class="col-md-12" style="border-bottom: 1px solid #747575">
                             <h4> <span class="glyphicon glyphicon-share-alt">  </span>SIGA-NOS</h4>
+                            <div class="footer-icons">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+
+                            </div>
                         </div>
 
                     </div>

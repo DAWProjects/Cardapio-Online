@@ -41,7 +41,7 @@ Route::put('todos-estados-restaurantes/{id}', 'EstadoRestauranteController@updat
 Route::delete('apagar-estado-restaurantes/{id}', 'EstadoRestauranteController@delete')->middleware('cors');
 
 Route::get('todas-refeicoes', 'RefeicaoController@index')->middleware('cors');
-Route::post('criar-refeicao', 'RefeicaoController@store')->middleware('cors');
+Route::post('criar-refeicoes', 'RefeicaoController@store')->middleware('cors');
 Route::get('ver-refeicoes/{id}', 'RefeicaoController@show')->middleware('cors');
 Route::put('todas-refeicoes/{id}', 'RefeicaoController@update')->middleware('cors');
 Route::delete('apagar-refeicoes/{id}', 'RefeicaoController@delete')->middleware('cors');

@@ -18,6 +18,7 @@ var RestauranteComponent = (function () {
         this.restauranteService = restauranteService;
         this.tiporefeicaoService = tiporefeicaoService;
         this.selectedOpcao = 'Todas';
+        this.selectedTodas = 'listarRefeicoes';
     }
     RestauranteComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -38,14 +39,21 @@ var RestauranteComponent = (function () {
             .then(function (tiposrefeicao) { return _this.tiposrefeicao = tiposrefeicao; })
             .then(function (tiposrefeicao) { return _this.selectedTipo = tiposrefeicao[0]; });
     };
+    //Pra selecionar tipo de refeicao
     RestauranteComponent.prototype.onSelect = function (tiporefeicao) {
         this.selectedTipo = tiporefeicao;
     };
+    //Pra selecionar tipo de refeicao
     RestauranteComponent.prototype.onSelectRefeicao = function (refeicao) {
         this.selectedRefeicao = refeicao;
     };
+    //Pra selecionar uma opcao entre:todas refeicoes, prato do dia, recomendadas
     RestauranteComponent.prototype.onOpt = function (opcao) {
         this.selectedOpcao = opcao;
+    };
+    //Pra selecionar uma opcao entre: listar refeicoes e visualizar refeicao
+    RestauranteComponent.prototype.onTodas = function (todas) {
+        this.selectedTodas = todas;
     };
     __decorate([
         core_1.Input(), 

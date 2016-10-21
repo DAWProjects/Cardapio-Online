@@ -1,0 +1,330 @@
+<script src="../../../assets/js/create-restaurante.component.js"></script>
+
+<div class="container">
+    <br/>
+    <br/>
+    <div class="row">
+        <section>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+                        <li role="presentation" class="active">
+                            <a href="#step1"  aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-info-sign"></i>
+                            </span>
+                            </a>
+                        </li>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2" >
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                            </a>
+                        </li>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                            </a>
+                        </li>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-time"></i>
+                            </span>
+                            </a>
+                        </li>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+                        <li role="presentation" class="disabled">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                            </a>
+                        </li>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+                    </ul>
+                </div>
+
+                <form role="form">
+                    <div class="tab-content">
+
+<!-- ------------------------------------------------Step 1---------------------------------------------------------------------- -->
+
+                        <div class="tab-pane active" role="tabpanel" id="step1" *ngIf="step=='step1'">
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <h2>Aumente o faturamento do seu restaurante</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="title">Cardápio Online é a app para os seus clientes</div>
+                                            <p>São vários de clientes dentro da app. É muita gente para encontrar e apreciar refeições do seu restaurante.</p>
+                                         </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="title">Seu restaurante em todo lugar</div>
+                                            <p>Deixe a divulgação do seu negócio por nossa conta. Actualizamos diariamente as pessoas sobre as suas refeições.</p>
+                                         </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="title">Cardápio Online é a app para os seus cliente</div>
+                                            <p>São vários de clientes dentro da app. É muita gente para encontrar e apreciar refeições do seu restaurante.</p>
+                                         </div>
+
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+
+                                            <div class="green-box">
+                                                <div class="title">É rápido começar a publicar refeições no Cardápio Online</div>
+                                                <p>Em poucos dias seu restaurante irá...</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="box">
+                                                <div class="icon">
+                                                    <img src="http://localhost/Cardapio-Online/API/public/img/create-rest/registo.svg" alt="Cadastro">
+                                                </div>
+                                                <p>
+                                                    Primeiro, você pré-regista o seu restaurante
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="box">
+                                                <div class="icon">
+                                                    <img src="http://localhost/Cardapio-Online/API/public/img/create-rest/contacto.svg" alt="Contato">
+                                                </div>
+                                                <p>
+                                                    Nós entramos em contato e confirmamos o Pré-Registo
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="box">
+                                                <div class="icon">
+                                                    <img src="http://localhost/Cardapio-Online/API/public/img/create-rest/ativacao.svg" alt="Ativacao">
+                                                </div>
+                                                <p>
+                                                    Fazemos a configuração do seu Restaurante no Cardápio Online
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="box">
+                                                <div class="icon">
+                                                    <img src="http://localhost/Cardapio-Online/API/public/img/create-rest/pronto.svg" alt="Pronto">
+                                                </div>
+                                                <p>
+                                                    Pronto! Já pode publicar as Refeições do seu Restaurante.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <br/>
+                                     <ul class="list-inline pull-right">
+                                        <li class="hidden-xs"><button   class="btn btn-primary btn-lg next-step add-project" data-toggle="modal" data-target="#add_project">Continuar</button></li>
+                                     </ul>
+                        </div>
+
+<!-- ------------------------------------------------Fim Step 1---------------------------------------------------------------------- -->
+
+
+
+
+
+
+<!-- ------------------------------------------------Step 2---------------------------------------------------------------------- -->
+                        <div class="tab-pane" role="tabpanel" id="step2" *ngIf="step=='step2'">
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>Dados do Restaurante</h3>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Nome do Restaurante" id="1" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Telefone do Restaurante" id="2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Email do Restaurante" id="3" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                         <select class="form-control">
+                                            <option disabled>Tipo de Cozinha</option>
+                                            <option value="Completa">Completa</option>
+                                            <option value="Pastelaria">Pastelaria</option>
+                                            <option value="Pastelaria">Pastelaria</option>
+                                            <option value="PastelariaePizzaria">Pastelaria e Pizzaria</option>
+                                            <option value="Caseira">Caseira</option>
+                                        </select>
+                                     </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>Endereço do Restaurante</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <select class="form-control">
+                                                <option disabled>Cidade</option>
+                                                <option value="Maputo">Maputo</option>
+                                                <option value="Xai-Xai">Xai-Xai</option>
+                                                <option value="Maxixe">Maxixe</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Bairro" id="5" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8 col-xs-8">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Avenida/Rua" id="6" class="form-control">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4 col-xs-4">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Número" id="7" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Latitude" id="8" class="form-control">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Longitude" id="9" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Mais 1 dado" id="10" class="form-control">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <ul class="list-inline pull-right">
+                                <li><a (click)="onOpt('step1')" class="btn btn-default btn-lg prev-step">Anterior</a></li>
+                                <li><a (click)="onOpt('step3')" class="btn btn-primary btn-lg next-step">Salvar & Continuar</a></li>
+                            </ul>
+                        </div>
+<!-- ------------------------------------------------Fim Step 2---------------------------------------------------------------------- -->
+
+
+
+
+
+<!-- ------------------------------------------------Step 3---------------------------------------------------------------------- -->
+                        <div class="tab-pane" role="tabpanel" id="step3" *ngIf="step=='step3'">
+                            <h3>Step 3</h3>
+                            <p>This is step 3</p>
+                            <ul class="list-inline pull-right">
+                                <li><a [class.selected]="step"  (click)="onOpt('step2')" class="btn btn-default btn-lg prev-step">Anterior</a></li>
+                                <li><a [class.selected]="step" (click)="onOpt('step4')" class="btn btn-primary btn-lg btn-info-full next-step">Salvar & Continuar</a></li>
+                            </ul>
+                        </div>
+<!-- ------------------------------------------------Fim Step 3---------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------Step 4---------------------------------------------------------------------- -->
+                        <div class="tab-pane" role="tabpanel" id="step4" *ngIf="step=='step4'">
+                            <h3>Step 4</h3>
+                            <p>This is step 4</p>
+                            <ul class="list-inline pull-right">
+                                <li><button [class.selected]="step" (click)="onOpt('step3')"type="button" class="btn btn-default btn-lg prev-step">Anterior</button></li>
+                                <li><button type="button" class="btn btn-default btn-lg next-step">Skip</button></li>
+                                <li><button [class.selected]="step" (click)="onOpt('stepFim')" type="button" class="btn btn-primary btn-lg btn-info-full next-step">Salvar & Continuar</button></li>
+                            </ul>
+                        </div>
+<!-- ------------------------------------------------Fim Step 4---------------------------------------------------------------------- -->
+
+
+<!-- ------------------------------------------------Last Step---------------------------------------------------------------------- -->
+                        <div class="tab-pane" role="tabpanel" id="complete" *ngIf="step=='stepFim'">
+                            <h3>Pré-Registo Completo</h3>
+                            <div class="alert alert-success">
+                                <h4><strong>O seu Restaurante foi pré-registado no Sistema com sucesso!</strong> Aguarde Confirmação</h4>
+                            </div>
+                         </div>
+<!-- ------------------------------------------------Fim Last Step---------------------------------------------------------------------- -->
+
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="add_project" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header login-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Pré-Requisitos</h4>
+                </div>
+                <div class="modal-body">
+                    <h5><strong>Para que prosseguir com o Pré-Registo, primeiro deve concordar com os termos:</strong></h5>
+                    <br/>
+                    <div class="checkbox checkbox-success">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">
+                            Meu estabelecimento possui um computador com Sistema Operativo e acesso à internet.
+                        </label>
+                    </div>
+                    <div class="checkbox checkbox-success">
+                        <input id="checkbox2" type="checkbox">
+                        <label for="checkbox2">
+                            Estou ciente a publicação de refeições é de responsabilidade do restaurante
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a (click)="onOpt('step2')" class="continuar" data-dismiss="modal">Continuar</a>
+                 </div>
+            </div>
+
+        </div>
+    </div>
+</div>

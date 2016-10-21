@@ -2,7 +2,7 @@
 var Refeicao = (function () {
     function Refeicao(nome, tipo) {
         this.nome = nome;
-        this.tipo_id = tipo;
+        this.tipo = tipo;
     }
     return Refeicao;
 }());
