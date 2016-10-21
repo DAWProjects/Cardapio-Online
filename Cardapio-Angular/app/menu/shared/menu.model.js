@@ -1,6 +1,3 @@
-/**
- * Created by bernardo on 9/18/16.
- */
 "use strict";
 var Menu = (function () {
     function Menu(descricao, imagem, preco, hora_inicio, hora_fim, restaurante, refeicao) {
@@ -9,8 +6,8 @@ var Menu = (function () {
         this.hora_inicio = hora_inicio;
         this.hora_fim = hora_fim;
         this.imagem = imagem;
-        this.refeicao_id = refeicao;
-        this.restaurante_id = restaurante;
+        this.refeicao = refeicao;
+        this.restaurante = restaurante;
     }
     return Menu;
 }());

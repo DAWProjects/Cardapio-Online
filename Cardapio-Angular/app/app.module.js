@@ -19,15 +19,16 @@ var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
 var index_3 = require('./restaurantes/index');
 var index_4 = require('./restaurantes/restaurante/index');
-var index_5 = require('./restaurantes/dashboard-restaurante/index');
+var index_5 = require('./restaurantes/create-restaurante/index');
+var index_6 = require('./restaurantes/dashboard-restaurante/index');
 var search_result_component_1 = require('./restaurantes/search-result/search-result.component');
-var index_6 = require('./refeicoes/refeicao/index');
+var index_7 = require('./refeicoes/refeicao/index');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
 var refeicao_service_1 = require('./refeicoes/shared/refeicao.service');
 var config_service_1 = require("./shared/utils/config.service");
 var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
-var index_7 = require("./shared/utils/index");
+var index_8 = require("./shared/utils/index");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -59,11 +60,12 @@ var AppModule = (function () {
                 index_1.NavbarComponent,
                 index_3.RestaurantesComponent,
                 index_4.RestauranteComponent,
-                index_5.DashBoardRestauranteComponent,
+                index_5.CreateRestauranteComponent,
+                index_6.DashBoardRestauranteComponent,
                 search_result_component_1.SearchResultRestaurantesComponent,
-                index_6.RefeicaoComponent,
-                index_7.OrderBy,
-                index_7.FilterArrayPipe
+                index_7.RefeicaoComponent,
+                index_8.OrderBy,
+                index_8.FilterArrayPipe
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

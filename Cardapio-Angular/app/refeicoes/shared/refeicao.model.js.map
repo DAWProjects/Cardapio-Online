@@ -1,1 +1,1 @@
-{"version":3,"file":"refeicao.model.js","sourceRoot":"","sources":["refeicao.model.ts"],"names":[],"mappings":";AAKA;IAMI,kBAAY,IAAY,EAAE,IAAY;QAClC,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,OAAO,GAAG,IAAI,CAAC;IACxB,CAAC;IACL,eAAC;AAAD,CAAC,AAVD,IAUC;AAVY,gBAAQ,WAUpB,CAAA"}
+{"version":3,"file":"refeicao.model.js","sourceRoot":"","sources":["refeicao.model.ts"],"names":[],"mappings":";AAEA;IAMI,kBAAY,IAAY,EAAE,IAAkB;QACxC,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACrB,CAAC;IACL,eAAC;AAAD,CAAC,AAVD,IAUC;AAVY,gBAAQ,WAUpB,CAAA"}

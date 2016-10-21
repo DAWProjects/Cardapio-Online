@@ -1,4 +1,4 @@
-<div *ngIf="restaurante" class="container dashboard">
+<div class="container-fluid dashboard" style="margin: 0px;">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
     <div class="mail-box">
 
@@ -6,11 +6,11 @@
         <aside class="sm-side">
             <div class="user-head">
                 <a class="inbox-avatar" href="javascript:;">
-                    <img  width="64" height="60" src="http://localhost/Cardapio-Online/API/public/img/{{restaurante.imagem}}">
+                    <img  width="64" height="60" src="http://localhost/Cardapio-Online/API/public/img/background/RestauranteRuba.jpg">
                 </a>
                 <div class="user-name">
-                    <h4><a href="#">{{restaurante.nome}}</a></h4>
-                    <span><a href="#">{{restaurante.email}}</a></span>
+                    <h4><a href="#">Resturante XYZ</a></h4>
+                    <span><a href="#">restaurantexyz@Gmail.com</a></span>
                 </div>
                 <a class="mail-dropdown pull-right" href="javascript:;">
                     <i class="fa fa-pencil"></i>
@@ -115,7 +115,7 @@
                     <div class="btn-group">
 
                         <div class="inbox-body">
-                            <a href="#myModal1" data-toggle="modal"  class="btn" style="background-color: #00877B; color: white;">
+                            <a href="#myModal" data-toggle="modal"  class="btn" style="background-color: #00877B; color: white;">
                                 <i class="fa fa-plus"></i>
                                 Adicionar
                             </a>
@@ -132,15 +132,17 @@
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">Tipo</label>
                                                     <div class="col-md-10">
-                                                        <select #tipo class="form-control">
+                                                        <select class="form-control">
                                                             <option disabled></option>
-                                                            <option *ngFor="let tiporefeicao of tiposrefeicao" [value]="tiporefeicao.id">{{tiporefeicao.designacao}}</option>
+                                                            <option value="pizza">Pizza</option>
+                                                            <option value="carnes">Carnes</option>
+                                                            <option value="doces">Doces</option>
                                                         </select>
                                                     </div>
                                                 </div><div class="form-group">
                                                     <label class="col-md-2 control-label">Designação</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" placeholder="" #designacao class="form-control">
+                                                        <input type="text" placeholder="" id="inputEmail1" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -165,7 +167,7 @@
 
                                                 <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
-                                                        <button (click)="addNew(designacao.value,tipo.value)" class="btn btn-send" type="submit">Salvar</button>
+                                                        <button class="btn btn-send" type="submit">Salvar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -193,16 +195,16 @@
 
                 <table class="table table-inbox table-hover ">
 
-                    <tbody *ngFor="let refeicao of restaurante.refeicaos">
+                    <tbody>
                     <tr class="unread">
                         <td class="inbox-small-cells">
                             <br/>
                              <input type="checkbox" class="mail-checkbox">
                         </td>
                         <td class="text-left">
-                            <img src="http://localhost/Cardapio-Online/API/public/img/{{refeicao.pivot.imagem}}"  width="75" height="75"  />
+                            <img src="http://localhost/Cardapio-Online/API/public/img/img-rest.jpg"  width="75" height="75"  />
                         </td>
-                         <td class="view-message  dont-show"><h4><b>{{refeicao.nome}}</b></h4><h6>{{refeicao.pivot.descricao}}</h6></td>
+                         <td class="view-message  dont-show"><h4><b>Mozareli</b></h4><h6>Pizza</h6></td>
                         <td class="view-message text-center">
                             <br/>
                             <i class="fa fa-star inbox-started"></i>
@@ -213,7 +215,7 @@
                         </td>
                         <td class="view-message text-center">
                             <br/>
-                            <h5>{{refeicao.pivot.preco}} MT</h5>
+                            <h5>500 MT</h5>
                         </td>
                         <td class="view-message text-right">
                             <br/>
@@ -228,6 +230,75 @@
                             </a>
                         </td>
                      </tr>
+                    <tr class="unread">
+                        <td class="inbox-small-cells">
+                            <br/>
+                             <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="text-left">
+                            <img src="http://localhost/Cardapio-Online/API/public/img/img-rest.jpg"  width="75" height="75"  />
+                        </td>
+                         <td class="view-message  dont-show"><h4><b>Mozareli</b></h4><h6>Pizza</h6></td>
+                        <td class="view-message text-center">
+                            <br/>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </td>
+                        <td class="view-message text-center">
+                            <br/>
+                            <h5>500 MT</h5>
+                        </td>
+                        <td class="view-message text-right">
+                            <br/>
+                            <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a refeição???')">
+                                <span class="glyphicon glyphicon-trash"> </span>
+                            </a>
+                            <a class="btn btn-link btn-md" href="#" >
+                                <span class="glyphicon glyphicon-edit"> </span>
+                            </a>
+                            <a class="btn btn-link btn-md" href="#" >
+                                <span class="fa fa-toggle-on"> </span>
+                            </a>
+                        </td>
+                     </tr>
+                    <tr class="unread">
+                        <td class="inbox-small-cells">
+                            <br/>
+                             <input type="checkbox" class="mail-checkbox">
+                        </td>
+                        <td class="text-left">
+                            <img src="http://localhost/Cardapio-Online/API/public/img/img-rest.jpg"  width="75" height="75"  />
+                        </td>
+                         <td class="view-message  dont-show"><h4><b>Mozareli</b></h4><h6>Pizza</h6></td>
+                        <td class="view-message text-center">
+                            <br/>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star inbox-started"></i>
+                            <i class="fa fa-star"></i>
+                        </td>
+                        <td class="view-message text-center">
+                            <br/>
+                            <h5>500 MT</h5>
+                        </td>
+                        <td class="view-message text-right">
+                            <br/>
+                            <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a refeição???')">
+                                <span class="glyphicon glyphicon-trash"> </span>
+                            </a>
+                            <a class="btn btn-link btn-md" href="#" >
+                                <span class="glyphicon glyphicon-edit"> </span>
+                            </a>
+                            <a class="btn btn-link btn-md" href="#" >
+                                <span class="fa fa-toggle-off"> </span>
+                            </a>
+                        </td>
+                     </tr>
+
                     </tbody>
                 </table>
             </div>

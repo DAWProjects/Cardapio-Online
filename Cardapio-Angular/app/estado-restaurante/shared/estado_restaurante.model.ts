@@ -1,7 +1,3 @@
-/**
- * Created by bernardo on 9/17/16.
- */
-
 export class Estado_Restaurante {
     id: number;
     designacao: string;
