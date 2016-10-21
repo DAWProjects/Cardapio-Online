@@ -9,7 +9,9 @@ import {InicioComponent} from './inicio/inicio.component';
 import {RefeicaoComponent} from './refeicoes/refeicao/refeicao.component';
 import {LoginComponent} from './login/login.component';
 import {ConsumidorComponent} from './consumidores/consumidor/consumidor.component';
-import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index'
+import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index';
+import {CreateRestauranteComponent} from "./restaurantes/create-restaurante/create-restaurante.component";
+
 import { AuthGuard } from './shared/guards/auth.guard'
 
 
@@ -57,6 +59,10 @@ const appRoutes: Routes = [
     {
         path: 'dashboard-restaurante/:id',
         component: DashBoardRestauranteComponent
+    },
+    {
+        path: 'create-restaurante',
+        component: CreateRestauranteComponent
     },
     {
         path: '',

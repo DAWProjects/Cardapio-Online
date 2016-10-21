@@ -16,6 +16,12 @@ var CreateRestauranteComponent = (function () {
         this.route = route;
         this.restauranteService = restauranteService;
         this.step = 'step1';
+        // ----------------------------Image Uploader-------------------------------------
+        this.src = "";
+        this.resizeOptions = {
+            resizeMaxHeight: 128,
+            resizeMaxWidth: 400
+        };
     }
     CreateRestauranteComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -27,6 +33,11 @@ var CreateRestauranteComponent = (function () {
     };
     CreateRestauranteComponent.prototype.onOpt = function (step) {
         this.step = step;
+    };
+    CreateRestauranteComponent.prototype.selected = function (imageResult) {
+        this.src = imageResult.resized
+            && imageResult.resized.dataURL
+            || imageResult.dataURL;
     };
     __decorate([
         core_1.Input(), 

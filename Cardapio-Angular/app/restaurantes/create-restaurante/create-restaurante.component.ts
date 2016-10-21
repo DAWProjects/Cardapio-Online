@@ -4,6 +4,8 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 import {Restaurante, RestauranteService} from "../shared/index";
 
+import { ImageResult, ResizeOptions } from 'ng2-imageupload';
+
 
 @Component({
     moduleId: module.id,
@@ -39,6 +41,18 @@ export class CreateRestauranteComponent implements OnInit{
         this.step = step;
     }
 
+// ----------------------------Image Uploader-------------------------------------
+    src: string = "";
+    resizeOptions: ResizeOptions = {
+        resizeMaxHeight: 128,
+        resizeMaxWidth: 400
+    };
+
+    selected(imageResult: ImageResult) {
+        this.src = imageResult.resized
+            && imageResult.resized.dataURL
+            || imageResult.dataURL;
+    }
 }
 
 

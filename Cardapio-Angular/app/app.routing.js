@@ -8,6 +8,7 @@ var refeicao_component_1 = require('./refeicoes/refeicao/refeicao.component');
 var login_component_1 = require('./login/login.component');
 var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
 var index_3 = require('./restaurantes/dashboard-restaurante/index');
+var create_restaurante_component_1 = require("./restaurantes/create-restaurante/create-restaurante.component");
 var appRoutes = [
     {
         path: 'inicio',
@@ -48,6 +49,10 @@ var appRoutes = [
     {
         path: 'dashboard-restaurante/:id',
         component: index_3.DashBoardRestauranteComponent
+    },
+    {
+        path: 'create-restaurante',
+        component: create_restaurante_component_1.CreateRestauranteComponent
     },
     {
         path: '',

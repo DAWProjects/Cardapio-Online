@@ -1,6 +1,7 @@
 import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
+import { ImageUploadModule } from 'ng2-imageupload';
 
 import {
     AlertModule,
@@ -27,6 +28,7 @@ import {AppComponent}   from './app.component';
 
 import {RestaurantesComponent} from './restaurantes/index';
 import {RestauranteComponent} from './restaurantes/restaurante/index';
+import {CreateRestauranteComponent} from './restaurantes/create-restaurante/index';
 import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index';
 import {SearchResultRestaurantesComponent} from './restaurantes/search-result/search-result.component';
 import {LoginComponent} from './login/login.component';
@@ -60,7 +62,9 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         routing,
         MaterialModule.forRoot(),
         AgmCoreModule.forRoot(),
-        RatingModule
+        RatingModule,
+
+        ImageUploadModule
     ],
     providers: [
         RestauranteService,
@@ -76,6 +80,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
+        CreateRestauranteComponent,
         DashBoardRestauranteComponent,
         SearchResultRestaurantesComponent,
         LoginComponent,

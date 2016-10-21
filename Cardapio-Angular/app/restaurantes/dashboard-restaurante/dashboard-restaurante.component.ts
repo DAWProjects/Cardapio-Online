@@ -62,17 +62,17 @@ export class DashBoardRestauranteComponent implements OnInit{
         window.history.back();
     };
 
-    addNew(designacao: string, tipo: number, descricao: string, imagem: string, preco: number, hora_inicio: any, hora_fim: any, restaurante: number, refeicao:number): void {
-        this.creating = true;
-        if (designacao == '')
-            return;
-
-        this.refeicao = new Refeicao(designacao, tipo);
-        this.menu = new Menu(descricao, imagem, preco, hora_inicio, hora_fim, restaurante, refeicao);
-
-        this.refeicaoService.create(this.refeicao);
-        //this.menuService.create(this.menu);
-    }
+    // addNew(designacao: string, tipo: number, descricao: string, imagem: string, preco: number, hora_inicio: any, hora_fim: any, restaurante: number, refeicao:number): void {
+    //     this.creating = true;
+    //     if (designacao == '')
+    //         return;
+    //
+    //     this.refeicao = new Refeicao(designacao, tipo);
+    //     this.menu = new Menu(descricao, imagem, preco, hora_inicio, hora_fim, restaurante, refeicao);
+    //
+    //     this.refeicaoService.create(this.refeicao);
+    //     //this.menuService.create(this.menu);
+    // }
 
 }
 
