@@ -8,6 +8,8 @@ import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 import {RefeicaoService} from "../../refeicoes/shared/refeicao.service";
 import {Menu} from "../../menu/shared/menu.model";
 
+import { ImageResult, ResizeOptions } from 'ng2-imageupload';
+
 
 @Component({
     moduleId: module.id,
@@ -73,6 +75,20 @@ export class DashBoardRestauranteComponent implements OnInit{
     //     this.refeicaoService.create(this.refeicao);
     //     //this.menuService.create(this.menu);
     // }
+
+
+// ----------------------------Image Uploader-------------------------------------
+    src: string = "";
+    resizeOptions: ResizeOptions = {
+        resizeMaxHeight: 128,
+        resizeMaxWidth: 400
+    };
+
+    selected(imageResult: ImageResult) {
+        this.src = imageResult.resized
+            && imageResult.resized.dataURL
+            || imageResult.dataURL;
+    }
 
 }
 

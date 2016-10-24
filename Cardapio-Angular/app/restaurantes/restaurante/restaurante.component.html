@@ -17,12 +17,12 @@
 
                 <div class="container" >
 
-                    <div class="col-md-9" style=" background-color:rgba(1,1,1,0.9);">
+                    <div class="col-md-9 opcoes">
                         <nav class="cl-effect-4"  style="padding-bottom: 5px;">
                             <ul >
-                                <a (click)="onOpt('Todas')" (click)="onTodas('listarRefeicoes')" (click)="onSelect(tiposrefeicao[0])" [class.sel]>Todas Refeições</a>
-                                <a (click)="onOpt('Dia')" [class.sel]>Prato do Dia</a>
-                                <a (click)="onOpt('Recomendadas')" [class.sel]>Recomendadas</a>
+                                <a (click)="onOpt('Todas')" (click)="onTodas('listarRefeicoes')" (click)="onSelect(tiposrefeicao[0])">Todas Refeições</a>
+                                <a (click)="onOpt('Dia')">Prato do Dia</a>
+                                <a (click)="onOpt('Recomendadas')">Recomendadas</a>
                             </ul>
                         </nav>
                     </div>
@@ -190,7 +190,26 @@
                             <h4>{{restaurante.numero}}</h4>
                          </div>
                         <div class="col-md-12 mapa">
-                             <h4><span class="glyphicon glyphicon-phone"> </span>{{restaurante.telefone}}</h4>
+
+                            <h4>Ligue-nos Já
+                                <a class="btn mini btn-success" href="#myModal" data-toggle="modal">
+                                    <i class="fa fa-phone"></i>
+                                </a>
+                            </h4>
+                            <!-- Modal -->
+                            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                            <h4 class="modal-title">Ligue-nos Já</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4><span class="glyphicon glyphicon-phone"> </span>{{restaurante.telefone}}</h4>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!
                         </div>
 
                         <div class="col-md-12 mapa">
@@ -198,7 +217,7 @@
                         </div>
                         <hr/>
 
-                        <div class="col-md-12" style="border-bottom: 1px solid #747575">
+                        <div class="col-md-12">
                             <h4> <span class="glyphicon glyphicon-share-alt">  </span>SIGA-NOS</h4>
                             <div class="footer-icons">
                                 <a href="#"><i class="fa fa-facebook"></i></a>

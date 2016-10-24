@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require("../shared/index");
+var utilizador_model_1 = require("../../utilizadores/shared/utilizador.model");
 var CreateRestauranteComponent = (function () {
     function CreateRestauranteComponent(route, restauranteService) {
         this.route = route;
         this.restauranteService = restauranteService;
         this.step = 'step1';
+        this.creating = false;
         // ----------------------------Image Uploader-------------------------------------
         this.src = "";
         this.resizeOptions = {
@@ -38,6 +40,13 @@ var CreateRestauranteComponent = (function () {
         this.src = imageResult.resized
             && imageResult.resized.dataURL
             || imageResult.dataURL;
+    };
+    CreateRestauranteComponent.prototype.add = function (nome, numero, telefone, username, email, password, av_rua, card_img, logo, estado, lat, long) {
+        this.creating = true;
+        this.utilizador = new utilizador_model_1.Utilizador(username, email, password);
+        this.restaurante = new index_1.Restaurante(nome, numero, telefone, email, av_rua, card_img, logo, estado, lat, long, this.utilizador);
+        // this.utilizadorService.create(this.utilizador);
+        this.restauranteService.create(this.restaurante);
     };
     __decorate([
         core_1.Input(), 

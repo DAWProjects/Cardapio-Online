@@ -445,11 +445,11 @@
                                 <h2>Selecione a Imagem do seu Restaurante</h2>
 
                                 <div class="col-md-8 col-md-offset-2 col-sm-12 imagem">
-                                    <img [src]="src" [hidden]="!src" width="100%" height="230" ><br/><br/>
+                                    <img [src]="src" [hidden]="!src" width="100%" height="230"><br/><br/>
                                  </div>
 
                                 <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                     <input type="file" image-upload (imageSelected)="selected($event)" [resizeOptions]="resizeOptions">
+                                     <input type="file" image-upload (imageSelected)="selected($event)" [resizeOptions]="resizeOptions" accept="image/*" capture>
                                 </div>
 
                             </div>
@@ -474,7 +474,14 @@
                             <ul class="list-inline pull-right">
                                 <li><button [class.selected]="step" (click)="onOpt('step3')"type="button" class="btn btn-default btn-lg prev-step">Anterior</button></li>
                                 <li><button type="button" class="btn btn-default btn-lg next-step">Skip</button></li>
-                                <li><button [class.selected]="step" (click)="onOpt('stepFim')" type="button" class="btn btn-primary btn-lg btn-info-full next-step">Salvar & Continuar</button></li>
+                                <li>
+                                    <button [class.selected]="step"
+                                            (click)="onOpt('stepFim')"
+                                            (click)="add('stepFim')"
+                                            type="button"
+                                            class="btn btn-primary btn-lg btn-info-full next-step">
+                                        Salvar & Continuar
+                                    </button></li>
                             </ul>
                         </div>
 <!-- ------------------------------------------------Fim Step 4---------------------------------------------------------------------- -->

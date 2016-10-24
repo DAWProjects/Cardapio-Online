@@ -16,7 +16,9 @@
     background-color:rgba(1,1,1,0.6);
     margin: 0px;
  }
-
+.opcoes{
+    background-color:rgba(1,1,1,0.9);
+}
 .restFoods{
     border: 1px solid #d6d4d4;
      -webkit-box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
@@ -81,7 +83,7 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus{
     outline: none;
 }
 
@@ -128,10 +130,35 @@ nav a:focus {
 
 .aside{
     background-color: #dddede;
+    /*background-color:rgba(1,1,1,0.9);*/
+    /*color: white;*/
 }
 .mapa{
     border-bottom: 1px solid #bdbebe;
 }
 
 
+.footer-icons{
+    margin-top: 15px;
+}
 
+.footer-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:  #33383b;
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: red;
+    text-align: center;
+    line-height: 35px;
+
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+.modal-header{
+    background-color: #00877b;
+    color: white;
+}

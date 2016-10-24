@@ -19,15 +19,15 @@
 
             <ul class="inbox-nav inbox-divider">
                 <li class="active">
-                    <a (click)="onOpt('Refeicoes')"><i class="fa fa-delicious"></i> Refeições</a>
+                    <a (click)="onOpt('Refeicoes')"[class.active]><i class="fa fa-delicious"></i> Refeições</a>
 
                 </li>
                 <li>
-                    <a (click)="onOpt('Bebidas')"><i class="fa fa-beer"></i> Bebidas</a>
+                    <a (click)="onOpt('Bebidas')" [class.active]><i class="fa fa-beer"></i> Bebidas</a>
 
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-calendar-times-o"></i> Horários</a>
+                    <a href="#"><i class="fa fa-calendar-times-o" [class.active]></i> Horários</a>
 
                 </li>
                 <li >
@@ -69,6 +69,9 @@
 
         <!-- //////////////////////////////////////////  right side  ///////////////////////////////////// -->
 
+
+        <!-- /////////////////////////////////////////  refeicoes  ///////////////////////////////////// -->
+
         <aside class="lg-side" *ngIf="selectedOpcao=='Refeicoes'">
             <div class="inbox-head">
                 <h3>Refeições</h3>
@@ -93,8 +96,7 @@
                                 <i class="fa fa-angle-down "></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"> Nenhuma</a></li>
-                                <li><a href="#"> Activas</a></li>
+                                 <li><a href="#"> Activas</a></li>
                                 <li><a href="#"> Desactivadas</a></li>
                             </ul>
                         </div>
@@ -120,7 +122,7 @@
                                 Adicionar
                             </a>
                             <!-- Modal -->
-                            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal1" class="modal fade" style="display: none;">
+                            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -146,17 +148,31 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Preço</label>
-                                                    <div class="col-lg-10">
-                                                        <input type="number" placeholder="" id="cc" class="form-control">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label">Preço</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="number" placeholder="" id="cc" class="form-control">
+                                                            </div>
+                                                            <label class="col-lg-2 control-label">Imagem</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="file"  class="form-control" image-upload (imageSelected)="selected($event)" [resizeOptions]="resizeOptions" accept="image/*" capture>
+                                                            </div>
+                                                        </div>
+
+
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Imagem</label>
-                                                    <div class="col-lg-10">
-                                                        <input type="file"  class="form-control" accept="image/*" capture>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="col-lg-12">
+                                                            <img [src]="src" [hidden]="!src" width="100%" height="100" ><br/><br/>
+                                                        </div>
+
                                                     </div>
+
+
                                                 </div>
+
 
                                                 <div class="form-group">
                                                     <label class="col-lg-2 control-label">Descrição</label>
@@ -303,207 +319,214 @@
                 </table>
             </div>
         </aside>
+
+        <!-- /////////////////////////////////////////  refeicoes  ///////////////////////////////////// -->
+
+
+        <!-- /////////////////////////////////////////  bebidas  ///////////////////////////////////// -->
+
         <aside class="lg-side" *ngIf="selectedOpcao=='Bebidas'">
-            <div class="inbox-head">
-                <h3>Bebidas</h3>
-                <form action="#" class="pull-right position">
-                    <div class="input-append">
-                        <input type="text" class="sr-input" placeholder="Procurar Bebida">
-                        <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
+                    <div class="inbox-head">
+                        <h3>Bebidas</h3>
+                        <form action="#" class="pull-right position">
+                            <div class="input-append">
+                                <input type="text" class="sr-input" placeholder="Procurar Bebida">
+                                <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
 
 
 
 
-            <div class="inbox-body">
-                <div class="mail-option">
-                    <div class="chk-all">
-                        <input type="checkbox" class="mail-checkbox mail-group-checkbox">
-                        <div class="btn-group">
-                            <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
-                                Todas
-                                <i class="fa fa-angle-down "></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"> Nenhuma</a></li>
-                                <li><a href="#"> Activas</a></li>
-                                <li><a href="#"> Desactivadas</a></li>
+                    <div class="inbox-body">
+                        <div class="mail-option">
+                            <div class="chk-all">
+                                <input type="checkbox" class="mail-checkbox mail-group-checkbox">
+                                <div class="btn-group">
+                                    <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
+                                        Todas
+                                        <i class="fa fa-angle-down "></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                         <li><a href="#"> Activas</a></li>
+                                        <li><a href="#"> Desactivadas</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="btn-group hidden-phone">
+                                <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
+                                    Mais
+                                    <i class="fa fa-angle-down "></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-toggle-on"></i> Activar</a></li>
+                                    <li><a href="#"><i class="fa fa-toggle-off"></i> Desactivar</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+
+                                <div class="inbox-body">
+                                    <a href="#myModal1" data-toggle="modal"  class="btn" style="background-color: #00877B; color: white;">
+                                        <i class="fa fa-plus"></i>
+                                        Adicionar
+                                    </a>
+                                    <!-- Modal -->
+                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal1" class="modal fade" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                                    <h4 class="modal-title">Nova Bebida</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form role="form" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Tipo</label>
+                                                            <div class="col-md-10">
+                                                                <select class="form-control">
+                                                                    <option disabled></option>
+                                                                    <option value="pizza">Whisk</option>
+                                                                    <option value="carnes">Vodka</option>
+                                                                    <option value="doces">Vinho</option>
+                                                                    <option value="doces">Cerveja</option>
+                                                                </select>
+                                                            </div>
+                                                        </div><div class="form-group">
+                                                            <label class="col-md-2 control-label">Designação</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" placeholder=""   class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label">Preço</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="number" placeholder=""   class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label">Imagem</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="file"  class="form-control" accept="image/*" capture>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label">Descrição</label>
+                                                            <div class="col-lg-10">
+                                                                <textarea rows="3" cols="30" class="form-control"   name=""></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-lg-offset-2 col-lg-10">
+                                                                <button class="btn btn-send" type="submit">Salvar</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                </div>
+
+                            </div>
+
+                            <ul class="unstyled inbox-pagination">
+                                <li><span>1-10 de 24</span></li>
+                                <li>
+                                    <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+                                </li>
+                                <li>
+                                    <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
+                                </li>
                             </ul>
                         </div>
+
+
+
+
+                        <table class="table table-inbox table-hover ">
+
+                            <tbody>
+                            <tr class="unread">
+                                <td class="inbox-small-cells">
+                                    <br/>
+                                     <input type="checkbox" class="mail-checkbox">
+                                </td>
+                                <td class="text-left">
+                                    <img src="http://localhost/Cardapio-Online/API/public/img/img-rest-3.jpg"  width="75" height="75"  />
+                                </td>
+                                 <td class="view-message  dont-show"><h4><b>Cadao</b></h4><h6>Vinho</h6></td>
+                                <td class="view-message text-center">
+                                    <br/>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star"></i>
+                                </td>
+                                <td class="view-message text-center">
+                                    <br/>
+                                    <h5>1000 MT</h5>
+                                </td>
+                                <td class="view-message text-right">
+                                    <br/>
+                                    <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a bebida???')">
+                                        <span class="glyphicon glyphicon-trash"> </span>
+                                    </a>
+                                    <a class="btn btn-link btn-md" href="#" >
+                                        <span class="glyphicon glyphicon-edit"> </span>
+                                    </a>
+                                    <a class="btn btn-link btn-md" href="#" >
+                                        <span class="fa fa-toggle-off"> </span>
+                                    </a>
+                                </td>
+                             </tr>
+                            <tr class="unread">
+                                <td class="inbox-small-cells">
+                                    <br/>
+                                     <input type="checkbox" class="mail-checkbox">
+                                </td>
+                                <td class="text-left">
+                                    <img src="http://localhost/Cardapio-Online/API/public/img/img-rest-3.jpg"  width="75" height="75"  />
+                                </td>
+                                 <td class="view-message  dont-show"><h4><b>Cadao</b></h4><h6>Vinho</h6></td>
+                                <td class="view-message text-center">
+                                    <br/>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star inbox-started"></i>
+                                    <i class="fa fa-star"></i>
+                                </td>
+                                <td class="view-message text-center">
+                                    <br/>
+                                    <h5>1000 MT</h5>
+                                </td>
+                                <td class="view-message text-right">
+                                    <br/>
+                                    <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a bebida???')">
+                                        <span class="glyphicon glyphicon-trash"> </span>
+                                    </a>
+                                    <a class="btn btn-link btn-md" href="#" >
+                                        <span class="glyphicon glyphicon-edit"> </span>
+                                    </a>
+                                    <a class="btn btn-link btn-md" href="#" >
+                                        <span class="fa fa-toggle-off"> </span>
+                                    </a>
+                                </td>
+                             </tr>
+
+                            </tbody>
+                        </table>
                     </div>
-
-                    <div class="btn-group hidden-phone">
-                        <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
-                            Mais
-                            <i class="fa fa-angle-down "></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-toggle-on"></i> Activar</a></li>
-                            <li><a href="#"><i class="fa fa-toggle-off"></i> Desactivar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-
-                        <div class="inbox-body">
-                            <a href="#myModal" data-toggle="modal"  class="btn" style="background-color: #00877B; color: white;">
-                                <i class="fa fa-plus"></i>
-                                Adicionar
-                            </a>
-                            <!-- Modal -->
-                            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                            <h4 class="modal-title">Nova Bebida</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form role="form" class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Tipo</label>
-                                                    <div class="col-md-10">
-                                                        <select class="form-control">
-                                                            <option disabled></option>
-                                                            <option value="pizza">Whisk</option>
-                                                            <option value="carnes">Vodka</option>
-                                                            <option value="doces">Vinho</option>
-                                                            <option value="doces">Cerveja</option>
-                                                        </select>
-                                                    </div>
-                                                </div><div class="form-group">
-                                                    <label class="col-md-2 control-label">Designação</label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" placeholder=""   class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Preço</label>
-                                                    <div class="col-lg-10">
-                                                        <input type="number" placeholder=""   class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Imagem</label>
-                                                    <div class="col-lg-10">
-                                                        <input type="file"  class="form-control" accept="image/*" capture>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Descrição</label>
-                                                    <div class="col-lg-10">
-                                                        <textarea rows="3" cols="30" class="form-control"   name=""></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-lg-offset-2 col-lg-10">
-                                                        <button class="btn btn-send" type="submit">Salvar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                        </div>
-
-                    </div>
-
-                    <ul class="unstyled inbox-pagination">
-                        <li><span>1-10 de 24</span></li>
-                        <li>
-                            <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
-                        </li>
-                        <li>
-                            <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
-
-
-
-
-                <table class="table table-inbox table-hover ">
-
-                    <tbody>
-                    <tr class="unread">
-                        <td class="inbox-small-cells">
-                            <br/>
-                             <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="text-left">
-                            <img src="http://localhost/Cardapio-Online/API/public/img/img-rest-3.jpg"  width="75" height="75"  />
-                        </td>
-                         <td class="view-message  dont-show"><h4><b>Cadao</b></h4><h6>Vinho</h6></td>
-                        <td class="view-message text-center">
-                            <br/>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star"></i>
-                        </td>
-                        <td class="view-message text-center">
-                            <br/>
-                            <h5>1000 MT</h5>
-                        </td>
-                        <td class="view-message text-right">
-                            <br/>
-                            <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a bebida???')">
-                                <span class="glyphicon glyphicon-trash"> </span>
-                            </a>
-                            <a class="btn btn-link btn-md" href="#" >
-                                <span class="glyphicon glyphicon-edit"> </span>
-                            </a>
-                            <a class="btn btn-link btn-md" href="#" >
-                                <span class="fa fa-toggle-off"> </span>
-                            </a>
-                        </td>
-                     </tr>
-                    <tr class="unread">
-                        <td class="inbox-small-cells">
-                            <br/>
-                             <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="text-left">
-                            <img src="http://localhost/Cardapio-Online/API/public/img/img-rest-3.jpg"  width="75" height="75"  />
-                        </td>
-                         <td class="view-message  dont-show"><h4><b>Cadao</b></h4><h6>Vinho</h6></td>
-                        <td class="view-message text-center">
-                            <br/>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star inbox-started"></i>
-                            <i class="fa fa-star"></i>
-                        </td>
-                        <td class="view-message text-center">
-                            <br/>
-                            <h5>1000 MT</h5>
-                        </td>
-                        <td class="view-message text-right">
-                            <br/>
-                            <a class="btn btn-link btn-md" href="#" onclick="return confirm('Deseja realmente remover a bebida???')">
-                                <span class="glyphicon glyphicon-trash"> </span>
-                            </a>
-                            <a class="btn btn-link btn-md" href="#" >
-                                <span class="glyphicon glyphicon-edit"> </span>
-                            </a>
-                            <a class="btn btn-link btn-md" href="#" >
-                                <span class="fa fa-toggle-off"> </span>
-                            </a>
-                        </td>
-                     </tr>
-
-                    </tbody>
-                </table>
-            </div>
         </aside>
+        <!-- /////////////////////////////////////////  bebidas  ///////////////////////////////////// -->
+
 
         <!-- /////////////////////////////////////////  right side  ///////////////////////////////////// -->
 
