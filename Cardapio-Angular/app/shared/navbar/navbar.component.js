@@ -15,6 +15,7 @@ var NavbarComponent = (function () {
     function NavbarComponent(router, consumidorService) {
         this.router = router;
         this.consumidorService = consumidorService;
+        this.isCollapsed = true;
         if (consumidorService['token']) {
             this.user = JSON.parse(localStorage.getItem('user-autenticado'));
         }
@@ -23,6 +24,15 @@ var NavbarComponent = (function () {
         this.consumidorService.logout();
         this.router.navigate(['/inicio']);
     };
+    NavbarComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(NavbarComponent.prototype, "menuIcon", {
+        get: function () {
+            return this.isCollapsed ? '☰' : '✖';
+        },
+        enumerable: true,
+        configurable: true
+    });
     NavbarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

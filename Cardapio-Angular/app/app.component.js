@@ -9,11 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var consumidor_service_1 = require("./consumidores/shared/consumidor.service");
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
-    function AppComponent(viewContainerRef) {
-        // You need this small hack in order to catch application root view container ref
-        this.viewContainerRef = viewContainerRef;
+    function AppComponent(router, consumidorService) {
+        this.router = router;
+        this.consumidorService = consumidorService;
+        this.isCollapsed = true;
+        if (consumidorService['token']) {
+            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
+        }
     }
+    AppComponent.prototype.logout = function () {
+        this.consumidorService.logout();
+        this.router.navigate(['/inicio']);
+    };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -21,7 +31,7 @@ var AppComponent = (function () {
             templateUrl: 'app.component.html',
             styleUrls: ['app.component.css']
         }), 
-        __metadata('design:paramtypes', [core_1.ViewContainerRef])
+        __metadata('design:paramtypes', [router_1.Router, consumidor_service_1.ConsumidorService])
     ], AppComponent);
     return AppComponent;
 }());

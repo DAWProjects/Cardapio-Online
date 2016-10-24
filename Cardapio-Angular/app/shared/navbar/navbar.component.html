@@ -1,20 +1,26 @@
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1">
+    <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+            (click)="start.open()" aria-expanded="false">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
     </button>
-    <img class="img-card" src="http://localhost/Cardapio-Online/API/public/img/logo.png" style="width: 200px; height: auto; padding-top:20px; padding-left: 20px; margin-bottom: -60px;">
-
+    <a (click)="isCollapsed = true" [routerLink]="['/inicio']">
+        <img class="img-card" src="http://localhost/Cardapio-Online/API/public/img/logo.png">
+    </a>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li class="active">
-                <a [routerLink]="['/inicio']" class="glyphicon glyphicon-home"></a>
+                <a [routerLink]="['/inicio']" routerLinkActive="active" class="glyphicon glyphicon-home"></a>
             </li>
-            <li><a [routerLink]="['/restaurantes']"> Restaurantes </a></li>
-            <li>
+            <li (click)="isCollapsed = true"><a [routerLink]="['/restaurantes']" routerLinkActive="active">
+                Restaurantes </a></li>
+            <li (click)="isCollapsed = true">
                 <a href="#">Sobre Nós</a>
             </li>
-            <li>
+            <li (click)="isCollapsed = true">
                 <a href="#">Contacte-Nos</a>
             </li>
             <li>
@@ -27,11 +33,14 @@
                     </a>
                     <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
                         <li role="menuitem"><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item" [routerLink]="'/login'">Login</a></li>
-                        <li role="menuitem"><a *ngIf="consumidorService.token" class="dropdown-item" (click)="logout()">Logout</a></li>
+                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
+                                               [routerLink]="'/login'">Login</a></li>
+                        <li role="menuitem"><a *ngIf="consumidorService.token" class="dropdown-item" (click)="logout()">Logout</a>
+                        </li>
                         <li role="menuitem"><a class="dropdown-item" href="#">Definições</a></li>
                         <li class="divider dropdown-divider"></li>
-                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item" [routerLink]="'/signup'">Criar Conta</a></li>
+                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
+                                               [routerLink]="'/signup'">Criar Conta</a></li>
                     </ul>
                 </div>
             </li>

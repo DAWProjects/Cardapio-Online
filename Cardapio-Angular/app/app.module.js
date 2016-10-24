@@ -16,6 +16,7 @@ var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var ng2_rating_1 = require('ng2-rating');
 var core_2 = require('angular2-google-maps/core');
 var index_1 = require('./shared/navbar/index');
+var footer_component_1 = require('./shared/footer/footer.component');
 var index_2 = require('./inicio/index');
 var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
@@ -76,7 +77,8 @@ var AppModule = (function () {
                 consumidor_component_1.ConsumidorComponent,
                 index_7.RefeicaoComponent,
                 index_9.OrderBy,
-                index_9.FilterArrayPipe
+                index_9.FilterArrayPipe,
+                footer_component_1.FooterComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
