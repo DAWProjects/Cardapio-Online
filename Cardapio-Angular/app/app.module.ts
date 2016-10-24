@@ -19,6 +19,7 @@ import {
 } from 'angular2-google-maps/core';
 
 import {NavbarComponent} from './shared/navbar/index';
+import {FooterComponent} from './shared/footer/footer.component';
 
 import {InicioComponent} from './inicio/index'
 
@@ -87,7 +88,8 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         ConsumidorComponent,
         RefeicaoComponent,
         OrderBy,
-        FilterArrayPipe
+        FilterArrayPipe,
+        FooterComponent
     ],
     bootstrap: [AppComponent]
 })

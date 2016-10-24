@@ -17,6 +17,8 @@ export class RestaurantesComponent implements OnInit {
     public content_loaded: boolean = false;
     public estrelas : number = 4.5;
     public criterioSelecionado: string = "nome";
+    public currentPage:number = 1;
+    public rows: any[];
 
     constructor(private router: Router, private restauranteService: RestauranteService) {
     }
@@ -40,4 +42,10 @@ export class RestaurantesComponent implements OnInit {
     changeCriteria(criteria: string): void{
         this.criterioSelecionado = criteria;
     }
+
+    public pageChanged(event:any):void {
+        console.log('Page changed to: ' + event.page);
+        console.log('Number items per page: ' + event.itemsPerPage);
+        this.currentPage = event.page;
+    };
 }

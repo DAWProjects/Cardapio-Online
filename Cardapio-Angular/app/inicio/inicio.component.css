@@ -15,9 +15,14 @@
 
 }
 
+.card-search{
+    margin-bottom: 30px;
+    background-color: rgba(227, 227, 227, 0.3);
+}
+
 .search-form {
-    height: 230px;
     background-color: rgba(1, 1, 1, 0.7);
+
 
 }
 

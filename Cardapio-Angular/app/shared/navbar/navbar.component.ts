@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Consumidor, ConsumidorService} from '../../consumidores/shared/index';
 import {Router} from '@angular/router';
 import {Utilizador} from "../../utilizadores/shared/utilizador.model";
@@ -10,7 +10,9 @@ import {Utilizador} from "../../utilizadores/shared/utilizador.model";
     styleUrls: ['navbar.component.css']
 
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+
+    isCollapsed = true;
 
     user: Utilizador;
 
@@ -27,5 +29,12 @@ export class NavbarComponent {
         this.router.navigate(['/inicio']);
     }
 
+    ngOnInit(): void {
+
+    }
+
+    public get menuIcon(): string {
+        return this.isCollapsed ? '☰' : '✖';
+    }
 
 }

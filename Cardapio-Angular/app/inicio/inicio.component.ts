@@ -13,6 +13,8 @@ import {RestauranteService, Restaurante} from "../restaurantes/shared/index";
 export class InicioComponent implements OnInit {
 
 
+    public criterioBusca : string;
+    public valor : any;
     restaurantes: Restaurante[];
     public content_loaded: boolean = false;
 
@@ -28,10 +30,11 @@ export class InicioComponent implements OnInit {
 
     ngOnInit(): void {
         this.getRestaurantes();
+        this.criterioBusca = 'preco';
     }
 
 
-    buscar(criterio: any,valor: any): void {
+    buscar(criterio: string,valor: any): void {
 
         this.router.navigate(['/restaurantes',criterio,valor]);
 

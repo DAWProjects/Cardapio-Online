@@ -18,6 +18,7 @@ var RestaurantesComponent = (function () {
         this.content_loaded = false;
         this.estrelas = 4.5;
         this.criterioSelecionado = "nome";
+        this.currentPage = 1;
     }
     RestaurantesComponent.prototype.getRestaurantes = function () {
         var _this = this;
@@ -34,6 +35,12 @@ var RestaurantesComponent = (function () {
     RestaurantesComponent.prototype.changeCriteria = function (criteria) {
         this.criterioSelecionado = criteria;
     };
+    RestaurantesComponent.prototype.pageChanged = function (event) {
+        console.log('Page changed to: ' + event.page);
+        console.log('Number items per page: ' + event.itemsPerPage);
+        this.currentPage = event.page;
+    };
+    ;
     RestaurantesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
