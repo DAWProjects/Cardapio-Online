@@ -55,6 +55,14 @@ md-card .img-card {
     margin-bottom: 20px;
 }
 
+md-toolbar{
+    background-color: #009688;
+}
+
+.btn-search{
+    background-color: #009688;;
+}
+
 
 @media (max-width: 991px) {
     .agileits-caption-restaurante {
