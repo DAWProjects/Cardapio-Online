@@ -7,28 +7,8 @@
         </div>
         <div class="col-sm-8 col-md-4 col-md-offset-4 col-sm-offset-2 search-form">
 
-
-            <!--<div class="in-gp-tb">-->
-            <!--<div class="input-group">-->
-            <!--<input class="form-control" placeholder="Procura..." #search>-->
-            <!--<span class="input-group-btn">-->
-            <!--<button (click)="buscar(criterio.value,search.value)"  class="btn btn-primary" type="button">Go!</button>-->
-            <!--</span>-->
-            <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
-
-            <!--<div class="input-group">-->
-            <!--<select class="form-control" #criterio>-->
-            <!--<option value="" disabled>Buscar Por</option>-->
-            <!--<option value="preco" selected>Valor (MZN)</option>-->
-            <!--<option value="nome">Nome do Restaurante</option>-->
-            <!--<option value="cidade">Cidade</option>-->
-            <!--</select>-->
-            <!--</div>-->
-            <!--</div>&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
-
-
             <md-card class="card-search">
-                <md-toolbar color="primary">Buscar Restaurantes</md-toolbar>
+                <md-toolbar >Buscar Restaurantes</md-toolbar>
                 <md-card-content>
                         <table style="width: 100%" cellspacing="0">
                             <tr>
@@ -46,7 +26,7 @@
                                 </md-radio-group>
                             </tr>
                         </table>
-                        <button md-raised-button class="md-primary" (click)="buscar(criterioBusca,valor.value)">
+                        <button md-raised-button class="btn-search" (click)="buscar(criterioBusca,valor.value)">
                             Go
                         </button>
                 </md-card-content>
