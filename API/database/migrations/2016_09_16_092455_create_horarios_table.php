@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdministradorsTable extends Migration
+class CreateHorariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateAdministradorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('administradors', function (Blueprint $table) {
+        Schema::create('horarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->char('sexo');
-            $table->string('telefone');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->string('dia_semana');
+            $table->dateTime('hora_abertura');
+            $table->dateTime('hora_fecho');
+            $table->integer('restaurante_id')->unsigned();
+            $table->foreign('restaurante_id')->references('id')->on('restaurantes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->softDeletes();
             $table->timestamps();
-
         });
     }
 
@@ -35,6 +33,6 @@ class CreateAdministradorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administradors');
+        Schema::dropIfExists('horarios');
     }
 }

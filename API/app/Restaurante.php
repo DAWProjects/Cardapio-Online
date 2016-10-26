@@ -21,6 +21,7 @@ class Restaurante extends Model
         'logo_img',
         'imagem',
         'estado_id',
+        'user_id'
     ];
 
     public function estado(){
@@ -29,6 +30,10 @@ class Restaurante extends Model
 
     public function user(){
         return $this->hasOne('App\User');
+    }
+
+    public function horarios(){
+        return $this->hasMany('App\Horario');
     }
 
     public function refeicaos(){

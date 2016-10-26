@@ -27,7 +27,12 @@ class CreateRestaurantesTable extends Migration
             $table->string('logo_img');
             $table->string('imagem')->nullable();
             $table->integer('estado_id')->unsigned();
-            $table->foreign('estado_id')->references('id')->on('estado_restaurantes')->onDelete('cascade')
+            $table->foreign('estado_id')->references('id')->on('estado_restaurantes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();

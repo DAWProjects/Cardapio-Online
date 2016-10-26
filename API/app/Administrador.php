@@ -11,7 +11,8 @@ class Administrador extends Model
     protected $fillable = [
         'nome',
         'sexo',
-        'telefone'
+        'telefone',
+        'user_id'
     ];
 
     public function user(){
