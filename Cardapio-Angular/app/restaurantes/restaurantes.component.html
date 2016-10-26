@@ -18,13 +18,14 @@
                 <div class="tab-pane active" id="sort_tab">
                     <div class="col-md-6 col-md-offset-3 in-gp-tl">
                         <form>
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control input-filtro"
-                                       placeholder="{{criterioSelecionado}}" [(ngModel)]="search">
-                                <span class="input-group-btn">
-									<button class="btn btn-primary" type="button">Go!</button>
-                            </span>
-                            </div>
+                            <table style="width: 100%" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <md-input style="width: 100%" name="search" class="input-filtro"
+                                                  placeholder="{{criterioSelecionado}}" [(ngModel)]="search"></md-input>
+                                    </td>
+                                </tr>
+                            </table>
                             <div class="input-group">
                                 <select class="form-control" #criterio>
                                     <option value="+">Ascendente</option>
