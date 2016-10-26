@@ -165,6 +165,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Yajra\Oci8\Oci8ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -181,8 +183,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class,
-
     ],
 
     /*

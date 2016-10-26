@@ -12,7 +12,8 @@ class Consumidor extends Model
         'nome',
         'sexo',
         'telefone',
-        'estado_id'
+        'estado_id',
+        'user_id'
     ];
 
     public function estado(){
