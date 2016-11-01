@@ -77,6 +77,13 @@ var RestauranteService = (function () {
             .then(function (restaurantes) { return restaurantes.find(function (restaurante) { return restaurante.id === id; }); });
     };
     ;
+    RestauranteService.prototype.getRestaurantesProximos = function () {
+        return this.http.get(this.restaurantesUrl + "restaurantes-proximos")
+            .toPromise()
+            .then(function (response) { return response.json().restaurantes; })
+            .catch(this.handleError);
+    };
+    ;
     RestauranteService.prototype.handleError = function (error) {
         console.error('Ocorreu um erro', error); // for demo purposes only
         return Promise.reject(error.message || error);
