@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +78,8 @@ $api->version('v1', function ($api) {
     $api->post('auth/recovery', 'App\HTTP\Controllers\AuthController@recovery');
     $api->post('auth/reset', 'App\HTTP\Controllers\AuthController@reset');
 
+
+
     // example of protected route
     $api->get('protected', ['middleware' => ['api.auth'], function () {
         return \App\User::all();
@@ -90,11 +93,5 @@ $api->version('v1', function ($api) {
 });
 
 
-//Route::get('/api/protected', array('middleware' => 'auth0.jwt', function() {
-//    return "Hello " . Auth0::jwtuser()->name;
-//}));
-//
-//Route::group(['prefix' => 'api'], function()
-//{
-//    Route::post('autenticar', 'AuthenticateController@login')->middleware('cors');
-//});
+Route::get('auth/facebook', 'AuthController@redirectToProvider')->middleware('cors');
+Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback')->middleware('cors');

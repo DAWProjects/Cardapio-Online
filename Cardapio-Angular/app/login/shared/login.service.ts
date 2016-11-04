@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 import {ConfigService} from "../../shared/utils/config.service";
 import {Consumidor} from "../../consumidores/shared/consumidor.model";
+import {Utilizador} from "../../utilizadores/shared/utilizador.model";
 
 
 @Injectable()
@@ -61,6 +62,35 @@ export class LoginService {
     }
 
 
+    oauthlogin(): Observable<Utilizador> {
+
+        return this.http.get(`http://localhost:8000/auth/facebook`)
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let token = response.json() && response.json().token;
+                let user: Utilizador = response.json().user;
+
+                if (token) {
+                    // set token property
+                    this.token = token;
+
+                    // store email and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('user-autenticado', JSON.stringify({
+                        user: user,
+                        token: token
+                    }));
+
+                    // return t user to indicate successful login
+                    return user
+                } else {
+                    // return null to indicate failed login
+                    return null;
+                }
+            });
+
+    }
+
+
     signup(consumidor: Consumidor, email, password): Observable<boolean> {
         const url = `${this.loginUrl + 'api/auth/signup'}`;
         this.headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
@@ -103,4 +133,6 @@ export class LoginService {
         console.error('Ocorreu um erro', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
+
+
 }

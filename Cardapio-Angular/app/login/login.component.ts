@@ -14,13 +14,15 @@ export class LoginComponent {
 
     model: any = {};
     error: string = '';
+    loading = false;
     user: Utilizador;
 
     constructor(private router: Router,
                 private loginService: LoginService) {
     }
 
-    login() {
+    login(): void {
+        this.loading = true;
         this.loginService.login(this.model.username, this.model.password)
             .subscribe(resultado => {
                 if (resultado == 'consumidor') {
@@ -28,7 +30,27 @@ export class LoginComponent {
                 }
                 else if (resultado == 'restaurante') {
                     this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                    this.router.navigate(['/dashboard-restaurante', this.user.id])
+                    this.router.navigate(['/dashboard-restaurante', this.user.id]);
+                    this.loading = false;
+                }
+                else {
+                    //
+                    // TODO
+                    // Pegar o erro do server
+                    this.loading = false;
+                }
+            });
+
+
+    }
+
+
+    loginFacebook(): void {
+        this.loginService.oauthlogin()
+            .subscribe(resultado => {
+                if (resultado !== null) {
+                    this.router.navigate(['/inicio'])
+                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
                 }
                 else {
                     //
@@ -36,10 +58,7 @@ export class LoginComponent {
                     // Pegar o erro do server
                 }
             });
-
     }
-
-
 
 
     voltar(): void {
