@@ -18,12 +18,6 @@ var CreateRestauranteComponent = (function () {
         this.restauranteService = restauranteService;
         this.step = 'step1';
         this.creating = false;
-        // ismeridian:boolean = true;
-        // ismeridian1:boolean = true;
-        this.isEnabled = true;
-        this.isEnabled1 = true;
-        this.horaAbertura = new Date("October 13, 2014 08:00:00");
-        this.horaFecho = new Date("October 13, 2014 22:00:00");
         // ----------------------------Image Uploader-------------------------------------
         this.src = "";
         this.resizeOptions = {
@@ -47,33 +41,6 @@ var CreateRestauranteComponent = (function () {
             && imageResult.resized.dataURL
             || imageResult.dataURL;
     };
-    // ------------------Time Picker-------------------
-    //------------Aberto-------------------
-    // public toggleModeA():void {
-    //     this.ismeridian = !this.ismeridian;
-    // };
-    CreateRestauranteComponent.prototype.setAberto = function () {
-        var d = new Date("October 13, 2014 08:00:00");
-        this.horaAbertura = d;
-    };
-    ;
-    CreateRestauranteComponent.prototype.changedAberto = function () {
-        console.log('Time changed to: ' + this.horaAbertura);
-    };
-    ;
-    //------------Fechado-----------------
-    // public toggleModeF():void {
-    //     this.ismeridian1 = !this.ismeridian1;
-    // };
-    CreateRestauranteComponent.prototype.setFechado = function () {
-        var d = new Date("October 13, 2014 22:00:00");
-        this.horaFecho = d;
-    };
-    ;
-    CreateRestauranteComponent.prototype.changedFechado = function () {
-        console.log('Time changed to: ' + this.horaFecho);
-    };
-    ;
     CreateRestauranteComponent.prototype.add = function (nome, numero, telefone, username, email, password, av_rua, card_img, logo, estado, lat, long) {
         this.creating = true;
         this.utilizador = new utilizador_model_1.Utilizador(username, email, password);

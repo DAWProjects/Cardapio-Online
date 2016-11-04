@@ -39,6 +39,10 @@ span.card-title{
     font-weight: 700;
 }
 
+.img-card{
+    cursor: pointer;
+}
+
 .filters{
     margin-top: 100px;
 }

@@ -18,6 +18,7 @@
 .card-search{
     margin-bottom: 30px;
     background-color: rgba(227, 227, 227, 0.3);
+    color: white;
 }
 
 .search-form {
@@ -31,7 +32,7 @@
 }
 
 .sebm-google-map-container {
-    height: 300px;
+    height: 600px;
 }
 
 .progress-loader{

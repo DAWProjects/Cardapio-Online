@@ -11,20 +11,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var index_1 = require('../shared/index');
 var router_1 = require('@angular/router');
+var login_service_1 = require("../../login/shared/login.service");
 var ConsumidorComponent = (function () {
-    function ConsumidorComponent(router, consumidorService) {
+    function ConsumidorComponent(router, consumidorService, loginService) {
         this.router = router;
         this.consumidorService = consumidorService;
+        this.loginService = loginService;
     }
+    ConsumidorComponent.prototype.ngOnInit = function () {
+    };
     ConsumidorComponent.prototype.add = function (nome, email, password, telefone) {
+        this.consumidor = new index_1.Consumidor(nome, "M", telefone);
+        this.signup(this.consumidor, email, password);
+    };
+    ConsumidorComponent.prototype.signup = function (consumidor, email, password) {
         var _this = this;
-        this.consumidor = new index_1.Consumidor(nome, "M", telefone, email, password);
-        this.consumidorService.create(this.consumidor).then(function () { return _this.voltar(); });
+        this.loginService.signup(consumidor, email, password)
+            .subscribe(function (resultado) {
+            if (resultado !== null) {
+                _this.voltar();
+            }
+            else {
+            }
+        });
     };
     ConsumidorComponent.prototype.voltar = function () {
         this.router.navigate(['/inicio']);
-    };
-    ConsumidorComponent.prototype.ngOnInit = function () {
     };
     ConsumidorComponent = __decorate([
         core_1.Component({
@@ -33,7 +45,7 @@ var ConsumidorComponent = (function () {
             templateUrl: 'consumidor.component.html',
             styleUrls: ['consumidor.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, index_1.ConsumidorService])
+        __metadata('design:paramtypes', [router_1.Router, index_1.ConsumidorService, login_service_1.LoginService])
     ], ConsumidorComponent);
     return ConsumidorComponent;
 }());

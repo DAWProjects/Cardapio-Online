@@ -19,29 +19,29 @@
             <li><a [routerLink]="['/restaurantes']" routerLinkActive="active">
                 Restaurantes </a></li>
             <li>
-                <a href="#">Sobre Nós</a>
+                <a (click)="sidenav.close()">Sobre Nós</a>
             </li>
             <li>
-                <a href="#">Contacte-Nos</a>
+                <a (click)="sidenav.close()">Contacte-Nos</a>
             </li>
             <li>
                 <div dropdown keyboardNav="true">
                     <a href="#" id="dropdown-restaurant" dropdownToggle>
                         <span class="prfil-img"><img src="../../../assets/images/user-icon.png" alt="" width="20px"
                                                      class="img-rounded"> </span>
-                        <span *ngIf="consumidorService.token">{{user.email}} </span>
+                        <span *ngIf="loginService.token">{{user.email}} </span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurant">
                         <li role="menuitem"><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
+                        <li role="menuitem"><a *ngIf="!loginService.token" class="dropdown-item"
                                                [routerLink]="'/login'">Login</a></li>
-                        <li role="menuitem"><a *ngIf="consumidorService.token" class="dropdown-item"
+                        <li role="menuitem"><a *ngIf="loginService.token" class="dropdown-item"
                                                (click)="logout()">Logout</a>
                         </li>
                         <li role="menuitem"><a class="dropdown-item" href="#">Definições</a></li>
                         <li class="divider dropdown-divider"></li>
-                        <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
+                        <li role="menuitem"><a *ngIf="!loginService.token" class="dropdown-item"
                                                [routerLink]="'/signup'">Criar Conta</a></li>
                     </ul>
                 </div>
@@ -67,7 +67,8 @@
         <div class="side-nav">
             <ul class="" style="list-style: none">
                 <li class="active">
-                    <a [routerLink]="['/inicio']" routerLinkActive="active" (click)="sidenav.close()" class="glyphicon glyphicon-home"></a>
+                    <a [routerLink]="['/inicio']" routerLinkActive="active" (click)="sidenav.close()"
+                       class="glyphicon glyphicon-home"></a>
                 </li>
                 <li (click)="sidenav.close()"><a [routerLink]="['/restaurantes']" routerLinkActive="active">
                     Restaurantes </a></li>
@@ -82,20 +83,23 @@
                         <a href="#" id="dropdown-restaurante" dropdownToggle>
                         <span class="prfil-img"><img src="../../../assets/images/user-icon.png" alt="" width="20px"
                                                      class="img-rounded"> </span>
-                            <span *ngIf="consumidorService.token">{{user.email}} </span>
+                            <span *ngIf="loginService.token">{{user.email}} </span>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="dropdown-restaurante">
-                            <li role="menuitem"><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
-                                                   [routerLink]="'/login'">Login</a></li>
-                            <li role="menuitem"><a *ngIf="consumidorService.token" class="dropdown-item"
-                                                   (click)="logout()">Logout</a>
+                            <li role="menuitem"><a class="dropdown-item" href="#" (click)="sidenav.close()">Perfil</a>
                             </li>
-                            <li role="menuitem"><a class="dropdown-item" href="#">Definições</a></li>
+                            <li role="menuitem"><a *ngIf="!loginService.token" class="dropdown-item"
+                                                   [routerLink]="'/login'" (click)="sidenav.close()">Login</a></li>
+                            <li role="menuitem"><a *ngIf="loginService.token" class="dropdown-item"
+                                                   (click)="logout()" (click)="sidenav.close()">Logout</a>
+                            </li>
+                            <li role="menuitem"><a class="dropdown-item" href="#"
+                                                   (click)="sidenav.close()">Definições</a></li>
                             <li class="divider dropdown-divider"></li>
-                            <li role="menuitem"><a *ngIf="!consumidorService.token" class="dropdown-item"
-                                                   [routerLink]="'/signup'">Criar Conta</a></li>
+                            <li role="menuitem"><a *ngIf="!loginService.token" class="dropdown-item"
+                                                   [routerLink]="'/signup'" (click)="sidenav.close()">Criar Conta</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
