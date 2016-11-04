@@ -246,7 +246,7 @@
                 </div>
 
                 <form role="form">
-                    <div class="tab-content">
+                    <div class="tab-content container">
 
 <!-- ------------------------------------------------Step 1---------------------------------------------------------------------- -->
 
@@ -333,7 +333,7 @@
 
                                      <br/>
                                      <ul class="list-inline pull-right">
-                                        <li class="hidden-xs"><button   class="btn btn-primary btn-lg next-step add-project" data-toggle="modal" data-target="#add_project">Continuar</button></li>
+                                         <li><a (click)="onOpt('step2')" class="btn btn-primary btn-lg next-step">Continuar</a></li>
                                      </ul>
                         </div>
 
@@ -468,21 +468,91 @@
 
 
 <!-- ------------------------------------------------Step 4---------------------------------------------------------------------- -->
-                        <div class="tab-pane active" role="tabpanel" id="step4" *ngIf="step=='step4'">
-                            <h3>Step 4</h3>
-                            <p>This is step 4</p>
-                            <ul class="list-inline pull-right">
-                                <li><button [class.selected]="step" (click)="onOpt('step3')"type="button" class="btn btn-default btn-lg prev-step">Anterior</button></li>
-                                <li><button type="button" class="btn btn-default btn-lg next-step">Skip</button></li>
-                                <li>
-                                    <button [class.selected]="step"
-                                            (click)="onOpt('stepFim')"
-                                            (click)="add('stepFim')"
-                                            type="button"
-                                            class="btn btn-primary btn-lg btn-info-full next-step">
-                                        Salvar & Continuar
-                                    </button></li>
-                            </ul>
+                        <div class="tab-pane active container" role="tabpanel" id="step4" *ngIf="step=='step4'">
+
+                            <div class="col-md-10 col-md-offset-1 col-sm-12 table-responsive">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Dia da Semana</th>
+                                            <th>
+                                                Hora de Abertura
+                                                <button type="button" class="btn btn-primary btn-sm" (click)="setAberto()"> Definir para 8:00 AM</button>
+                                            </th>
+                                            <th>
+                                                Hora de Fecho
+                                                <button type="button" class="btn btn-primary btn-sm" (click)="setFechado()"> Definir para 10:00 PM</button>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                               <h4 style="margin-top: 70px;">Segunda Feira</h4>
+                                            </td>
+                                            <td>
+                                                <timepicker name="aaa"  [(ngModel)]="horaAbertura" (change)="changedAberto()"
+                                                             [readonlyInput]="!isEnabled">
+                                                </timepicker>
+                                            </td>
+                                            <td>
+                                                <timepicker name="aaa1" [(ngModel)]="horaFecho" (change)="changedFechado()"
+                                                             [readonlyInput]="!isEnabled">
+                                                </timepicker>
+                                            </td>
+                                            <td>
+                                                <button  style="margin-top: 70px;" type="button" class="btn btn-info" (click)="isEnabled=!isEnabled">Activar / Desactivar</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                               <h4 style="margin-top: 70px;">Terça Feira</h4>
+                                            </td>
+                                            <td>
+                                                <timepicker name="aaa"  [(ngModel)]="horaAbertura" (change)="changedAberto()"
+                                                             [readonlyInput]="!isEnabled1">
+                                                </timepicker>
+                                            </td>
+                                            <td>
+                                                <timepicker name="aaa1" [(ngModel)]="horaFecho" (change)="changedFechado()"
+                                                             [readonlyInput]="!isEnabled1">
+                                                </timepicker>
+                                            </td>
+                                            <td>
+                                                <button  style="margin-top: 70px;" type="button" class="btn btn-info" (click)="isEnabled=!isEnabled1">Activar / Desactivar</button>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+
+                            <div class="col-md-10 col-xs-12">
+                                <ul class="list-inline pull-right">
+                                    <!--<li><button type="button" class="btn btn-info" (click)="toggleMode()">12H / 24H</button></li>-->
+                                    <li><button [class.selected]="step" (click)="onOpt('step3')"type="button" class="btn btn-default btn-lg prev-step">Anterior</button></li>
+                                    <li><button type="button" class="btn btn-default btn-lg next-step">Skip</button></li>
+                                    <li>
+                                        <button [class.selected]="step"
+                                                (click)="onOpt('stepFim')"
+                                                (click)="add('stepFim')"
+                                                type="button"
+                                                class="btn btn-primary btn-lg btn-info-full next-step">
+                                            Salvar & Continuar
+                                        </button></li>
+                                </ul>
+
+                            </div>
+
                         </div>
 <!-- ------------------------------------------------Fim Step 4---------------------------------------------------------------------- -->
 

@@ -22,11 +22,8 @@ export class RestauranteComponent implements OnInit {
     tiposrefeicao: TipoRefeicao[];
     selectedTipo: TipoRefeicao;
     selectedRefeicao: Refeicao;
-    selectedOpcao: string = 'Todas';
-    selectedTodas: string = 'listarRefeicoes';
-    public content_loaded: boolean = false;
-    public estrelas: number = 4.5;
-    public rate: number = 0;
+    selectedOpcao: string='Todas';
+    selectedTodas: string='listarRefeicoes'
 
     constructor(private route: ActivatedRoute,
                 private restauranteService: RestauranteService,
@@ -37,8 +34,7 @@ export class RestauranteComponent implements OnInit {
         this.route.params.forEach((params: Params) => {
             let id = +params['id'];
             this.restauranteService.getRestaurante(id)
-                .then(restaurante => this.restaurante = restaurante)
-                .then(() => this.content_loaded = true);
+                .then(restaurante => this.restaurante = restaurante);
         });
         this.getTiposrefeicao();
     }
@@ -64,12 +60,12 @@ export class RestauranteComponent implements OnInit {
     }
 
     //Pra selecionar uma opcao entre:todas refeicoes, prato do dia, recomendadas
-    onOpt(opcao: string): void {
+    onOpt(opcao: string): void{
         this.selectedOpcao = opcao;
     }
 
     //Pra selecionar uma opcao entre: listar refeicoes e visualizar refeicao
-    onTodas(todas: string): void {
+    onTodas(todas: string): void{
         this.selectedTodas = todas;
     }
 

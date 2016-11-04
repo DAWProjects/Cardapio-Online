@@ -27,6 +27,15 @@ export class CreateRestauranteComponent implements OnInit{
     step: string='step1';
     creating:boolean=false;
 
+    // ismeridian:boolean = true;
+    // ismeridian1:boolean = true;
+    isEnabled:boolean = true;
+    isEnabled1:boolean = true;
+    horaAbertura:Date = new Date("October 13, 2014 08:00:00");
+    horaFecho:Date = new Date("October 13, 2014 22:00:00");
+
+    dia:string;
+
 
     constructor(private route: ActivatedRoute,
                 private restauranteService: RestauranteService ) {
@@ -58,8 +67,42 @@ export class CreateRestauranteComponent implements OnInit{
             || imageResult.dataURL;
     }
 
+// ------------------Time Picker-------------------
 
-    add( nome: string, numero: number, telefone: number, username: string, email: string, password: string, av_rua: string, card_img: string, logo: string, estado: Estado_Restaurante, lat:number, long:number): void {
+
+    //------------Aberto-------------------
+    // public toggleModeA():void {
+    //     this.ismeridian = !this.ismeridian;
+    // };
+
+    public setAberto():void {
+
+        let d = new Date("October 13, 2014 08:00:00");
+        this.horaAbertura = d;
+    };
+
+    public changedAberto():void {
+        console.log('Time changed to: ' + this.horaAbertura);
+    };
+
+    //------------Fechado-----------------
+    // public toggleModeF():void {
+    //     this.ismeridian1 = !this.ismeridian1;
+    // };
+
+    public setFechado():void {
+        let d = new Date("October 13, 2014 22:00:00");
+        this.horaFecho = d;
+     };
+
+    public changedFechado():void {
+        console.log('Time changed to: ' + this.horaFecho);
+    };
+
+
+
+
+    public add( nome: string, numero: number, telefone: number, username: string, email: string, password: string, av_rua: string, card_img: string, logo: string, estado: Estado_Restaurante, lat:number, long:number): void {
          this.creating = true;
 
         this.utilizador= new Utilizador(username, email, password);

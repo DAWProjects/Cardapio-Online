@@ -82,14 +82,6 @@ export class RestauranteService {
             .then(restaurantes => restaurantes.find(restaurante => restaurante.id === id));
     };
 
-
-    getRestaurantesProximos(): Promise<Restaurante[]> {
-        return this.http.get(this.restaurantesUrl + `restaurantes-proximos`)
-            .toPromise()
-            .then(response => response.json().restaurantes as Restaurante[])
-            .catch(this.handleError);
-    };
-
     private handleError(error: any): Promise<any> {
         console.error('Ocorreu um erro', error); // for demo purposes only
         return Promise.reject(error.message || error);
