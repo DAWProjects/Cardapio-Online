@@ -54,7 +54,8 @@ var AppModule = (function () {
                 material_1.MaterialModule.forRoot(),
                 core_2.AgmCoreModule.forRoot(),
                 ng2_rating_1.RatingModule,
-                ng2_imageupload_1.ImageUploadModule
+                ng2_imageupload_1.ImageUploadModule,
+                ng2_bootstrap_1.TimepickerModule
             ],
             providers: [
                 restaurante_service_1.RestauranteService,

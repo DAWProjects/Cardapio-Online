@@ -3,13 +3,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
 import { ImageUploadModule } from 'ng2-imageupload';
 
+
 import {
     AlertModule,
     DatepickerModule,
     DropdownModule,
     ModalModule,
     TabsModule,
-    PaginationModule
+    PaginationModule,
+    TimepickerModule
 } from 'ng2-bootstrap/ng2-bootstrap';
 
 import {RatingModule} from 'ng2-rating';
@@ -65,7 +67,8 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         AgmCoreModule.forRoot(),
         RatingModule,
 
-        ImageUploadModule
+        ImageUploadModule,
+        TimepickerModule
     ],
     providers: [
         RestauranteService,
