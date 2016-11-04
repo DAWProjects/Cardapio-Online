@@ -3,27 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Restaurante;
-use App\GeoIP;
+use App\Menu;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class RestauranteController extends Controller
 {
+
+
     private $aux;
-    private $geo;
-
-    /**
-     * RestauranteController constructor.
-     * inicializa a Geolocalizacao
-     */
-    public function __construct()
-    {
-        $this->geo = new GeoIP;
-        $this->geo->request();
-
-    }
-
 
     /**
      * Retorna um array Json com todos os restaurantes e o seu menu
@@ -35,18 +24,6 @@ class RestauranteController extends Controller
 
         $restaurantes = Restaurante::with('refeicaos.tipo')->orderBy('id', 'asc')->get();
         return response()->json($restaurantes->toArray());
-
-    }
-
-    public function proximos()
-    {
-
-
-        $restaurantes = Restaurante::with('refeicaos')->where('cidade', 'Like', $this->geo->city)->get();
-
-        $restaurantes = $restaurantes->toArray();
-
-        return response()->json(compact('restaurantes'));
 
     }
 
@@ -68,6 +45,7 @@ class RestauranteController extends Controller
     }
 
 
+
     /**
      * Retorna um array Json com os restaurantes(com suas refeicoes)
      * que no seu nome tenha uma sequencia de caracteres semelhante a string do parametro
@@ -77,7 +55,7 @@ class RestauranteController extends Controller
     public function restaurantesByName($nome)
     {
         $this->aux = $nome;
-        $restaurantes = Restaurante::with('refeicaos')->where('nome', 'Like', '%' . $this->aux . '%')->get();
+        $restaurantes = Restaurante::with('refeicaos')->where('nome', 'Like', '%'.$this->aux.'%')->get();
 
         return response()->json($restaurantes->toArray());
     }
@@ -93,7 +71,7 @@ class RestauranteController extends Controller
     public function restaurantesByCity($nome)
     {
         $this->aux = $nome;
-        $restaurantes = Restaurante::with('refeicaos')->where('cidade', 'Like', '%' . $this->aux . '%')->get();
+        $restaurantes = Restaurante::with('refeicaos')->where('cidade', 'Like', '%'.$this->aux.'%')->get();
 
         return response()->json($restaurantes->toArray());
     }

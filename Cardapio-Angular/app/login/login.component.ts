@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
+import {Consumidor, ConsumidorService} from '../consumidores/shared/index';
 import {Router} from '@angular/router';
-import {Utilizador} from "../utilizadores/shared/utilizador.model";
-import {LoginService} from "./shared/login.service";
 
 @Component({
     moduleId: module.id,
@@ -12,38 +11,24 @@ import {LoginService} from "./shared/login.service";
 })
 export class LoginComponent {
 
-    model: any = {};
-    error: string = '';
-    user: Utilizador;
+  model: any = {};
+  error : string = '';
+  consumidor: Consumidor;
 
-    constructor(private router: Router,
-                private loginService: LoginService) {
-    }
+  constructor(private router: Router,
+              private consumidorService: ConsumidorService) {
+  }
 
-    login() {
-        this.loginService.login(this.model.username, this.model.password)
-            .subscribe(resultado => {
-                if (resultado == 'consumidor') {
-                    this.router.navigate(['/inicio'])
-                }
-                else if (resultado == 'restaurante') {
-                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                    this.router.navigate(['/dashboard-restaurante', this.user.id])
-                }
-                else {
-                    //
-                    // TODO
-                    // Pegar o erro do server
+  login(){
+    this.consumidorService.login(this.model.username, this.model.password)
+            .subscribe(result => {
+                if (result === true) {
+                    this.router.navigate(['/inicio']);
+                } else {
+                    this.error = 'Username or password incorrecto';
                 }
             });
 
-    }
-
-
-
-
-    voltar(): void {
-        this.router.navigate(['/inicio']);
-    }
+  }
 
 }

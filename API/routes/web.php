@@ -55,7 +55,6 @@ Route::delete('apagar-restaurantes/{id}', 'RestauranteController@delete')->middl
 Route::get('refeicaos-by-preco/{preco}', 'RestauranteController@refeicaosByPreco')->middleware('cors');
 Route::get('restaurantes-by-name/{nome}', 'RestauranteController@restaurantesByName')->middleware('cors');
 Route::get('restaurantes-by-city/{cidade}', 'RestauranteController@restaurantesByCity')->middleware('cors');
-Route::get('restaurantes-proximos', 'RestauranteController@proximos')->middleware('cors');
 
 Route::get('todos-tipos-refeicoes', 'TipoRefeicaoController@index')->middleware('cors');
 Route::post('criar-tipo-refeicoes', 'TipoRefeicaoController@store')->middleware('cors');
@@ -63,38 +62,7 @@ Route::get('ver-tipo-refeicoes/{id}', 'TipoRefeicaoController@show')->middleware
 Route::put('todos-tipos-refeicoes/{id}', 'TipoRefeicaoController@update')->middleware('cors');
 Route::delete('apagar-tipo-refeicoes/{id}', 'TipoRefeicaoController@delete')->middleware('cors');
 
-Route::get('user-location', 'GeoIpController@location')->middleware('cors');
-
-
-
-
-$api = app('Dingo\Api\Routing\Router');
-
-$api->version('v1', function ($api) {
-
-    $api->post('auth/login', 'App\HTTP\Controllers\AuthController@login');
-    $api->post('auth/signup', 'App\HTTP\Controllers\AuthController@signup');
-    $api->post('auth/recovery', 'App\HTTP\Controllers\AuthController@recovery');
-    $api->post('auth/reset', 'App\HTTP\Controllers\AuthController@reset');
-
-    // example of protected route
-    $api->get('protected', ['middleware' => ['api.auth'], function () {
-        return \App\User::all();
-    }]);
-
-    // example of free route
-    $api->get('free', function () {
-        return \App\User::all();
-    });
-
+Route::group(['prefix' => 'api'], function()
+{
+Route::post('autenticar', 'UserController@autenticar')->middleware('cors');
 });
-
-
-//Route::get('/api/protected', array('middleware' => 'auth0.jwt', function() {
-//    return "Hello " . Auth0::jwtuser()->name;
-//}));
-//
-//Route::group(['prefix' => 'api'], function()
-//{
-//    Route::post('autenticar', 'AuthenticateController@login')->middleware('cors');
-//});

@@ -19,17 +19,13 @@ var RestauranteComponent = (function () {
         this.tiporefeicaoService = tiporefeicaoService;
         this.selectedOpcao = 'Todas';
         this.selectedTodas = 'listarRefeicoes';
-        this.content_loaded = false;
-        this.estrelas = 4.5;
-        this.rate = 0;
     }
     RestauranteComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             var id = +params['id'];
             _this.restauranteService.getRestaurante(id)
-                .then(function (restaurante) { return _this.restaurante = restaurante; })
-                .then(function () { return _this.content_loaded = true; });
+                .then(function (restaurante) { return _this.restaurante = restaurante; });
         });
         this.getTiposrefeicao();
     };

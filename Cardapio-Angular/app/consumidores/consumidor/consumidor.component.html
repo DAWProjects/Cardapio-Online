@@ -9,7 +9,7 @@
   <input type="text" class="user" #email placeholder="Email" required="">
     <input type="number" class="user" #telefone placeholder="Telefone" required="">
   <input type="password" name="password" #password class="lock" placeholder="Password">
-  <input type="password" name="confirmpassword" class="lock" placeholder="Confirmar Password">
+  <input type="password" name="password" class="lock" placeholder="Confirmar Password">
   <input type="submit" name="Sign In" (click)="add(nome.value, email.value,password.value,telefone.value)" value="Sign up">
   <div class="signup-text">
     <a [routerLink]="['/login']">Já Possui uma conta? Faça Login aqui.</a>
