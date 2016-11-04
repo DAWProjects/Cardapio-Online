@@ -22,20 +22,5 @@ class UserController extends Controller
     }
 
 
-    public function autenticar(Request $request)
-    {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
-            $user = Auth::user();
-
-            $token = $user->createToken('user-autenticado')->accessToken;
-
-            return response()->json(["token" => $token]);
-        } else {
-            return response()->json(["mensagem" => "Password ou senha errada"]);
-        }
-
-    }
-
 
 }

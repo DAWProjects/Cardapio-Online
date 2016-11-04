@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {RestauranteService, Restaurante} from "../restaurantes/shared/index";
+import {LocationService} from '../shared/utils/location.service';
 
 
 @Component({
@@ -13,40 +14,70 @@ import {RestauranteService, Restaurante} from "../restaurantes/shared/index";
 export class InicioComponent implements OnInit {
 
 
-    public criterioBusca : string;
-    public valor : any;
+    public criterioBusca: string;
+    public valor: any;
     restaurantes: Restaurante[];
     public content_loaded: boolean = false;
+    public location: any;
+    public lat: number;
+    public lng: number;
+    // google maps zoom level
+    zoom: number = 21;
+    public markers: IMarker[];
 
-    constructor(private router: Router, private restauranteService: RestauranteService) {
+
+    constructor(private router: Router, private restauranteService: RestauranteService, private locationService: LocationService) {
     }
 
 
     getRestaurantes(): void {
-        this.restauranteService.getRestaurantes()
+        this.restauranteService.getRestaurantesProximos()
             .then(restaurantes => this.restaurantes = restaurantes)
             .then(() => this.content_loaded = true);
     }
 
+
+    getUserLocation(): void {
+        this.locationService.getUserLocation()
+            .subscribe(resultado => {
+                localStorage.setItem('user_location', JSON.stringify({
+                    lat: resultado.lat,
+                    lon: resultado.lon,
+                    cidade: resultado.city
+                }));
+            });
+
+        this.location = JSON.parse(localStorage.getItem('user_location'));
+    }
+
+
     ngOnInit(): void {
         this.getRestaurantes();
+        this.getUserLocation();
         this.criterioBusca = 'preco';
+
+
+        // initial center position for the map
+        this.lat = this.location.lat;
+        this.lng = this.location.lon;
+
+
+        this.markers = [
+            {
+                lat: this.location.lat,
+                lng: this.location.lon,
+                label: '',
+                draggable: true
+            }
+        ]
     }
 
 
-    buscar(criterio: string,valor: any): void {
+    buscar(criterio: string, valor: any): void {
 
-        this.router.navigate(['/restaurantes',criterio,valor]);
+        this.router.navigate(['/restaurantes', criterio, valor]);
 
     }
-
-
-    // google maps zoom level
-    zoom: number = 15;
-
-    // initial center position for the map
-    lat: number = 51.673858;
-    lng: number = 7.815982;
 
     clickedMarker(label: string, index: number) {
         console.log(`clicked the marker: ${label || index}`)
@@ -59,34 +90,13 @@ export class InicioComponent implements OnInit {
         // });
     }
 
-    markerDragEnd(m: marker, $event: MouseEvent) {
+    markerDragEnd(m: IMarker, $event: MouseEvent) {
         console.log('dragEnd', m, $event);
     }
 
-    markers: marker[] = [
-        {
-            lat: 51.673858,
-            lng: 7.815982,
-            label: 'A',
-            draggable: true
-        },
-        {
-            lat: 51.373858,
-            lng: 7.215982,
-            label: 'B',
-            draggable: false
-        },
-        {
-            lat: 51.723858,
-            lng: 7.895982,
-            label: 'C',
-            draggable: true
-        }
-    ]
-
 }
 // just an interface for type safety.
-interface marker {
+interface IMarker {
     lat: number;
     lng: number;
     label?: string;
