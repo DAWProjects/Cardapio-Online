@@ -16,13 +16,13 @@ class CreateConsumidorsTable extends Migration
         Schema::create('consumidors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->char('sexo');
-            $table->string('telefone')->nullale();
+            $table->char('sexo')->nullable();
+            $table->string('telefone')->nullable();
             $table->softDeletes();
             $table->integer('estado_id')->unsigned()->nullable();
             $table->foreign('estado_id')->references('id')->on('estado_consumidors')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')

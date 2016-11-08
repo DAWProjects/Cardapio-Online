@@ -1,7 +1,7 @@
 import {Component, ViewContainerRef } from '@angular/core';
 import {Utilizador} from "./utilizadores/shared/utilizador.model";
-import {ConsumidorService} from "./consumidores/shared/consumidor.service";
 import {Router} from '@angular/router'
+import {LoginService} from "./login/shared/login.service";
 
 @Component({
     moduleId: module.id,
@@ -15,18 +15,17 @@ export class AppComponent {
     private viewContainerRef: ViewContainerRef;
     public sideNav: any;
     isCollapsed = true;
-    user: Utilizador;
 
     constructor(private router: Router,
-                private consumidorService: ConsumidorService) {
-        if (consumidorService['token']) {
-            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-        }
+                private loginService: LoginService) {
     }
 
-
     logout(){
-        this.consumidorService.logout();
+        this.loginService.logout();
+        this.voltar();
+    }
+
+    voltar(): void {
         this.router.navigate(['/inicio']);
     }
 

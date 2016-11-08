@@ -3,15 +3,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
 import { ImageUploadModule } from 'ng2-imageupload';
 
-
 import {
     AlertModule,
     DatepickerModule,
     DropdownModule,
     ModalModule,
     TabsModule,
-    PaginationModule,
-    TimepickerModule
+    PaginationModule
 } from 'ng2-bootstrap/ng2-bootstrap';
 
 import {RatingModule} from 'ng2-rating';
@@ -20,7 +18,6 @@ import {
     AgmCoreModule
 } from 'angular2-google-maps/core';
 
-import {NavbarComponent} from './shared/navbar/index';
 import {FooterComponent} from './shared/footer/footer.component';
 
 import {InicioComponent} from './inicio/index'
@@ -50,6 +47,10 @@ import {AuthGuard} from './shared/guards/auth.guard';
 
 
 import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
+import {LocationService} from "./shared/utils/location.service";
+import {LoginService} from "./login/shared/login.service";
+
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 
 @NgModule({
@@ -67,8 +68,7 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         AgmCoreModule.forRoot(),
         RatingModule,
 
-        ImageUploadModule,
-        TimepickerModule
+        ImageUploadModule
     ],
     providers: [
         RestauranteService,
@@ -76,12 +76,14 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
         TipoRefeicaoService,
         RefeicaoService,
         ConsumidorService,
-        AuthGuard
+        AuthGuard,
+        LocationService,
+        LoginService,
+        AUTH_PROVIDERS
     ],
     declarations: [
         AppComponent,
         InicioComponent,
-        NavbarComponent,
         RestaurantesComponent,
         RestauranteComponent,
         CreateRestauranteComponent,

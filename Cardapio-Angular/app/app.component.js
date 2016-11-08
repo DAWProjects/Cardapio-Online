@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var consumidor_service_1 = require("./consumidores/shared/consumidor.service");
 var router_1 = require('@angular/router');
+var login_service_1 = require("./login/shared/login.service");
 var AppComponent = (function () {
-    function AppComponent(router, consumidorService) {
+    function AppComponent(router, loginService) {
         this.router = router;
-        this.consumidorService = consumidorService;
+        this.loginService = loginService;
         this.isCollapsed = true;
-        if (consumidorService['token']) {
-            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-        }
     }
     AppComponent.prototype.logout = function () {
-        this.consumidorService.logout();
+        this.loginService.logout();
+        this.voltar();
+    };
+    AppComponent.prototype.voltar = function () {
         this.router.navigate(['/inicio']);
     };
     AppComponent = __decorate([
@@ -31,7 +31,7 @@ var AppComponent = (function () {
             templateUrl: 'app.component.html',
             styleUrls: ['app.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, consumidor_service_1.ConsumidorService])
+        __metadata('design:paramtypes', [router_1.Router, login_service_1.LoginService])
     ], AppComponent);
     return AppComponent;
 }());

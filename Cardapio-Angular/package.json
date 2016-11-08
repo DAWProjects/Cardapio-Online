@@ -28,6 +28,7 @@
     "@angular2-material/sidenav": "^2.0.0-alpha.8-2",
     "angular2-google-maps": "^0.15.0",
     "angular2-in-memory-web-api": "0.0.20",
+    "angular2-jwt": "^0.1.25",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.1",
     "ng2-bootstrap": "^1.1.5",
