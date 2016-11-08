@@ -11,13 +11,11 @@ class Restaurante extends Model
     protected $fillable = [
         'nome',
         'telefone',
-        'email',
         'cidade',
         'av_rua',
         'numero',
         'lat',
         'long',
-        'cardapio_img',
         'logo_img',
         'imagem',
         'estado_id',

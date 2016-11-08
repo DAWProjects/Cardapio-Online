@@ -163,6 +163,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Collective\Html\HtmlServiceProvider::class,
+
+        Yajra\Oci8\Oci8ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -177,17 +181,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        //Other Providers
-
-
         Barryvdh\Cors\ServiceProvider::class,
-        Auth0\Login\LoginServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Dingo\Api\Provider\LaravelServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        Yajra\Oci8\Oci8ServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -237,11 +232,8 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Auth0' => Auth0\Login\Facade\Auth0::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
 
     ],
 

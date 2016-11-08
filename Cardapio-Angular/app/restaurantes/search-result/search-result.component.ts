@@ -16,7 +16,6 @@ export class SearchResultRestaurantesComponent implements OnInit {
     restaurantes: Restaurante[];
     public content_loaded: boolean = false;
     public criterioSelecionado: string = "nome";
-    public estrelas : number = 3.5;
 
     constructor(private route: ActivatedRoute, private restauranteService: RestauranteService) {
     }

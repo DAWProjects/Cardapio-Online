@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
+import {Consumidor, ConsumidorService} from '../consumidores/shared/index';
 import {Router} from '@angular/router';
-import {Utilizador} from "../utilizadores/shared/utilizador.model";
-import {LoginService} from "./shared/login.service";
 
 @Component({
     moduleId: module.id,
@@ -12,57 +11,24 @@ import {LoginService} from "./shared/login.service";
 })
 export class LoginComponent {
 
-    model: any = {};
-    error: string = '';
-    loading = false;
-    user: Utilizador;
+  model: any = {};
+  error : string = '';
+  consumidor: Consumidor;
 
-    constructor(private router: Router,
-                private loginService: LoginService) {
-    }
+  constructor(private router: Router,
+              private consumidorService: ConsumidorService) {
+  }
 
-    login(): void {
-        this.loading = true;
-        this.loginService.login(this.model.username, this.model.password)
-            .subscribe(resultado => {
-                if (resultado == 'consumidor') {
-                    this.router.navigate(['/inicio'])
-                }
-                else if (resultado == 'restaurante') {
-                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                    this.router.navigate(['/dashboard-restaurante', this.user.id]);
-                    this.loading = false;
-                }
-                else {
-                    //
-                    // TODO
-                    // Pegar o erro do server
-                    this.loading = false;
+  login(){
+    this.consumidorService.login(this.model.username, this.model.password)
+            .subscribe(result => {
+                if (result === true) {
+                    this.router.navigate(['/inicio']);
+                } else {
+                    this.error = 'Username or password incorrecto';
                 }
             });
 
-
-    }
-
-
-    loginFacebook(): void {
-        this.loginService.oauthlogin()
-            .subscribe(resultado => {
-                if (resultado !== null) {
-                    this.router.navigate(['/inicio'])
-                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                }
-                else {
-                    //
-                    // TODO
-                    // Pegar o erro do server
-                }
-            });
-    }
-
-
-    voltar(): void {
-        this.router.navigate(['/inicio']);
-    }
+  }
 
 }

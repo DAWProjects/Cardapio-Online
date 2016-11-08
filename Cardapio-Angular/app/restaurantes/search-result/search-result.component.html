@@ -63,11 +63,6 @@
                         <p>{{restaurante.av_rua}}</p>
                     </md-card-subtitle>
                 </md-card-title-group>
-                <p> <rating [(ngModel)]="estrelas"
-                            [max]="5"
-                            [readonly]="true"
-                            [float]="true">
-                </rating></p>
                 <md-list>
                     <md-list-item *ngFor="let refeicao of restaurante.refeicaos">
                         <img md-list-avatar

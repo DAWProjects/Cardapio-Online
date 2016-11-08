@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ViewChild} from '@angular/core';
 
 import {ActivatedRoute, Params} from '@angular/router';
 
@@ -9,6 +9,9 @@ import {RefeicaoService} from "../../refeicoes/shared/refeicao.service";
 import {Menu} from "../../menu/shared/menu.model";
 
 import { ImageResult, ResizeOptions } from 'ng2-imageupload';
+
+import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
+
 
 
 @Component({
@@ -64,6 +67,11 @@ export class DashBoardRestauranteComponent implements OnInit{
         window.history.back();
     };
 
+    a: string;
+    onAaa(aaa: string):void{
+        this.a=aaa;
+    }
+
     // addNew(designacao: string, tipo: number, descricao: string, imagem: string, preco: number, hora_inicio: any, hora_fim: any, restaurante: number, refeicao:number): void {
     //     this.creating = true;
     //     if (designacao == '')
@@ -89,6 +97,19 @@ export class DashBoardRestauranteComponent implements OnInit{
             && imageResult.resized.dataURL
             || imageResult.dataURL;
     }
+
+// ------------------Modal-------------------
+
+    @ViewChild('childModal') public childModal:ModalDirective;
+
+    public showChildModal():void {
+        this.childModal.show();
+    }
+
+    public hideChildModal():void {
+        this.childModal.hide();
+    }
+
 
 }
 

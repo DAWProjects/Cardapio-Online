@@ -1,7 +1,7 @@
 import {Component, ViewContainerRef } from '@angular/core';
 import {Utilizador} from "./utilizadores/shared/utilizador.model";
+import {ConsumidorService} from "./consumidores/shared/consumidor.service";
 import {Router} from '@angular/router'
-import {LoginService} from "./login/shared/login.service";
 
 @Component({
     moduleId: module.id,
@@ -18,15 +18,15 @@ export class AppComponent {
     user: Utilizador;
 
     constructor(private router: Router,
-                private loginService: LoginService) {
-        if (loginService['token']) {
+                private consumidorService: ConsumidorService) {
+        if (consumidorService['token']) {
             this.user = JSON.parse(localStorage.getItem('user-autenticado'));
         }
     }
 
 
     logout(){
-        this.loginService.logout();
+        this.consumidorService.logout();
         this.router.navigate(['/inicio']);
     }
 

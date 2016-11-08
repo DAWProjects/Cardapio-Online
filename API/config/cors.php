@@ -12,11 +12,11 @@ return [
      |
      */
     'supportsCredentials' => false,
-    'allowedOrigins' => array('http://evil.com'),
-    'allowedHeaders' => array('Content-Type','Connection', 'Accept','Cache-Control ', 'Authorization','Origin','X-Auth-Token','Access-Control-Allow-Origin', 'X-Requested-With', 'Application'),
-    'allowedMethods' => array('GET','POST','PUT','DELETE','OPTIONS'),
-    'exposedHeaders' => array(),
+    'allowedOrigins' => ['*'],
+    'allowedHeaders' => ['*'],
+    'allowedMethods' => ['*'],
+    'exposedHeaders' => ['GET','POST','PUT','DELETE'],
     'maxAge' => 0,
-    'hosts' => array(),
+    'hosts' => [],
 ];
 
