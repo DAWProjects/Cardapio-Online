@@ -15,18 +15,17 @@ export class AppComponent {
     private viewContainerRef: ViewContainerRef;
     public sideNav: any;
     isCollapsed = true;
-    user: Utilizador;
 
     constructor(private router: Router,
                 private loginService: LoginService) {
-        if (loginService['token']) {
-            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-        }
     }
-
 
     logout(){
         this.loginService.logout();
+        this.voltar();
+    }
+
+    voltar(): void {
         this.router.navigate(['/inicio']);
     }
 

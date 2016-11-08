@@ -30,7 +30,8 @@
             'angular2-google-maps/core': 'npm:angular2-google-maps/core/core.umd.js',
             "ng2-rating": "node_modules/ng2-rating",
 
-            'ng2-imageupload': 'node_modules/ng2-imageupload'
+            'ng2-imageupload': 'node_modules/ng2-imageupload',
+            'angular2-jwt': 'npm:angular2-jwt/angular2-jwt.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -59,7 +60,11 @@
             },
 
 
-            "ng2-rating": {main: "index.js", defaultExtension: "js"}
+            "ng2-rating": {main: "index.js", defaultExtension: "js"},
+
+            'angular2-jwt': {
+                defaultExtension: 'js'
+            }
 
         }
     });

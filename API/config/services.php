@@ -44,7 +44,7 @@ return [
     'facebook' => [
         'client_id' => '1375553572455489',
         'client_secret' => '17629ca832580ca406fccc9ca9b7eaeb',
-        'redirect' => 'http://localhost:3000',
+        'redirect' => 'http://localhost:3000/',
     ],
 
 ];

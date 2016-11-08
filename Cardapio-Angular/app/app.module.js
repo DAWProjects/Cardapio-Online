@@ -37,6 +37,7 @@ var auth_guard_1 = require('./shared/guards/auth.guard');
 var index_8 = require("./shared/utils/index");
 var location_service_1 = require("./shared/utils/location.service");
 var login_service_1 = require("./login/shared/login.service");
+var angular2_jwt_1 = require('angular2-jwt');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -65,7 +66,8 @@ var AppModule = (function () {
                 index_7.ConsumidorService,
                 auth_guard_1.AuthGuard,
                 location_service_1.LocationService,
-                login_service_1.LoginService
+                login_service_1.LoginService,
+                angular2_jwt_1.AUTH_PROVIDERS
             ],
             declarations: [
                 app_component_1.AppComponent,

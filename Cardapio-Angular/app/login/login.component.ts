@@ -46,20 +46,20 @@ export class LoginComponent {
 
 
     loginFacebook(): void {
-        this.loginService.oauthlogin()
-            .subscribe(resultado => {
-                if (resultado !== null) {
-                    this.router.navigate(['/inicio'])
-                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                }
-                else {
-                    //
-                    // TODO
-                    // Pegar o erro do server
-                }
-            });
+        this.loginService.facebookLogin();
+
+
     }
 
+    loginGoogle(): void {
+        this.loginService.googleLogin();
+
+    }
+
+    loginTwitter(): void {
+        this.loginService.twitterLogin();
+
+    }
 
     voltar(): void {
         this.router.navigate(['/inicio']);

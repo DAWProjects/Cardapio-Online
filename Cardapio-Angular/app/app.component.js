@@ -16,12 +16,12 @@ var AppComponent = (function () {
         this.router = router;
         this.loginService = loginService;
         this.isCollapsed = true;
-        if (loginService['token']) {
-            this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-        }
     }
     AppComponent.prototype.logout = function () {
         this.loginService.logout();
+        this.voltar();
+    };
+    AppComponent.prototype.voltar = function () {
         this.router.navigate(['/inicio']);
     };
     AppComponent = __decorate([

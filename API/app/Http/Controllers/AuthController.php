@@ -20,60 +20,21 @@ class AuthController extends Controller
 {
     use Helpers;
 
-
-    /**
-     * Redirect the user to the GitHub/Feacebook/Google authentication page.
-     *
-     * @return Response
-     */
-    public function redirectToProvider()
+    public function findOrCreate(Request $request)
     {
-        return Socialite::driver('facebook')->redirect();
-    }
-
-
-    /**
-     * Obtain the user information from GitHub/Feacebook/Google.
-     *
-     * @return Response
-     */
-    public function handleProviderCallback()
-    {
-
-
-        $provider = Socialite::with('facebook');
-
-
-        $user = $provider->stateless()->user();
-
-
-        return $this->findOrCreate($user);
-    }
-
-    public function findOrCreate(User $facebookUser)
-    {
-        $user = User::where('social_id', '=', $facebookUser->id)->first();
+        $user = User::with('consumidor')->where('social_id', $request->only('social_id'))->first();
 
 
         if (is_object($user)) {
             $token = JWTAuth::fromUser($user);
             return response()->json(compact('token'));
         } else {
-            $result = array();
-            $result['name'] = $facebookUser->user['first_name'];
-            $result['email'] = $facebookUser->user['email'];
-            $result['social_id'] = $facebookUser->id;
-            $result['avatar'] = $facebookUser->avatar;
-            $result['gender'] = $facebookUser->user['gender'];
-            $result['status'] = 'active';
-            $result['login_type'] = 'facebook';
-            $result['user_type'] = 'free_user';
 
-            try {
-                $user = User::create($result);
-            } catch (Exception $e) {
-                return response()->json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
-            }
+            $user = User::create($request->all());
+            $user->save();
+
+            $user->consumidor()->create($request->all());
+
             $token = JWTAuth::fromUser($user);
             return response()->json(compact('token'));
         }

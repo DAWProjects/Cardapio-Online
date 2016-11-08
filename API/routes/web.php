@@ -77,6 +77,7 @@ $api->version('v1', function ($api) {
     $api->post('auth/signup', 'App\HTTP\Controllers\AuthController@signup');
     $api->post('auth/recovery', 'App\HTTP\Controllers\AuthController@recovery');
     $api->post('auth/reset', 'App\HTTP\Controllers\AuthController@reset');
+    $api->post('auth/oauth', 'App\HTTP\Controllers\AuthController@findOrCreate');
 
 
 
@@ -92,6 +93,3 @@ $api->version('v1', function ($api) {
 
 });
 
-
-Route::get('auth/facebook', 'AuthController@redirectToProvider')->middleware('cors');
-Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback')->middleware('cors');

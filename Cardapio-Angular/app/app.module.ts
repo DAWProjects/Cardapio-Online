@@ -50,6 +50,8 @@ import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
 import {LocationService} from "./shared/utils/location.service";
 import {LoginService} from "./login/shared/login.service";
 
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
+
 
 @NgModule({
     imports: [
@@ -76,7 +78,8 @@ import {LoginService} from "./login/shared/login.service";
         ConsumidorService,
         AuthGuard,
         LocationService,
-        LoginService
+        LoginService,
+        AUTH_PROVIDERS
     ],
     declarations: [
         AppComponent,
