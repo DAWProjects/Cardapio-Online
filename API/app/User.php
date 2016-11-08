@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -28,21 +29,16 @@ class User extends Authenticatable
     ];
 
 
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = \Hash::make($value);
-    }
-
 
     public function consumidor(){
-        return $this->hasOne('App\Consumidor');
+        return $this->belongsTo('App\Consumidor');
     }
 
     public function restaurante(){
-        return $this->hasOne('App\Restaurante');
+        return $this->belongsTo('App\Restaurante');
     }
 
     public function administrador(){
-        return $this->hasOne('App\Administrador');
+        return $this->belongsTo('App\Administrador');
     }
 }

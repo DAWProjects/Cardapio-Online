@@ -61,7 +61,7 @@ export class RestauranteService {
     }
 
     create(restaurante: Restaurante): Promise<Restaurante> {
-        const url = `${this.restaurantesUrl+'criar-restaurante'}`;
+        const url = `${'localhost:8000/criar-restaurante'}`;
 
         return this.http
             .post(url, JSON.constructor(restaurante), {headers: this.headers})
@@ -80,14 +80,6 @@ export class RestauranteService {
     getRestaurante(id: number): Promise<Restaurante> {
         return this.getRestaurantes()
             .then(restaurantes => restaurantes.find(restaurante => restaurante.id === id));
-    };
-
-
-    getRestaurantesProximos(): Promise<Restaurante[]> {
-        return this.http.get(this.restaurantesUrl + `restaurantes-proximos`)
-            .toPromise()
-            .then(response => response.json().restaurantes as Restaurante[])
-            .catch(this.handleError);
     };
 
     private handleError(error: any): Promise<any> {

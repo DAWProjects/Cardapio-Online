@@ -1,4 +1,4 @@
-.restPage {
+.restPage{
     margin: 0px;
     padding: 25px 0px 0px 0px;
 
@@ -6,26 +6,24 @@
 
 .rest {
     background-color: gray;
-    background: url("http://localhost/Cardapio-Online/API/public/img/background/RestauranteRuba.jpg") no-repeat center center;
+    background: url("http://localhost/Cardapio-Online/API/public/img/background/RestauranteRuba.jpg")no-repeat center center;
     background-size: cover;
-}
+ }
 
-.rest, .restSmoth {
+.rest, .restSmoth{
     min-height: 250px;
     max-height: 400px;
-    background-color: rgba(1, 1, 1, 0.6);
+    background-color:rgba(1,1,1,0.6);
     margin: 0px;
+ }
+.opcoes{
+    background-color:rgba(1,1,1,0.9);
 }
-
-.opcoes {
-    background-color: rgba(1, 1, 1, 0.9);
-}
-
-.restFoods {
+.restFoods{
     border: 1px solid #d6d4d4;
-    -webkit-box-shadow: -1px 0px 2px 1px rgba(50, 50, 50, 0.1);
-    -moz-box-shadow: -1px 0px 2px 1px rgba(50, 50, 50, 0.1);
-    box-shadow: -1px 0px 2px 1px rgba(50, 50, 50, 0.1);
+     -webkit-box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
+    -moz-box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
+    box-shadow: -1px 0px 2px 1px rgba(50,50,50,0.1);
     background-color: #e9eaea;
 }
 
@@ -43,15 +41,15 @@ ul li {
     border: solid 2px lightblue;
 }
 
-.tipo {
+.tipo{
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
     background-color: #00877b;
     color: white;
-}
+ }
 
-.tipo:hover, .selected a {
+.tipo:hover, .selected a{
     background-color: #00cabb;
 }
 
@@ -59,19 +57,16 @@ md-card {
     margin-top: 20px;
 }
 
-.progress-loader {
-    margin-top: 200px;
-}
-
-.rate-restaurante{
-    background: #242424;
-}
-
 @media (max-width: 768px) {
     .refeicoes {
         margin-top: 20px;
     }
 }
+
+
+
+
+
 
 nav a {
     position: relative;
@@ -83,12 +78,12 @@ nav a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
     font-size: 1.05em;
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus{
     outline: none;
 }
 
@@ -96,7 +91,7 @@ nav a:focus {
     padding: 0 0 5px;
 }
 
-.cl-effect-4 a::after {
+.cl-effect-4 a::after{
     position: absolute;
     top: 100%;
     left: 0;
@@ -122,36 +117,37 @@ nav a:focus {
     transform: translateY(0px);
 }
 
-.cl-effect-4 a:visited, a:active {
+.cl-effect-4 a:visited, a:active{
     background-color: red;
 }
 
-.divTipos {
-    padding-bottom: 10px;
+
+.divTipos{
+     padding-bottom: 10px;
     border-bottom: 1px solid #bdbebe;
     background-color: #f8f9f9;
 }
 
-.aside {
+.aside{
     background-color: #dddede;
     /*background-color:rgba(1,1,1,0.9);*/
     /*color: white;*/
 }
-
-.mapa {
+.mapa{
     border-bottom: 1px solid #bdbebe;
 }
 
-.footer-icons {
+
+.footer-icons{
     margin-top: 15px;
 }
 
-.footer-icons a {
+.footer-icons a{
     display: inline-block;
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background-color: #33383b;
+    background-color:  #33383b;
     border-radius: 2px;
 
     font-size: 20px;
@@ -162,8 +158,7 @@ nav a:focus {
     margin-right: 3px;
     margin-bottom: 5px;
 }
-
-.modal-header {
+.modal-header{
     background-color: #00877b;
     color: white;
 }
