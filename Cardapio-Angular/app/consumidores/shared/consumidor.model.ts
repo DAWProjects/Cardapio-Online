@@ -5,15 +5,11 @@ export class Consumidor {
     nome: string;
     sexo: string;
     telefone:string;
-    email: string;
-    password: string;
 
 
-    constructor(nome: string, sexo: string, telefone: string, email: string, password: string) {
+    constructor(nome: string, sexo: string, telefone: string) {
         this.nome = nome;
         this.sexo = sexo;
         this.telefone = telefone;
-        this.email = email;
-        this.password = password;
     }
 }

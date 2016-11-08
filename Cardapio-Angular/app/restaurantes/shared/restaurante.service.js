@@ -57,7 +57,7 @@ var RestauranteService = (function () {
             .catch(this.handleError);
     };
     RestauranteService.prototype.create = function (restaurante) {
-        var url = "" + 'localhost:8000/criar-restaurante';
+        var url = "" + (this.restaurantesUrl + 'criar-restaurante');
         return this.http
             .post(url, JSON.constructor(restaurante), { headers: this.headers })
             .toPromise()
@@ -75,6 +75,13 @@ var RestauranteService = (function () {
     RestauranteService.prototype.getRestaurante = function (id) {
         return this.getRestaurantes()
             .then(function (restaurantes) { return restaurantes.find(function (restaurante) { return restaurante.id === id; }); });
+    };
+    ;
+    RestauranteService.prototype.getRestaurantesProximos = function () {
+        return this.http.get(this.restaurantesUrl + "restaurantes-proximos")
+            .toPromise()
+            .then(function (response) { return response.json().restaurantes; })
+            .catch(this.handleError);
     };
     ;
     RestauranteService.prototype.handleError = function (error) {
