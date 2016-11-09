@@ -114,7 +114,7 @@
 .login-icons ul li a{
     display:block;
 }
-.login-icons i.fa.fa-facebook ,.login-icons i.fa.fa-twitter,.login-icons i.fa.fa-google-plus,.login-icons i.fa.fa-dribbble {
+.login-icons i.fa.fa-facebook ,.login-icons i.fa.fa-twitter,.login-icons i.fa.fa-google,.login-icons i.fa.fa-dribbble {
     font-size: 1.5em;
     color: #FFFFFF;
     width: 40px;
@@ -131,8 +131,8 @@
 .login-icons i.fa.fa-twitter{
     background:#55acee;
 }
-.login-icons i.fa.fa-google-plus{
-    background:#dc4e41;
+.login-icons i.fa.fa-google{
+    background: #b1b86a;
 }
 .login-icons i.fa.fa-dribbble{
     background:#ea4c89;
