@@ -66,6 +66,8 @@ Route::delete('apagar-tipo-refeicoes/{id}', 'TipoRefeicaoController@delete')->mi
 
 Route::get('user-location', 'GeoIpController@location')->middleware('cors');
 
+//Route::post('auth/oauth', 'AuthController@findOrCreate')->middleware('cors');
+
 
 
 

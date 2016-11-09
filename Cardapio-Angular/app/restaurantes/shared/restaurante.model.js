@@ -1,15 +1,14 @@
 "use strict";
 var Restaurante = (function () {
-    function Restaurante(nome, telefone, cidade, av_rua, numero, lat, long, logo, imagem, estado, utilizador) {
+    function Restaurante(nome, numero, telefone, email, av_rua, card_img, logo, estado, lat, long, utilizador) {
         this.nome = nome;
         this.telefone = telefone;
-        this.cidade = cidade;
+        this.email = email;
         this.av_rua = av_rua;
         this.numero = numero;
-        this.lat = lat;
-        this.long = long;
+        this.card_img = card_img;
         this.logo = logo;
-        this.imagem = imagem;
+        this.lat = lat;
         this.estado = estado;
         this.utilizador = utilizador;
     }

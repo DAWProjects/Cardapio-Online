@@ -17,11 +17,13 @@ class CreateRestaurantesTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('telefone');
+            $table->string('email');
             $table->string('cidade');
             $table->string('av_rua');
             $table->integer('numero')->nullable();
             $table->decimal('lat', 10,7)->nullable();
             $table->decimal('long', 10,7)->nullable();
+            $table->string('cardapio_img')->nullable();
             $table->string('logo_img');
             $table->string('imagem')->nullable();
             $table->integer('estado_id')->unsigned();

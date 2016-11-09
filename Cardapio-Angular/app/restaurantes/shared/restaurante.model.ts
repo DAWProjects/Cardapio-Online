@@ -3,32 +3,31 @@ import {Utilizador} from "../../utilizadores/shared/utilizador.model";
 import {Refeicao} from "../../refeicoes/shared/refeicao.model";
 
 export class Restaurante {
-
     id: number;
     nome: string;
     telefone: number;
     cidade: string;
     av_rua: string;
     numero: number;
+    card_img: string;
+    logo: string;
+    email: string;
     lat: number;
     long: number;
-    logo: string;
-    imagem: string;
-    estado: number;
-    utilizador: number;
+    estado: Estado_Restaurante;
+    utilizador: Utilizador;
     refeicaos: Refeicao[];
 
 
-    constructor(nome: string, telefone: number, cidade: string, av_rua: string, numero: number, lat: number, long: number,  logo: string, imagem: string, estado: number,  utilizador: number) {
+    constructor(nome: string, numero: number, telefone: number, email: string, av_rua: string, card_img: string, logo: string, estado: Estado_Restaurante, lat:number, long:number, utilizador:Utilizador) {
         this.nome = nome;
         this.telefone = telefone;
-        this.cidade = cidade;
+        this.email = email;
         this.av_rua = av_rua;
         this.numero = numero;
-        this.lat = lat;
-        this.long = long;
+        this.card_img = card_img;
         this.logo = logo;
-        this.imagem = imagem;
+        this.lat = lat;
         this.estado = estado;
         this.utilizador = utilizador;
     }
