@@ -60,7 +60,7 @@ export class LoginService {
                             if (resultado) {
                                 //alert(this.user.social_id);
                                 localStorage.setItem('user-autenticado', JSON.stringify(this.user));
-                                this.router.navigate(['/inicio']);
+                                this.router.navigate(['/inicio']).then();
                             }
                         });
                     }

@@ -17,6 +17,16 @@ var AppComponent = (function () {
         this.loginService = loginService;
         this.isCollapsed = true;
     }
+    AppComponent.prototype.showLogoutAlert = function () {
+        swal({
+            title: 'Deseja realmente terminar a sessão?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, terminar!'
+        }).then(this.logout());
+    };
     AppComponent.prototype.logout = function () {
         this.loginService.logout();
         this.voltar();

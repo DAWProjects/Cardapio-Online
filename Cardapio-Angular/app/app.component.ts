@@ -2,6 +2,7 @@ import {Component, ViewContainerRef } from '@angular/core';
 import {Utilizador} from "./utilizadores/shared/utilizador.model";
 import {Router} from '@angular/router'
 import {LoginService} from "./login/shared/login.service";
+declare var swal: any;
 
 @Component({
     moduleId: module.id,
@@ -19,6 +20,19 @@ export class AppComponent {
     constructor(private router: Router,
                 private loginService: LoginService) {
     }
+
+
+    showLogoutAlert() {
+        swal({
+            title: 'Deseja realmente terminar a sessão?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, terminar!'
+        }).then(this.logout());
+    }
+
 
     logout(){
         this.loginService.logout();
