@@ -15,9 +15,8 @@ $factory->define(App\Restaurante::class, function (Faker\Generator $faker) {
 
     return [
         'nome' => $faker->name,
-        'email' => $faker->safeEmail,
         'telefone' => $faker->phoneNumber,
-        'cidade' => $faker->city,
+        'cidade' => $faker->randomElement(['Maputo','Beira','Matola','Xai-xai-','Chókwe','Chimoio','Nacala']),
         'av_rua' => $faker->streetAddress,
         'numero' => $faker->buildingNumber,
         'lat' => $faker->latitude,

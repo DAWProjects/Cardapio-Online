@@ -2,7 +2,9 @@ import {Component, ViewContainerRef} from '@angular/core';
 import {Utilizador} from "./utilizadores/shared/utilizador.model";
 import {Router} from '@angular/router'
 import {LoginService} from "./login/shared/login.service";
+import any = jasmine.any;
 declare var swal: any;
+
 
 @Component({
     moduleId: module.id,
@@ -33,18 +35,26 @@ export class AppComponent {
     };
 
     constructor(private router: Router,
-                private loginService: LoginService) {}
+                private loginService: LoginService) {
+    }
 
 
     showLogoutAlert() {
+        var teste : any = this;
         swal({
             title: 'Deseja realmente terminar a sessão?',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
             confirmButtonText: 'Sim, terminar!'
-        }).then(this.logout());
+        }).then(function () {
+            teste.logout()
+            }, function (dismiss) {
+                return;
+            }
+        );
     }
 
 

@@ -63,13 +63,14 @@ class AuthController extends Controller
         }
 
 
-        //$consumidor = Consumidor::create($request->all());
         $user->consumidor()->create($request->all());
         if ($hasToReleaseToken) {
             return $this->login($request);
         }
 
-        return $this->response->created();
+        $nome = Auth::User()->consumidor->nome;
+
+        return response()->json(compact('token', 'nome'));
     }
 
 
@@ -94,11 +95,15 @@ class AuthController extends Controller
             return $this->response->error('could_not_create_token', 500);
         }
 
-        $user = Auth::User();
-        $userId = $user->id;
-        $tipo = $user->tipo;
 
-        return response()->json(compact('token', 'tipo', 'userId'));
+        $tipo = Auth::User()->tipo;
+        $nome = null;
+        if ($tipo == 'consumidor') {
+            $nome = Auth::User()->consumidor->nome;
+        }else{
+            $nome = Auth::User()->restaurante->nome;
+        }
+        return response()->json(compact('token', 'tipo', 'nome'));
     }
 
     public function getAuthenticatedUser()

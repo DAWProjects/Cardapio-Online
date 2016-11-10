@@ -32,14 +32,20 @@ var AppComponent = (function () {
         };
     }
     AppComponent.prototype.showLogoutAlert = function () {
+        var teste = this;
         swal({
             title: 'Deseja realmente terminar a sessão?',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
             confirmButtonText: 'Sim, terminar!'
-        }).then(this.logout());
+        }).then(function () {
+            teste.logout();
+        }, function (dismiss) {
+            return;
+        });
     };
     AppComponent.prototype.logout = function () {
         this.loginService.logout();

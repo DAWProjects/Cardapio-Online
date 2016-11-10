@@ -104,7 +104,7 @@
                                                    [routerLink]="'/login'" (click)="sidenav.close()">Login</a></li>
                             <li role="menuitem"><a *ngIf="loginService.user"
                                                    class="dropdown-item"
-                                                   (click)="logout()" (click)="sidenav.close()">Logout</a>
+                                                   (click)="showLogoutAlert()" (click)="sidenav.close()">Logout</a>
                             </li>
                             <li role="menuitem"><a class="dropdown-item" href="#"
                                                    (click)="sidenav.close()">Definições</a></li>

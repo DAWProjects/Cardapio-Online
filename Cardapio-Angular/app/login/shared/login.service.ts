@@ -1,7 +1,7 @@
 import {Injectable}    from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 import {NotificationsService, SimpleNotificationsComponent} from 'angular2-notifications';
-import {tokenNotExpired} from 'angular2-jwt';
+import {tokenNotExpired, JwtHelper} from 'angular2-jwt';
 import {Router}          from '@angular/router';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -23,6 +23,7 @@ export class LoginService {
     public token: string;
     public email: string;
     public user: any;
+    private jwtHelper: JwtHelper = new JwtHelper();
 
     // Configure Auth0
     auth0 = new Auth0({
@@ -52,70 +53,28 @@ export class LoginService {
                         alert(error);
                         return;
                     } else {
-                        this.user = {
-                            email: profile.email,
-                            nome: profile.name,
-                            imagem: profile.picture,
-                            social_id: profile.user_id,
-                            tipo: 'consumidor'
-                        };
                         profile.user_metadata = profile.user_metadata || {};
 
                         this.findOrCreate(profile).subscribe(resultado => {
                             if (resultado) {
-                                //alert(this.user.social_id);
                                 localStorage.setItem('user-autenticado', JSON.stringify(this.user));
+
+                                this.user = {
+                                    email: profile.email,
+                                    nome: profile.name,
+                                    imagem: profile.picture
+                                };
 
                                 this.router.navigate(['/inicio']).then(() => this.createNotification());
                             }
                         });
                     }
-
-                }
-            );
-
-
+                });
         } else if (result && result.error) {
             alert('error: ' + result.error);
         }
     }
 
-
-    public login(email, password): Observable <string> {
-        const url = `${this.loginUrl + 'api/auth/login'}`;
-
-        this.headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-
-        this.email = email;
-
-        var body = 'email=' + email + '&password=' + password;
-
-        return this.http.post(url, body, {headers: this.headers})
-            .map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
-                let tipo = response.json().tipo;
-                let userId = response.json().userId;
-
-                if (token) {
-                    // set token property
-                    this.token = token;
-
-                    // store email and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('user-autenticado', JSON.stringify({
-                        email: this.email,
-                        id: userId,
-                        token: token
-                    }));
-
-                    // return tipo de user to indicate successful login
-                    return tipo;
-                } else {
-                    // return null to indicate failed login
-                    return null;
-                }
-            });
-    }
 
 
     public googleLogin() {
@@ -145,6 +104,7 @@ export class LoginService {
     }
 
 
+
     public signup(consumidor: Consumidor, email, password): Observable < boolean > {
         const url = `${this.loginUrl + 'api/auth/signup'}`;
         this.headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
@@ -158,19 +118,71 @@ export class LoginService {
         return this.http.post(url, body, {headers: this.headers})
             .map((response: Response) => {
                 //signup and login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
-                if (token) {
+                if (response.json().token) {
                     // set token property
-                    this.token = token;
+                    this.token = response.json().token;
 
                     // store email and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('user-autenticado', JSON.stringify({email: this.email, token: token}));
+                    localStorage.setItem('user-autenticado', JSON.stringify({email: this.email, token: response.json().token}));
+                    localStorage.setItem('id_token', response.json().token);
+
+                    this.user = {
+                        email: this.email,
+                        nome: response.json().nome,
+                        imagem: '../../../assets/images/user-icon.png',
+                    };
+
+                    this.createNotification();
 
                     // return true to indicate successful login
                     return true;
                 } else {
                     // return false to indicate failed login
                     return false;
+                }
+            });
+    }
+
+
+    public login(email, password): Observable <string> {
+        const url = `${this.loginUrl + 'api/auth/login'}`;
+
+        this.headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+
+        this.email = email;
+
+        var body = 'email=' + email + '&password=' + password;
+
+        return this.http.post(url, body, {headers: this.headers})
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                if (response.json().token) {
+                    // set token property
+                    this.token = response.json().token;
+
+                    // store email and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('user-autenticado', JSON.stringify({
+                        email: this.email,
+                        nome: response.json().nome,
+                        imagem: '../../../assets/images/user-icon.png',
+                        token: response.json().token
+                    }));
+
+                    localStorage.setItem('id_token', response.json().token);
+
+                    this.user = {
+                        email: this.email,
+                        nome: response.json().nome,
+                        imagem: '../../../assets/images/user-icon.png'
+                    };
+
+                    this.createNotification();
+
+                    // return tipo de user to indicate successful login
+                    return response.json().tipo;
+                } else {
+                    // return null to indicate failed login
+                    return null;
                 }
             });
     }
@@ -226,6 +238,17 @@ export class LoginService {
     createNotification() {
         this._service.success('Bem Vindo', 'ao Cardapio Online', {id: 123});
 
+    }
+
+
+    useJwtHelper() {
+        var token = localStorage.getItem('id_token');
+
+        console.log(
+            this.jwtHelper.decodeToken(token),
+            this.jwtHelper.getTokenExpirationDate(token),
+            this.jwtHelper.isTokenExpired(token)
+        );
     }
 
 }
