@@ -16,6 +16,20 @@ var AppComponent = (function () {
         this.router = router;
         this.loginService = loginService;
         this.isCollapsed = true;
+        this.options = {
+            timeOut: 5000,
+            lastOnBottom: true,
+            clickToClose: true,
+            maxLength: 0,
+            maxStack: 7,
+            showProgressBar: false,
+            pauseOnHover: true,
+            preventDuplicates: false,
+            preventLastDuplicates: 'visible',
+            rtl: false,
+            animate: 'scale',
+            position: ['right', 'bottom']
+        };
     }
     AppComponent.prototype.showLogoutAlert = function () {
         swal({

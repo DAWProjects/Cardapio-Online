@@ -6,9 +6,9 @@
         <div *ngIf="error" class="alert alert-danger">{{error}}</div>
         <div class="login-info">
             <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm">
-                <input type="text" class="user" name="username" placeholder="Email" [(ngModel)]="model.username"
+                <input type="text" class="user" name="username" placeholder="Email" [(ngModel)]="user.username"
                        #username="ngModel" required>
-                <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required
+                <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required
                        class="lock" placeholder="Password">
                 <div class="forgot-top-grids">
                     <div class="forgot-grid">

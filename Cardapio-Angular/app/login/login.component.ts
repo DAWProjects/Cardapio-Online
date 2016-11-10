@@ -12,18 +12,20 @@ import {LoginService} from "./shared/login.service";
 })
 export class LoginComponent {
 
-    model: any = {};
-    error: string = '';
-    loading = false;
-    user: Utilizador;
+    public user: any = {};
+    public error: string = '';
+    public loading = false;
+
 
     constructor(private router: Router,
                 private loginService: LoginService) {
+
     }
+
 
     login(): void {
         this.loading = true;
-        this.loginService.login(this.model.username, this.model.password)
+        this.loginService.login(this.user.username, this.user.password)
             .subscribe(resultado => {
                 if (resultado == 'consumidor') {
                     this.router.navigate(['/inicio'])
@@ -45,10 +47,9 @@ export class LoginComponent {
     }
 
 
+
     loginFacebook(): void {
         this.loginService.facebookLogin();
-
-
     }
 
     loginGoogle(): void {

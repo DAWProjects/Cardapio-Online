@@ -1,5 +1,6 @@
 import {Injectable}    from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
+import {NotificationsService, SimpleNotificationsComponent} from 'angular2-notifications';
 import {tokenNotExpired} from 'angular2-jwt';
 import {Router}          from '@angular/router';
 import {Observable} from 'rxjs';
@@ -31,7 +32,11 @@ export class LoginService {
         callbackURL: myConfig.callbackURL,
     });
 
-    constructor(private http: Http, private configService: ConfigService, private router: Router) {
+    constructor(private http: Http,
+                private configService: ConfigService,
+                private router: Router,
+                private _service: NotificationsService)
+    {
         this.loginUrl = configService.getApiURI();
         this.user = JSON.parse(localStorage.getItem('user-autenticado'));
 
@@ -60,7 +65,8 @@ export class LoginService {
                             if (resultado) {
                                 //alert(this.user.social_id);
                                 localStorage.setItem('user-autenticado', JSON.stringify(this.user));
-                                this.router.navigate(['/inicio']).then();
+
+                                this.router.navigate(['/inicio']).then(() => this.createNotification());
                             }
                         });
                     }
@@ -119,7 +125,6 @@ export class LoginService {
             if (err) alert("something went wrong: " + err.message);
         });
     }
-    ;
 
 
     public facebookLogin() {
@@ -129,7 +134,7 @@ export class LoginService {
             if (err) alert("something went wrong: " + err.message);
         });
     }
-    ;
+
 
     public twitterLogin() {
         this.auth0.login({
@@ -138,7 +143,6 @@ export class LoginService {
             if (err) alert("something went wrong: " + err.message);
         });
     }
-    ;
 
 
     public signup(consumidor: Consumidor, email, password): Observable < boolean > {
@@ -176,7 +180,6 @@ export class LoginService {
         // It searches for an item in localStorage with key == 'id_token'
         return tokenNotExpired();
     }
-    ;
 
 
     public logout(): void {
@@ -220,5 +223,9 @@ export class LoginService {
 
     }
 
+    createNotification() {
+        this._service.success('Bem Vindo', 'ao Cardapio Online', {id: 123});
+
+    }
 
 }

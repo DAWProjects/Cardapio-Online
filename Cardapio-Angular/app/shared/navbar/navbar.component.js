@@ -1,7 +1,7 @@
 // import {Component, OnInit} from '@angular/core';
 // import {Consumidor, ConsumidorService} from '../../consumidores/shared/index';
 // import {Router} from '@angular/router';
-// import {Utilizador} from "../../utilizadores/shared/utilizador.model";
+// import {Utilizador} from "../../utilizadores/shared/utilizador.user";
 //
 // @Component({
 //     moduleId: module.id,

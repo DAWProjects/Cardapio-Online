@@ -31,7 +31,8 @@
             "ng2-rating": "node_modules/ng2-rating",
 
             'ng2-imageupload': 'node_modules/ng2-imageupload',
-            'angular2-jwt': 'npm:angular2-jwt/angular2-jwt.js'
+            'angular2-jwt': 'npm:angular2-jwt/angular2-jwt.js',
+            'angular2-notifications': 'node_modules/angular2-notifications'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -59,6 +60,7 @@
                 defaultExtension: 'js'
             },
 
+            'angular2-notifications': {main: 'components.js', defaultExtension: 'js'},
 
             "ng2-rating": {main: "index.js", defaultExtension: "js"},
 

@@ -68,7 +68,7 @@ return [
     | User Model namespace
     |--------------------------------------------------------------------------
     |
-    | Specify the full namespace to your User model.
+    | Specify the full namespace to your User user.
     | e.g. 'Acme\Entities\User'
     |
     */

@@ -59,7 +59,7 @@
 </nav>
 <!--Fim NavBar-->
 
-
+<simple-notifications [options]="options"></simple-notifications>
 <md-sidenav-layout fullscreen>
 
     <!--Side Navbar-->
@@ -125,7 +125,8 @@
     <!--Conteudo Dinamico-->
     <div class="container-fluid inicio">
         <div class="row">
-            <router-outlet></router-outlet>
+            <router-outlet>
+            </router-outlet>
         </div>
     </div>
     <!--Fim Conteudo Dinamico-->

@@ -18,6 +18,8 @@ import {
     AgmCoreModule
 } from 'angular2-google-maps/core';
 
+import {SimpleNotificationsModule} from "angular2-notifications";
+
 import {FooterComponent} from './shared/footer/footer.component';
 
 import {InicioComponent} from './inicio/index'
@@ -67,7 +69,7 @@ import { AUTH_PROVIDERS }      from 'angular2-jwt';
         MaterialModule.forRoot(),
         AgmCoreModule.forRoot(),
         RatingModule,
-
+        SimpleNotificationsModule,
         ImageUploadModule
     ],
     providers: [

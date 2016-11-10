@@ -1,4 +1,4 @@
-import {Component, ViewContainerRef } from '@angular/core';
+import {Component, ViewContainerRef} from '@angular/core';
 import {Utilizador} from "./utilizadores/shared/utilizador.model";
 import {Router} from '@angular/router'
 import {LoginService} from "./login/shared/login.service";
@@ -17,9 +17,23 @@ export class AppComponent {
     public sideNav: any;
     isCollapsed = true;
 
+    public options = {
+        timeOut: 5000,
+        lastOnBottom: true,
+        clickToClose: true,
+        maxLength: 0,
+        maxStack: 7,
+        showProgressBar: false,
+        pauseOnHover: true,
+        preventDuplicates: false,
+        preventLastDuplicates: 'visible',
+        rtl: false,
+        animate: 'scale',
+        position: ['right', 'bottom']
+    };
+
     constructor(private router: Router,
-                private loginService: LoginService) {
-    }
+                private loginService: LoginService) {}
 
 
     showLogoutAlert() {
@@ -34,7 +48,7 @@ export class AppComponent {
     }
 
 
-    logout(){
+    logout() {
         this.loginService.logout();
         this.voltar();
     }
@@ -42,5 +56,6 @@ export class AppComponent {
     voltar(): void {
         this.router.navigate(['/inicio']);
     }
+
 
 }

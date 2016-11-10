@@ -15,6 +15,7 @@ var ng2_imageupload_1 = require('ng2-imageupload');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var ng2_rating_1 = require('ng2-rating');
 var core_2 = require('angular2-google-maps/core');
+var angular2_notifications_1 = require("angular2-notifications");
 var footer_component_1 = require('./shared/footer/footer.component');
 var index_1 = require('./inicio/index');
 var material_1 = require('@angular/material');
@@ -56,6 +57,7 @@ var AppModule = (function () {
                 material_1.MaterialModule.forRoot(),
                 core_2.AgmCoreModule.forRoot(),
                 ng2_rating_1.RatingModule,
+                angular2_notifications_1.SimpleNotificationsModule,
                 ng2_imageupload_1.ImageUploadModule
             ],
             providers: [
