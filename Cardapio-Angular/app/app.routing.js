@@ -9,6 +9,8 @@ var login_component_1 = require('./login/login.component');
 var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
 var index_3 = require('./restaurantes/dashboard-restaurante/index');
 var create_restaurante_component_1 = require("./restaurantes/create-restaurante/create-restaurante.component");
+var unauthorized_component_1 = require('./shared/unauthorized/unauthorized.component');
+var index_4 = require('./shared/guards/index');
 var appRoutes = [
     {
         path: 'inicio',
@@ -47,12 +49,17 @@ var appRoutes = [
         component: consumidor_component_1.ConsumidorComponent
     },
     {
-        path: 'dashboard-restaurante/:id',
-        component: index_3.DashBoardRestauranteComponent
+        path: 'dashboard-restaurante',
+        component: index_3.DashBoardRestauranteComponent,
+        canActivate: [index_4.RestauranteGuard]
     },
     {
         path: 'create-restaurante',
         component: create_restaurante_component_1.CreateRestauranteComponent
+    },
+    {
+        path: 'unauthorized',
+        component: unauthorized_component_1.UnauthorizedComponent
     },
     {
         path: '',

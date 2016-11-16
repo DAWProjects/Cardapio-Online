@@ -1,7 +1,7 @@
 import {Injectable}    from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 import {NotificationsService, SimpleNotificationsComponent} from 'angular2-notifications';
-import {tokenNotExpired, JwtHelper} from 'angular2-jwt';
+import {tokenNotExpired, JwtHelper, AuthHttp} from 'angular2-jwt';
 import {Router}          from '@angular/router';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -23,6 +23,7 @@ export class LoginService {
     public token: string;
     public email: string;
     public user: any;
+    private is: boolean;
     private jwtHelper: JwtHelper = new JwtHelper();
 
     // Configure Auth0
@@ -36,8 +37,8 @@ export class LoginService {
     constructor(private http: Http,
                 private configService: ConfigService,
                 private router: Router,
-                private _service: NotificationsService)
-    {
+                private _service: NotificationsService,
+                public authHttp: AuthHttp) {
         this.loginUrl = configService.getApiURI();
         this.user = JSON.parse(localStorage.getItem('user-autenticado'));
 
@@ -48,33 +49,30 @@ export class LoginService {
             this.token = result.idToken;
             localStorage.setItem('id_token', result.idToken);
             this.auth0.getProfile(result.idToken, (error, profile) => {
-                    if (error) {
-                        // Handle error
-                        alert(error);
-                        return;
-                    } else {
-                        profile.user_metadata = profile.user_metadata || {};
+                if (error) {
+                    // Handle error
+                    alert(error);
+                    return;
+                } else {
+                    profile.user_metadata = profile.user_metadata || {};
 
-                        this.findOrCreate(profile).subscribe(resultado => {
-                            if (resultado) {
-                                localStorage.setItem('user-autenticado', JSON.stringify(this.user));
-
-                                this.user = {
-                                    email: profile.email,
-                                    nome: profile.name,
-                                    imagem: profile.picture
-                                };
-
-                                this.router.navigate(['/inicio']).then(() => this.createNotification());
-                            }
-                        });
-                    }
-                });
+                    this.findOrCreate(profile).subscribe(resultado => {
+                        if (resultado) {
+                            this.user = {
+                                email: profile.email,
+                                nome: profile.name,
+                                imagem: profile.picture
+                            };
+                            localStorage.setItem('user-autenticado', JSON.stringify(this.user));
+                            this.router.navigate(['/inicio']).then(() => this.createNotification());
+                        }
+                    });
+                }
+            });
         } else if (result && result.error) {
             alert('error: ' + result.error);
         }
     }
-
 
 
     public googleLogin() {
@@ -104,7 +102,6 @@ export class LoginService {
     }
 
 
-
     public signup(consumidor: Consumidor, email, password): Observable < boolean > {
         const url = `${this.loginUrl + 'api/auth/signup'}`;
         this.headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
@@ -123,7 +120,10 @@ export class LoginService {
                     this.token = response.json().token;
 
                     // store email and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('user-autenticado', JSON.stringify({email: this.email, token: response.json().token}));
+                    localStorage.setItem('user-autenticado', JSON.stringify({
+                        email: this.email,
+                        token: response.json().token
+                    }));
                     localStorage.setItem('id_token', response.json().token);
 
                     this.user = {
@@ -194,12 +194,43 @@ export class LoginService {
     }
 
 
+    public isRestaurante(): boolean {
+
+
+        var token = localStorage.getItem('rest');
+
+        if (token !== null)
+            return true;
+        else return false;
+    }
+
+
+    public authenticatedUser(): Observable<any> {
+
+        const url = `${this.loginUrl + 'api/auth/authenticated'}`;
+
+        //this.headers = new Headers({'Authorization': 'Bearer "'+localStorage.getItem('id_Token')+'"'});
+
+        return this.authHttp.get(url)
+            .map((response: Response) => {
+                //successful if there's a user in the response
+                if (response.json().user) {
+                    return response.json().user;
+                } else {
+                    // return null to indicate failed to get authenticated user
+                    return null;
+                }
+            });
+    }
+
+
     public logout(): void {
         // clear token remove user from local storage to log user out
         this.token = null;
         this.user = null;
         localStorage.removeItem('user-autenticado');
         localStorage.removeItem('id_token');
+        localStorage.removeItem('rest');
     }
 
 
@@ -225,6 +256,7 @@ export class LoginService {
                 let token = response.json() && response.json().token;
                 if (token !== null) {
                     // return true to indicate successful login
+                    localStorage.setItem('id_token', response.json().token);
                     return true;
                 }
 

@@ -22,17 +22,16 @@ export class LoginComponent {
 
     }
 
-
     login(): void {
         this.loading = true;
         this.loginService.login(this.user.username, this.user.password)
             .subscribe(resultado => {
                 if (resultado == 'consumidor') {
-                    this.router.navigate(['/inicio'])
+                    this.router.navigate(['/inicio']);
                 }
                 else if (resultado == 'restaurante') {
-                    this.user = JSON.parse(localStorage.getItem('user-autenticado'));
-                    this.router.navigate(['/dashboard-restaurante', this.user.id]);
+                    localStorage.setItem('rest', '1');
+                    this.router.navigate(['/dashboard-restaurante']);
                     this.loading = false;
                 }
                 else {
@@ -42,10 +41,7 @@ export class LoginComponent {
                     this.loading = false;
                 }
             });
-
-
     }
-
 
 
     loginFacebook(): void {

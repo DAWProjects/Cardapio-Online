@@ -233,7 +233,7 @@ ul.inbox-pagination li {
     background: none repeat scroll 0 0 #eeeeee;
     border: 1px solid #e6e6e6;
 }
-.inbox-body .modal .modal-body input, .inbox-body .modal .modal-body textarea {
+.inbox-body  input, .inbox-body textarea {
     border: 1px solid #e6e6e6;
     box-shadow: none;
 }
@@ -244,11 +244,11 @@ ul.inbox-pagination li {
 .btn-send:hover {
     background: none repeat scroll 0 0 #009da7;
 }
-.modal-header h4.modal-title {
+h4.modal-title {
     font-family: "Open Sans",sans-serif;
     font-weight: 300;
 }
-.modal-body label {
+ label {
     font-family: "Open Sans",sans-serif;
     font-weight: 400;
 }
@@ -273,10 +273,6 @@ ul.inbox-pagination li {
     padding: 0 3px;
 }
 
-.modal-header{
-    background-color: #00877b;
-    color: white;
-}
 
 /*.view-mail a {*/
     /*color: #ff6c60;*/

@@ -11,8 +11,8 @@ import {LoginComponent} from './login/login.component';
 import {ConsumidorComponent} from './consumidores/consumidor/consumidor.component';
 import {DashBoardRestauranteComponent} from './restaurantes/dashboard-restaurante/index';
 import {CreateRestauranteComponent} from "./restaurantes/create-restaurante/create-restaurante.component";
-
-import { AuthGuard } from './shared/guards/auth.guard'
+import {UnauthorizedComponent} from './shared/unauthorized/unauthorized.component';
+import {RestauranteGuard} from './shared/guards/index';
 
 
 const appRoutes: Routes = [
@@ -57,12 +57,17 @@ const appRoutes: Routes = [
         component: ConsumidorComponent
     },
     {
-        path: 'dashboard-restaurante/:id',
-        component: DashBoardRestauranteComponent
+        path: 'dashboard-restaurante',
+        component: DashBoardRestauranteComponent,
+        canActivate: [RestauranteGuard]
     },
     {
         path: 'create-restaurante',
         component: CreateRestauranteComponent
+    },
+    {
+        path: 'unauthorized',
+        component: UnauthorizedComponent
     },
     {
         path: '',

@@ -28,14 +28,15 @@ var search_result_component_1 = require('./restaurantes/search-result/search-res
 var login_component_1 = require('./login/login.component');
 var consumidor_component_1 = require('./consumidores/consumidor/consumidor.component');
 var index_6 = require('./refeicoes/refeicao/index');
+var unauthorized_component_1 = require('./shared/unauthorized/unauthorized.component');
 var app_routing_1 = require('./app.routing');
 var restaurante_service_1 = require('./restaurantes/shared/restaurante.service');
 var refeicao_service_1 = require('./refeicoes/shared/refeicao.service');
 var config_service_1 = require("./shared/utils/config.service");
 var tipo_refeicao_service_1 = require("./tipo-refeicoes/shared/tipo-refeicao.service");
 var index_7 = require("./consumidores/shared/index");
-var auth_guard_1 = require('./shared/guards/auth.guard');
-var index_8 = require("./shared/utils/index");
+var index_8 = require('./shared/guards/index');
+var index_9 = require("./shared/utils/index");
 var location_service_1 = require("./shared/utils/location.service");
 var login_service_1 = require("./login/shared/login.service");
 var angular2_jwt_1 = require('angular2-jwt');
@@ -66,7 +67,8 @@ var AppModule = (function () {
                 tipo_refeicao_service_1.TipoRefeicaoService,
                 refeicao_service_1.RefeicaoService,
                 index_7.ConsumidorService,
-                auth_guard_1.AuthGuard,
+                index_8.AuthGuard,
+                index_8.RestauranteGuard,
                 location_service_1.LocationService,
                 login_service_1.LoginService,
                 angular2_jwt_1.AUTH_PROVIDERS
@@ -82,9 +84,10 @@ var AppModule = (function () {
                 login_component_1.LoginComponent,
                 consumidor_component_1.ConsumidorComponent,
                 index_6.RefeicaoComponent,
-                index_8.OrderBy,
-                index_8.FilterArrayPipe,
-                footer_component_1.FooterComponent
+                index_9.OrderBy,
+                index_9.FilterArrayPipe,
+                footer_component_1.FooterComponent,
+                unauthorized_component_1.UnauthorizedComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

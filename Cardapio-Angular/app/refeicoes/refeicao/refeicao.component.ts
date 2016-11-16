@@ -20,6 +20,7 @@ export class RefeicaoComponent implements OnInit {
     public refeicao: Refeicao;
     public tiposrefeicao: TipoRefeicao[];
     public restaurante: Restaurante;
+    public creating:boolean;
 
     constructor(private route: ActivatedRoute,
                 private refeicaoService: RefeicaoService,

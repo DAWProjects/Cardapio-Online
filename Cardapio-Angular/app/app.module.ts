@@ -1,7 +1,7 @@
 import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule}    from '@angular/http';
-import { ImageUploadModule } from 'ng2-imageupload';
+import {ImageUploadModule} from 'ng2-imageupload';
 
 import {
     AlertModule,
@@ -24,7 +24,7 @@ import {FooterComponent} from './shared/footer/footer.component';
 
 import {InicioComponent} from './inicio/index'
 
-import { MaterialModule } from '@angular/material';
+import {MaterialModule} from '@angular/material';
 
 import {AppComponent}   from './app.component';
 
@@ -38,6 +38,8 @@ import {ConsumidorComponent} from './consumidores/consumidor/consumidor.componen
 
 import {RefeicaoComponent} from './refeicoes/refeicao/index';
 
+import {UnauthorizedComponent} from './shared/unauthorized/unauthorized.component';
+
 import {routing} from './app.routing';
 
 import {RestauranteService} from './restaurantes/shared/restaurante.service';
@@ -45,14 +47,14 @@ import {RefeicaoService} from './refeicoes/shared/refeicao.service';
 import {ConfigService} from "./shared/utils/config.service";
 import {TipoRefeicaoService} from "./tipo-refeicoes/shared/tipo-refeicao.service";
 import {ConsumidorService} from "./consumidores/shared/index";
-import {AuthGuard} from './shared/guards/auth.guard';
+import {AuthGuard, RestauranteGuard} from './shared/guards/index';
 
 
 import {OrderBy, FilterArrayPipe} from "./shared/utils/index";
 import {LocationService} from "./shared/utils/location.service";
 import {LoginService} from "./login/shared/login.service";
 
-import { AUTH_PROVIDERS }      from 'angular2-jwt';
+import {AUTH_PROVIDERS}      from 'angular2-jwt';
 
 
 @NgModule({
@@ -79,6 +81,7 @@ import { AUTH_PROVIDERS }      from 'angular2-jwt';
         RefeicaoService,
         ConsumidorService,
         AuthGuard,
+        RestauranteGuard,
         LocationService,
         LoginService,
         AUTH_PROVIDERS
@@ -96,7 +99,8 @@ import { AUTH_PROVIDERS }      from 'angular2-jwt';
         RefeicaoComponent,
         OrderBy,
         FilterArrayPipe,
-        FooterComponent
+        FooterComponent,
+        UnauthorizedComponent
     ],
     bootstrap: [AppComponent]
 })

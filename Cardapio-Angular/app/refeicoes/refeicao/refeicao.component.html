@@ -30,8 +30,10 @@
                             </h2>
                             <p class="lead"><span class="glyphicon glyphicon-map-marker"></span>
                                 {{' '+refeicao[0].restaurantes[0].cidade}}</p>
-                            <p class="lead"><b>AV/Rua: </b>{{refeicao[0].restaurantes[0].av_rua+' nr'+refeicao[0].restaurantes[0].numero}}</p>
-                            <p class="lead"><span class="glyphicon glyphicon-phone"></span>{{refeicao[0].restaurantes[0].telefone}}</p>
+                            <p class="lead"><b>AV/Rua: </b>{{refeicao[0].restaurantes[0].av_rua+'
+                                nr'+refeicao[0].restaurantes[0].numero}}</p>
+                            <p class="lead"><span class="glyphicon glyphicon-phone"></span>{{refeicao[0].restaurantes[0].telefone}}
+                            </p>
                             <hr/>
                         </div>
                         <div class="col-md-12">
@@ -57,7 +59,8 @@
         </div>
         <div *ngIf="refeicao" class="col-md-4 blog-top-right-grid">
             <div class="categories">
-                <h3>Outros Pratos do Restaurante <a [routerLink]="'/restaurante/'+refeicao[0].restaurantes[0].id">{{refeicao[0].restaurantes[0].nome}}</a></h3>
+                <h3>Outros Pratos do Restaurante <a [routerLink]="'/restaurante/'+refeicao[0].restaurantes[0].id">{{refeicao[0].restaurantes[0].nome}}</a>
+                </h3>
                 <ul>
                     <!--<li><a href="#">Phasellus sem leo, interdum quis risus</a></li>-->
                     <!--<li><a href="#">Nullam egestas nisi id malesuada aliquet </a></li>-->

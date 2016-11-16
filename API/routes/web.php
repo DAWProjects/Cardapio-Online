@@ -66,9 +66,6 @@ Route::delete('apagar-tipo-refeicoes/{id}', 'TipoRefeicaoController@delete')->mi
 
 Route::get('user-location', 'GeoIpController@location')->middleware('cors');
 
-//Route::post('auth/oauth', 'AuthController@findOrCreate')->middleware('cors');
-
-
 
 
 $api = app('Dingo\Api\Routing\Router');
@@ -80,6 +77,7 @@ $api->version('v1', function ($api) {
     $api->post('auth/recovery', 'App\HTTP\Controllers\AuthController@recovery');
     $api->post('auth/reset', 'App\HTTP\Controllers\AuthController@reset');
     $api->post('auth/oauth', 'App\HTTP\Controllers\AuthController@findOrCreate');
+    $api->get('auth/authenticated', 'App\HTTP\Controllers\AuthController@getAuthenticatedUser');
 
 
 

@@ -4,11 +4,11 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 import {Restaurante, RestauranteService} from "../shared/index";
 import {TipoRefeicaoService, TipoRefeicao} from "../../tipo-refeicoes/shared/index";
-import {Refeicao} from "../../refeicoes/shared/refeicao.model";
-import {RefeicaoService} from "../../refeicoes/shared/refeicao.service";
+import {Refeicao, RefeicaoService} from "../../refeicoes/shared/index";
+import {LoginService} from '../../login/shared/login.service';
 import {Menu} from "../../menu/shared/menu.model";
 
-import { ImageResult, ResizeOptions } from 'ng2-imageupload';
+import {ImageResult, ResizeOptions} from 'ng2-imageupload';
 
 
 @Component({
@@ -21,32 +21,36 @@ import { ImageResult, ResizeOptions } from 'ng2-imageupload';
 })
 
 
-export class DashBoardRestauranteComponent implements OnInit{
+export class DashBoardRestauranteComponent implements OnInit {
 
-    @Input()
-    restaurante: Restaurante;
+    public restaurante: Restaurante;
+    public user: any;
     tiposrefeicao: TipoRefeicao[];
-    refeicao:Refeicao;
-    menu:Menu;
+    refeicao: Refeicao;
+    menu: Menu;
     selectedTipo: TipoRefeicao;
-    selectedOpcao: string='Refeicoes';
-    creating:boolean=false;
+    selectedOpcao: string = 'Refeicoes';
+    creating: boolean = false;
 
 
     constructor(private route: ActivatedRoute,
-                private restauranteService: RestauranteService ,
+                private restauranteService: RestauranteService,
                 private tiporefeicaoService: TipoRefeicaoService,
-                private refeicaoService: RefeicaoService) {
+                private refeicaoService: RefeicaoService,
+                private auth: LoginService) {
     }
 
     ngOnInit(): void {
-        this.route.params.forEach((params: Params) => {
-            let id = +params['id'];
-            this.restauranteService.getRestaurante(id)
-                .then(restaurante => this.restaurante = restaurante);
+        this.auth.authenticatedUser().subscribe(result => {
+            if (result) {
+                this.user = result;
+
+                this.restauranteService.getRestaurante(this.user.id)
+                    .then(restaurante => this.restaurante = restaurante);
+                this.getTiposrefeicao();
+            }
         });
-        this.getTiposrefeicao();
-     }
+    }
 
     getTiposrefeicao(): void {
         this.tiporefeicaoService.getTipoRefeicoes()
@@ -55,14 +59,9 @@ export class DashBoardRestauranteComponent implements OnInit{
     }
 
 
-
-    onOpt(opcao: string): void{
+    onOpt(opcao: string): void {
         this.selectedOpcao = opcao;
     }
-
-    voltar(): void {
-        window.history.back();
-    };
 
     // addNew(designacao: string, tipo: number, descricao: string, imagem: string, preco: number, hora_inicio: any, hora_fim: any, restaurante: number, refeicao:number): void {
     //     this.creating = true;
